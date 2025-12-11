@@ -1,6 +1,3 @@
-*** Settings ***
-Documentation    Login page locators for Sauce Demo application.
-
 *** Variables ***
 &{login_page_locator}
 ...    txt_title=xpath=//div[@id='root']/div[@class='login_container']/div[@class='login_logo']
