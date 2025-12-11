@@ -11,6 +11,7 @@ Variables    ${CURDIR}/../resources/setting/config.yaml
 
 #Locators
 Resource    ${CURDIR}/../resources/locators/login_page_locator.resource
+Resource    ${CURDIR}/locator/checkout_overview_page_locator.resource
 Resource    ${CURDIR}/locator/customer_information_page_locator.resource
 
 #Keywords

@@ -1,0 +1,12 @@
+*** Settings ***
+Documentation    Checkout: overview page locators for Sauce Demo application.
+
+*** Variables ***
+&{checkout_overview_page_locator}
+...    page_title=data-test=title
+...    item_name=xpath=//div[@class='inventory_item_name']
+...    item_total_price=data-test=subtotal-label
+...    tax=data-test=tax-label
+...    total_price=data-test=total-label
+...    finish_btn=id=finish
+...    cancel_btn=id=cancel
