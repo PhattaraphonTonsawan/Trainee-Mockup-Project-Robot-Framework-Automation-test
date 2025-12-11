@@ -1,32 +1,16 @@
 *** Settings ***
-Documentation    Setting impot path
 Resource    ${CURDIR}/../../resources/import.resource
 
 *** Keywords ***
-Screenshot page
-    [Documentation]    Take a screenshot and save with timestamp base on SeleniumLibrary
-    [Arguments]    ${file_prefix}=screenshot
-    ${timestamp}=    DateTime.Get Current Date    result_format=%Y%m%d_%H%M%S
-    ${file_path}=    BuiltIn.Set Variable    ${OUTPUT DIR}/screenshot/${file_prefix}_${timestamp}.png
-    SeleniumLibrary.Capture Page Screenshot    ${file_path}
-    BuiltIn.Log To Console    Screenshot saved to ${file_path}
-    RETURN    ${file_path}
-
 Click element and wait
     [Documentation]
     ...    Scroll and click to element and wait until the page is loaded after
     ...    the click, using SeleniumLibrary.
-    [Arguments]    ${locator}    ${wait_element_locator}    ${timeout}=10s
+    [Arguments]    ${locator}    ${wait_element_locator}=${None}    ${timeout}=10s
     SeleniumLibrary.Scroll Element Into View    ${locator}
     SeleniumLibrary.Click Element    ${locator}
-    Run Keyword If    
-    ...    "${wait_element_locator}" != "${None}"
+    BuiltIn.Run Keyword If    "${wait_element_locator}" != "${None}"
     ...    SeleniumLibrary.Wait Until Page Contains Element    ${wait_element_locator}    ${timeout}
-
-Open new browser
-    [Documentation]    Open browser base on SeleniumLibrary
-    [Arguments]    ${url}
-    SeleniumLibrary.Open Browser    ${url}
 
 Close this browser
     [Documentation]    Close browser base on SeleniumLibrary
@@ -40,7 +24,7 @@ Element should contain text
     [Documentation]    Verify element contains specific text base on SeleniumLibrary
     [Arguments]    ${locator}    ${expected_text}
     ${actual_text}=    SeleniumLibrary.Get Text    ${locator}
-    BuiltIn.Should Contain    ${actual_text}    ${expected_text}    msg=Element text mismatch
+    SeleniumLibrary.Element Text Should Be    ${actual_text}    ${expected_text}    msg=Element text mismatch
 
 Get element text
     [Documentation]    Get text from element base on SeleniumLibrary
@@ -48,6 +32,12 @@ Get element text
     SeleniumLibrary.Scroll Element Into View    ${locator}
     ${text}=    SeleniumLibrary.Get Text    ${locator}
     RETURN    ${text}
+
+Go to url
+    [Documentation]    Go to url in browser base on SeleniumLibrary
+    [Arguments]    ${url}    ${browser}
+    SeleniumLibrary.Open Browser    ${url}    ${browser}
+    SeleniumLibrary.Go To    ${url}
 
 Input text and verify
     [Documentation]
@@ -59,10 +49,10 @@ Input text and verify
     ${current_value}=    SeleniumLibrary.Get Property    ${locator}    value
     BuiltIn.Should Be Equal    ${current_value}    ${text}    msg=Text input verification failed for ${locator}
 
-Go to url
-    [Documentation]    Go to url in browser base on SeleniumLibrary
-    [Arguments]    ${url}
-    SeleniumLibrary.Go To    ${url}
+Open new browser
+    [Documentation]    Open browser base on SeleniumLibrary
+    [Arguments]    ${url}    ${browser}
+    SeleniumLibrary.Open Browser    ${url}    ${browser}
 
 Scroll to element
     [Documentation]    Scroll the page until the element is in view base on SeleniumLibrary
@@ -75,10 +65,20 @@ Select dropdown option
     SeleniumLibrary.Scroll Element Into View    ${locator}
     SeleniumLibrary.Select From List By Value    ${locator}    ${option}
 
+Screenshot page
+    [Documentation]    Take a screenshot and save with timestamp base on SeleniumLibrary
+    [Arguments]    ${file_prefix}=screenshot
+    ${timestamp}=    DateTime.Get Current Date    result_format=%Y%m%d_%H%M%S
+    ${file_path}=    BuiltIn.Set Variable    ${OUTPUT DIR}/screenshot/${file_prefix}_${timestamp}.png
+    SeleniumLibrary.Capture Page Screenshot    ${file_path}
+    BuiltIn.Log To Console    Screenshot saved to ${file_path}
+    RETURN    ${file_path}
+
 Wait for element is ready
     [Documentation]
-    ...    Wait until the element identified by `${locator}` is present, visible,
-    ...    and enabled on the page base on SeleniumLibrary.
+    ...    Check element is append in DOM and scroll into view and next to check Visible -> Enable
     [Arguments]    ${locator}    ${timeout}=10s
+    SeleniumLibrary.Wait Until Page Contains Element    ${locator}
+    SeleniumLibrary.Scroll Element Into View    ${locator}
     SeleniumLibrary.Wait Until Element Is Visible    ${locator}    timeout=${timeout}
     SeleniumLibrary.Wait Until Element Is Enabled    ${locator}    timeout=${timeout}
