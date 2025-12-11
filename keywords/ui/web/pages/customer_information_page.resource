@@ -26,17 +26,17 @@ Error popup
 CLick continue btn and check page
     [Documentation]    Click Continue button and next page should contain locator
     [Arguments]    ${wait_element_locator}
-    common_web.Click element and wait    locator=${customer_information_page_locator['continue_btn']}    wait_element_locator=${wait_element_locator}    timeout=${timeout}
+    common_web.Click element and wait    locator=${customer_information_page_locator['continue_btn']}    wait_element_locator=${wait_element_locator}    timeout=${wait_timeout['normally['short_timeout']']}
 
 CLick cancel btn and check page
     [Documentation]    Click Cancel button and next page should contain locator
     [Arguments]    ${wait_element_locator}
-    common_web.Click element and wait    locator=${customer_information_page_locator['cancel_btn']}    wait_element_locator=${wait_element_locator}    timeout=${timeout}
+    common_web.Click element and wait    locator=${customer_information_page_locator['cancel_btn']}    wait_element_locator=${wait_element_locator}    timeout=${wait_timeout['normally['short_timeout']']}
 
 Error popup
     [Documentation]    Check if popup with error message appear correctly or not
     [Arguments]    ${message}
-    common_web.Wait for element is ready    locator=${customer_information_page_locator['error_div']}    timeout=${timeout}
+    common_web.Wait for element is ready    locator=${customer_information_page_locator['error_div']}    timeout=${wait_timeout['normally['short_timeout']']}
     common_web.Element should contain text    locator=${customer_information_page_locator['error_div']}    expected_text=${message}
 
 Input fist name
