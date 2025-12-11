@@ -1,3 +1,3 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    DateTime
+Library    DateTimeResource    ${CURDIR}/../resources/locators/products_list_page_locator.resource
