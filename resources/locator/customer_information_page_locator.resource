@@ -1,6 +1,3 @@
-*** Settings ***
-Documentation    Customer information page locators for Sauce Demo application.
-
 *** Variables ***
 &{customer_information_page_locator}
 ...    page_title=data-test=title
