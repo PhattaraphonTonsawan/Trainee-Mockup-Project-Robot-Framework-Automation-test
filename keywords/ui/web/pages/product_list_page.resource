@@ -15,7 +15,7 @@ Click add one item to cart
     ...    wait_element_locator=${product_list_page_locator['add_one_item_product_to_cart_btn']}
 
 Click go to cart
-    [Documentation]    Click go to cart icon for go to cart
+    [Documentation]    Click go to cart icon for go to cart 
     common_web.Click element and wait
     ...    locator=${product_list_page_locator['go_to_cart_btn']}
     ...    wait_element_locator=${product_list_page_locator['go_to_cart_btn']}
@@ -31,4 +31,7 @@ Add all item to cart
     FOR    ${item}    IN    @{item_list}
         common_web.Click element and wait    locator=${item}
     END
-    
+
+Remove item from cart 
+    [Documentation]    Remove item from cart button 
+    common_web.Click element and wait    locator=${product_list_page_locator['remove_item_btn']}    wait_element_locator=${product_list_page_locator['remove_item_btn']}

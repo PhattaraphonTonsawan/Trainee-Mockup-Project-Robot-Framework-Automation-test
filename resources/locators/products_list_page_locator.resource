@@ -9,3 +9,4 @@
 ...    option_Z_to_A=value=za
 ...    option_lo_to_hi=value=lohi
 ...    option_hi_to_lo=value=hilo
+...    remove_item_btn=id=remove-sauce-labs-backpack
