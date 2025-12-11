@@ -5,8 +5,8 @@ Resource    ${CURDIR}/../../../../resources/import.resource
 Check login page title
     [Documentation]    Check login page title
     common_web.Element should contain text
-     ...    locator=${login_page_locator['txt_title']}
-     ...    expected_text=${txt_login_page['txt_title']}
+    ...    locator=${login_page_locator['txt_title']}
+    ...    expected_text=${txt_login_page['txt_title']}
 
 Click login button
     [Documentation]    Click login button on login page

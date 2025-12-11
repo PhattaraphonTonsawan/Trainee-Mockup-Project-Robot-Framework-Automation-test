@@ -7,3 +7,4 @@ Variables    ${CURDIR}/setting/config.yaml
 Resource    ${CURDIR}/locators/login_page_locator.resource
 Resource    ${CURDIR}/../keywords/common/common_web.resource
 Resource    ${CURDIR}/../keywords/common/common.resource
+Resource    ${CURDIR}/../keywords/ui/web/pages/login_page.resource
