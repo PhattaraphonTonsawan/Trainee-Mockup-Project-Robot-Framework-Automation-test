@@ -17,7 +17,6 @@ Click element and wait
     ...    Scroll and click to element and wait until the page is loaded after
     ...    the click, using SeleniumLibrary.
     [Arguments]    ${locator}    ${wait_element_locator}    ${timeout}=10s
-
     SeleniumLibrary.Scroll Element Into View    ${locator}
     SeleniumLibrary.Click Element    ${locator}
     Run Keyword If    
@@ -60,8 +59,8 @@ Input text and verify
     ${current_value}=    SeleniumLibrary.Get Property    ${locator}    value
     BuiltIn.Should Be Equal    ${current_value}    ${text}    msg=Text input verification failed for ${locator}
 
-Go to URL
-    [Documentation]    Go to URL in browser base on SeleniumLibrary
+Go to url
+    [Documentation]    Go to url in browser base on SeleniumLibrary
     [Arguments]    ${url}
     SeleniumLibrary.Go To    ${url}
 
@@ -81,6 +80,5 @@ Wait for element is ready
     ...    Wait until the element identified by `${locator}` is present, visible,
     ...    and enabled on the page base on SeleniumLibrary.
     [Arguments]    ${locator}    ${timeout}=10s
-
     SeleniumLibrary.Wait Until Element Is Visible    ${locator}    timeout=${timeout}
     SeleniumLibrary.Wait Until Element Is Enabled    ${locator}    timeout=${timeout}
