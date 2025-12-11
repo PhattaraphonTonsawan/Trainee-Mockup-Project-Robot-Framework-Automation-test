@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ${CURDIR}/../../../resources/import.resource
+Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
 Check page title
