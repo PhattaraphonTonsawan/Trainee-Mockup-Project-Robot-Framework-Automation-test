@@ -1,6 +1,3 @@
-*** Settings ***
-Documentation    Common reuseble keywords
-
 *** Keywords ***
 Write Log Message
     [Documentation]    Logs a message with specific level.
