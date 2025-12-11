@@ -1,8 +1,8 @@
 *** Settings ***
 Documentation    Common reuseble keywords
 
-*** Keywords ***
 
+*** Keywords ***
 Log to console
     [Documentation]
     ...    Logs a message to the console or log.html with a specified level.
