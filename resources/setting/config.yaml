@@ -1,2 +1,3 @@
 browser_type : chromium
 headless_mode : false
+timeout : 10s
