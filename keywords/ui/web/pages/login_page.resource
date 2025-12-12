@@ -27,7 +27,7 @@ Open login page
     [Documentation]    Open login page URL
     common_web.Open new browser    url=${web_url['login_page']}    browser=${browser_type}
 
-Wait until login error message appears
+Wait until login error message appears 
     [Documentation]    Check alert when login error
     common_web.Wait for element is ready    locator=${login_page_locator['lbl_login_error']}
     
