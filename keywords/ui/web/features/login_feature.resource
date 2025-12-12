@@ -10,8 +10,10 @@ Open website and login to product list page
     login_page.Input username    username=${username}
     login_page.Input password    password=${password}
     login_page.Click login button
+
     IF    '${username}'== 'locked_out_user'
         Check login page error
         ELSE
         product_list_page.Check product list page title
     END
+    

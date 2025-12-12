@@ -28,5 +28,5 @@ Open login page
 
 Check login page error
     [Documentation]    Check alert when login error
-    common_web.Wait for element is ready    locator=${login_page_locator['login_alert_error']}
+    common_web.Wait for element is ready    locator=${login_page_locator['lbl_login_error']}
     
