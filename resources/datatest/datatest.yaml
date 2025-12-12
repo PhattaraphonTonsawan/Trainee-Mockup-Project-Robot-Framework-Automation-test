@@ -19,6 +19,10 @@ account:
   visual_user:
     username:    visual_user
     password:    secret_sauce
+credentials:
+  firstname: Arai
+  lastname: Dee
+  zipcode: 55555
 dropdown_list:
   a_to_z:   Name (A to Z) 
   z_to_a:   Name (Z to A)

@@ -6,6 +6,9 @@ txt_product_list_page:
 
 txt_customer_infomation_page:
   txt_title: "Checkout: Your Information"
+  txt_missing_first_name: "Error: First Name is required"
+  txt_missing_last_name: "Error: Last Name is required"
+  txt_missing_zip/postal_code: "Error: Postal Code is required"
 
 txt_checkout_complete_page:
   txt_title: "Checkout: Complete!"
