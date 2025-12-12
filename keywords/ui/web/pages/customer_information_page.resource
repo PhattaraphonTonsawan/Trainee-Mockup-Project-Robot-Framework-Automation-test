@@ -25,7 +25,7 @@ Click cancel button and check page
     ...    wait_element_locator=${cart_page_locator['txt_title']}    
     ...    timeout=${wait_timeout['normally['short_timeout']']}
 
-Input fist name
+Input first name
     [Documentation]    Input first name value in first name input field
     [Arguments]    ${first_name}
     common_web.Input text and verify    locator=${customer_information_page_locator['txt_first_name']}    text=${first_name}
