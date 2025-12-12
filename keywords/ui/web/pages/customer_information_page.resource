@@ -44,7 +44,7 @@ Input zip/postal code
     [Arguments]    ${zip_code}
     common_web.Input text and verify    locator=${customer_information_page_locator['txt_zip_code']}    text=${zip_code}
 
-load input fields
+Load input fields
     [Documentation]    Verify every input fields in customer information page
     common_web.Wait for element is ready    locator=${customer_information_page_locator['txt_first_name']}    timeout=${wait_timeout['normally['short_timeout']']}
     common_web.Wait for element is ready    locator=${customer_information_page_locator['txt_last_name']}    timeout=${wait_timeout['normally['short_timeout']']}
