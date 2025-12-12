@@ -34,7 +34,6 @@ Missing firstname input
     customer_information_page.Input last name    last_name=${credentials['lastname']}
     customer_information_page.Input zip/postal code    zip_code=${credentials['zipcode']}
     customer_information_page.Click continue button and error
-    common_web.Element should contain text
     common_web.Element should contain text    locator=${customer_information_page_locator['txt_error_msg']}    expected_text=
     ...    expected_text=${txt_customer_infomation_page['txt_missing_first_name']}
 
@@ -45,6 +44,5 @@ Missing zip/postal code input
     customer_information_page.Input first name    first_name=${credentials['firstname']}
     customer_information_page.Input last name    last_name=${credentials['lastname']}
     customer_information_page.Click continue button and error
-    common_web.Element should contain text
     common_web.Element should contain text    locator=${customer_information_page_locator['txt_error_msg']}    expected_text=
     ...    expected_text=${txt_customer_infomation_page['txt_missing_zip/postal_code']}
