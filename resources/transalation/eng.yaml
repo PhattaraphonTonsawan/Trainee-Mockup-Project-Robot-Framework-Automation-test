@@ -3,3 +3,6 @@ txt_login_page:
 
 txt_product_list_page:
   txt_title: Products
+
+txt_customer_infomation_page:
+  txt_title: "Checkout: Your Information"
