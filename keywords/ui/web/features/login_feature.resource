@@ -21,4 +21,3 @@ Open website and login with invaild username
     login_page.Input password    password=${password}
     login_page.Click login button when ready
     login_page.Wait until login error message appears
-    
