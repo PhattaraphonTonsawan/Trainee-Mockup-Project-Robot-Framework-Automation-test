@@ -17,12 +17,6 @@ Click cancel button and check page
     [Arguments]    ${wait_element_locator}
     common_web.Click element and wait    locator=${customer_information_page_locator['btn_cancel']}    wait_element_locator=${wait_element_locator}    timeout=${wait_timeout['normally['short_timeout']']}
 
-Error popup
-    [Documentation]    Check if popup with error message appear correctly or not
-    [Arguments]    ${message}
-    common_web.Wait for element is ready    locator=${customer_information_page_locator['txt_error_msg']}    timeout=${wait_timeout['normally['short_timeout']']}
-    common_web.Element should contain text    locator=${customer_information_page_locator['txt_error_msg']}    expected_text=${message}
-
 Input fist name
     [Documentation]    Input first name value in first name input field
     [Arguments]    ${first_name}
