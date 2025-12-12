@@ -8,10 +8,18 @@ Check page title
     common_web.Element should contain text    locator=${checkout_overview_page_locator['txt_page_title']}    expected_text=${txt_checkout_overview_page['txt_title']}
 
 Check product item title
-    [Documentation]    Check product title in page
+    [Documentation]    Check 1 product title in page
     [Arguments]    ${item_name}
     common_web.Wait for element is ready    locator=${checkout_overview_page_locator['txt_item_name']}    timeout=${wait_timeout['normally['short_timeout']']}
     common_web.Element should contain text    locator=${checkout_overview_page_locator['txt_item_name']}    expected_text=${item_name}
+
+Check all product titles
+    [Documentation]    Checks the title for every product listed in the ${product} dataset.
+    @{product_keys}=    Collections.Get Dictionary Keys    dictionary=${product}
+    FOR    ${key}    IN    @{product_keys}
+        ${expected_name}=    BuiltIn.Set Variable    ${product['${key}']['product_name']}
+        Check product item title    item_name=${expected_name}
+    END
 
 Click finish button and nothing happen
     [Documentation]    Click finish button and still stay on the same page

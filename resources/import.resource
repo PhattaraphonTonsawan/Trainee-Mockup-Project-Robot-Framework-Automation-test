@@ -3,6 +3,7 @@
 Library    SeleniumLibrary
 Library    DateTime
 Library    String
+Library    Collections
 
 # COMMON
 Resource    ${CURDIR}/../keywords/common/common_web.resource
