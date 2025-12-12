@@ -12,7 +12,8 @@ Check thank you message
     common_web.Wait for element is ready    locator=${checkout_complete_page_locator['txt_thank_you']}    timeout=${wait_timeout['normally['short_timeout']']}
     common_web.Element should contain text    locator=${checkout_complete_page_locator['txt_thank_you']}    expected_text=${txt_checkout_complete_page['txt_thankyou']}
 
-CLick back home btn and check page
-    [Documentation]    Click back home button and next page should contain locator
-    [Arguments]    ${wait_element_locator}
-    common_web.Click element and wait    locator=${checkout_complete_page_locator['btn_back_home']}    wait_element_locator=${wait_element_locator}    timeout=${wait_timeout['normally['short_timeout']']}
+Click back home button and check page
+    [Documentation]    Click back home button and next page should be main page
+    common_web.Click element and wait    locator=${checkout_complete_page_locator['btn_back_home']}    
+    ...    wait_element_locator=${product_list_page_locator['txt_title']}    
+    ...    timeout=${wait_timeout['normally['short_timeout']']}
