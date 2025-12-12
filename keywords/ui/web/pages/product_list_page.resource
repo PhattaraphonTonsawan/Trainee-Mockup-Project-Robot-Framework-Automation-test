@@ -4,6 +4,7 @@ Resource    ${CURDIR}/../../../../resources/import.resource
 *** Keywords ***
 Check product list page title
     [Documentation]   Verifies that the current page is the Product List page by validating its title text. 
+    common_web.Wait for element is ready    locator=${product_list_page_locator['txt_title']}
     common_web.Element should contain text
     ...    locator=${product_list_page_locator['txt_title']}
     ...    expected_text=${txt_product_list_page['txt_title']}

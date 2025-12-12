@@ -52,6 +52,7 @@ Open new browser
     [Documentation]    Open browser base on SeleniumLibrary
     [Arguments]    ${url}    ${browser}
     SeleniumLibrary.Open Browser    ${url}    ${browser}
+    SeleniumLibrary.Maximize Browser Window
 
 Scroll to element
     [Documentation]    Scroll the page until the element is in view base on SeleniumLibrary

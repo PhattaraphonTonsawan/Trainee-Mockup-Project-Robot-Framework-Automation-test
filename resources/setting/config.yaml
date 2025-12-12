@@ -1,4 +1,4 @@
-browser_type : chromium
+browser_type : chrome
 headless_mode : false
 wait_timeout:
   normally:
