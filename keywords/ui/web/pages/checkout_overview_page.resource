@@ -39,6 +39,6 @@ Get all product price
         ${price_text}=    common_web.Get element text    locator=${element}
         ${clean_price}=    BuiltIn.Evaluate    expression='${price_text}'.replace('$', '')
         ${new_total}=    BuiltIn.Evaluate    expression=${total_sum} + ${clean_price}
-        ${total_sum}=    Set Variable    ${new_total}
+        ${total_sum}=    BuiltIn.Set Variable    ${new_total}
     END
     RETURN    ${total_sum}
