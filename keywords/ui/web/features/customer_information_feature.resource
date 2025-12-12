@@ -13,7 +13,7 @@ Input every fields and proceed to checkout overview page
     customer_information_page.Input first name    first_name=${credentials['firstname']}
     customer_information_page.Input last name    last_name=${credentials['lastname']}
     customer_information_page.Input zip/postal code    zip_code=${credentials['zipcode']}
-    customer_information_page.CLick continue btn and check page    wait_element_locator=${checkout_overview_page_locator['txt_page_title']}
+    customer_information_page.Click continue button and check page
 
 Input every fields and last name error
     [Documentation]    Input first name, last name, and zip/postal code but first name input value became last name 
@@ -23,8 +23,9 @@ Input every fields and last name error
     customer_information_page.Input first name    first_name=${credentials['firstname']}
     customer_information_page.Input last name bug
     customer_information_page.Input zip/postal code    zip_code=${credentials['zipcode']}
-    customer_information_page.Click continue btn and check page    wait_element_locator=${customer_information_page_locator['txt_error_msg']}
-    customer_information_page.Error popup    message=${txt_customer_infomation_page['txt_missing_last_name']}
+    customer_information_page.Click continue button and error
+    common_web.Element should contain text    locator=${customer_information_page_locator['txt_error_msg']}    
+    ...    expected_text=${txt_customer_infomation_page['txt_missing_last_name']}
 
 Missing firstname input
     [Documentation]    Input only last name and zip/postal code and error popup should appear
@@ -32,8 +33,10 @@ Missing firstname input
     customer_information_page.load input fields
     customer_information_page.Input last name    last_name=${credentials['lastname']}
     customer_information_page.Input zip/postal code    zip_code=${credentials['zipcode']}
-    customer_information_page.Click continue btn and check page    wait_element_locator=${customer_information_page_locator['txt_error_msg']}
-    customer_information_page.Error popup    message=${txt_customer_infomation_page['txt_missing_first_name']}
+    customer_information_page.Click continue button and error
+    common_web.Element should contain text
+    common_web.Element should contain text    locator=${customer_information_page_locator['txt_error_msg']}    expected_text=
+    ...    expected_text=${txt_customer_infomation_page['txt_missing_first_name']}
 
 Missing zip/postal code input
     [Documentation]    Input only first name and last name and error popup should appear
@@ -41,6 +44,7 @@ Missing zip/postal code input
     customer_information_page.load input fields
     customer_information_page.Input first name    first_name=${credentials['firstname']}
     customer_information_page.Input last name    last_name=${credentials['lastname']}
-    customer_information_page.Click continue btn and check page    wait_element_locator=${customer_information_page_locator['txt_error_msg']}
-    customer_information_page.Error popup    message=${txt_customer_infomation_page['txt_missing_zip/postal_code']}
-    
+    customer_information_page.Click continue button and error
+    common_web.Element should contain text
+    common_web.Element should contain text    locator=${customer_information_page_locator['txt_error_msg']}    expected_text=
+    ...    expected_text=${txt_customer_infomation_page['txt_missing_zip/postal_code']}
