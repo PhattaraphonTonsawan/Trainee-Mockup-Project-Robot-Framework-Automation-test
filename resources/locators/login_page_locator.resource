@@ -4,4 +4,4 @@
 ...    txt_username=id=user-name
 ...    txt_password=id=password
 ...    btn_login=id=login-button
-...    login_alert_error=data-test=error
+...    lbl_login_error=xpath=//h3[@data-test='error']

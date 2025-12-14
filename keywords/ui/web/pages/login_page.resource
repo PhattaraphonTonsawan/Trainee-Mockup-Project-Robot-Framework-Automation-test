@@ -8,8 +8,9 @@ Check login page title
     ...    locator=${login_page_locator['txt_title']}
     ...    expected_text=${txt_login_page['txt_title']}
 
-Click login button
+Click login button when ready
     [Documentation]    Click login button on login page
+    common_web.Wait for element is ready    locator=${login_page_locator['btn_login']}
     common_web.Click element and wait    locator=${login_page_locator['btn_login']}
 
 Input username
@@ -26,7 +27,7 @@ Open login page
     [Documentation]    Open login page URL
     common_web.Open new browser    url=${web_url['login_page']}    browser=${browser_type}
 
-Check login page error
+Wait until login error message appears
     [Documentation]    Check alert when login error
-    common_web.Wait for element is ready    locator=${login_page_locator['login_alert_error']}
+    common_web.Wait for element is ready    locator=${login_page_locator['lbl_login_error']}
     
