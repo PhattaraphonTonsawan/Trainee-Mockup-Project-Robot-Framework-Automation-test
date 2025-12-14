@@ -6,6 +6,7 @@ txt_product_list_page:
 
 txt_cart_page:
   txt_title: Cart
+  
 txt_customer_infomation_page:
   txt_title: "Checkout: Your Information"
   txt_missing_first_name: "Error: First Name is required"

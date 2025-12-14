@@ -28,13 +28,6 @@ Select sort type option
     [Arguments]    ${option}
     common_web.Select dropdown option    locator=${product_list_page_locator['btn_dropdown']}    option=${option}
 
-Check product detail have added to cart
-    [Documentation]    Check product information that have add to cart by check product name, product description and product price
-    [Arguments]    ${product_detail}
-    common_web.Element should contain text
-    ...    locator=${product_list_page_locator['lbl_cart_item']}
-    ...    expected_text=${product_detail}
-
 Create product item list
     [Documentation]    Creates and returns a list containing the names of all products
     ${product_list}=    BuiltIn.Create List

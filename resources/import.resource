@@ -13,6 +13,7 @@ Resource    ${CURDIR}/../keywords/ui/web/features/login_feature.resource
 
 # PAGE
 Resource    ${CURDIR}/../keywords/ui/web/pages/customer_information_page.resource
+Resource    ${CURDIR}/../keywords/ui/web/pages/cart_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/login_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/product_list_page.resource
 
@@ -23,6 +24,7 @@ Variables    ${CURDIR}/../resources/datatest/datatest.yaml
 Resource    ${CURDIR}/../resources/locators/checkout_complete_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/checkout_overview_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/customer_information_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/cart_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/login_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/products_list_page_locator.resource
 
