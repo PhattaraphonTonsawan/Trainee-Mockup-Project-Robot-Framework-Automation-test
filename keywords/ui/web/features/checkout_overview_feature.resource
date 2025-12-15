@@ -27,6 +27,7 @@ Confirm checkout process with 1 item
     ${page_total_price}=    checkout_overview_page.Get item total price
     BuiltIn.Should Be Equal    ${cart_price_with_tax}    ${page_total_price}
     checkout_overview_page.Click finish button
+    checkout_complete_page.Check page title
 
 Confirm checkout process with all item
     [Documentation]    Complete the checkout process with all items and go to checkout complete page
@@ -39,6 +40,7 @@ Confirm checkout process with all item
     ${page_total_price}=    checkout_overview_page.Get item total price
     BuiltIn.Should Be Equal    ${cart_price_with_tax}    ${page_total_price}
     checkout_overview_page.Click finish button
+    checkout_complete_page.Check page title
 
 Confirm process error with only 3 product in cart
     [Documentation]    In checkout page there will only be 3 products in cart and 
@@ -57,3 +59,4 @@ Confirm process error with only 3 product in cart
     ${page_total_price}=    checkout_overview_page.Get item total price
     BuiltIn.Should Be Equal    ${cart_price_with_tax}    ${page_total_price}
     checkout_overview_page.Click finish button
+    checkout_complete_page.Check page title

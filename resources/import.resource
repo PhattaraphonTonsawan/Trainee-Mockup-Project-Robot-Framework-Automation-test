@@ -16,6 +16,7 @@ Resource    ${CURDIR}/../keywords/ui/web/features/checkout_feature.resource
 Resource    ${CURDIR}/../keywords/ui/web/features/login_feature.resource
 
 # PAGE
+Resource    ${CURDIR}/../keywords/ui/web/pages/checkout_complete_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/checkout_overview_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/customer_information_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/login_page.resource
