@@ -32,10 +32,12 @@ Input text when ready
     SeleniumLibrary.Input Text    ${locator}    ${text}
 
 Open web browser and maximize window
-    [Documentation]    Open browser base on SeleniumLibrary
+    [Documentation]    เปิดเบราว์เซอร์ Chrome ไปยัง URL ที่กำหนด พร้อมตั้งค่า Option สำหรับการทดสอบ
+    ...                - เปิดในโหมดไม่ระบุตัวตน เพื่อป้องกันปัญหา Cache และการแจ้งเตือนความปลอดภัย
+    ...                - ปิดระบบ Password Manager และ Pop-up ถามบันทึกรหัสผ่าน
     [Arguments]    ${url}    ${is_headless}=${web_config['headless_mode']}
     IF    ${is_headless}
-        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['headless']}
+        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['headless']}    
     ELSE
         SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['gui']}
     END
