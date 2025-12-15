@@ -23,7 +23,7 @@ Click cancel button
     [Documentation]    กดปุ่ม Cancel และตรวจสอบว่าหน้าถัดไปเป็นหน้า Main Page
     common_web.Click element when ready    locator=${checkout_overview_page_locator['btn_cancel']}
 
-Get tax
+Get item tax
     [Documentation]    ดึงค่าภาษีจากหน้าจอ Checkout Overview Page และส่งกลับเป็นตัวแปร
     ${tax}=    common_web.Get element text when visible    locator=${checkout_overview_page_locator['txt_tax']}
     RETURN    ${tax}
