@@ -10,6 +10,8 @@ Resource    ${CURDIR}/../keywords/common/common.resource
 
 # FEATURE
 Resource    ${CURDIR}/../keywords/ui/web/features/login_feature.resource
+Resource    ${CURDIR}/../keywords/ui/web/features/product_list_feature.resource
+Resource    ${CURDIR}/../keywords/ui/web/features/cart_feature.resource
 
 # PAGE
 Resource    ${CURDIR}/../keywords/ui/web/pages/customer_information_page.resource
