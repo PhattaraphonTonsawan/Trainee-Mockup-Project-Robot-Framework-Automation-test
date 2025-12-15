@@ -47,7 +47,7 @@ Replace locator and wait until element visible
     ...    จากนั้นตรวจสอบว่า locator ใหม่มีอยู่ในหน้าหรือไม่ และสามารถใช้งานได้
     [Arguments]    ${locator}    ${replace_text}    ${target_text}=***replace***
     ${locator_replaced}=    String.Replace String    ${locator}    ${target_text}    ${replace_text}
-    Scroll into element and wait until element ready    locator=${locator_replaced}
+    Scroll into element and wait until element visible    locator=${locator_replaced}
     RETURN    ${locator_replaced}
 
 Select dropdown option when ready
