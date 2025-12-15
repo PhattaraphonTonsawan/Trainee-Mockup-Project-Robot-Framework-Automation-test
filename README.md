@@ -47,13 +47,13 @@ Automated web testing project for SauceDemo using Robot Framework + Browser (Pla
 **Dryrun**
 
 ```sh
-robot --dryrun -d results/dryrun .
+robot --dryrun -d reports/dryrun .
 ```
 
 **Test**
 
 ```sh
-robot -d results -i <tag> .
+robot -d reports/results -i <tag> .
 ```
 
 ### Testcase
