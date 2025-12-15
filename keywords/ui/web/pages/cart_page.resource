@@ -11,10 +11,9 @@ Check cart page title
 Click remove one item from cart
     [Documentation]    Remove a single item from the shopping cart by clicking its 'Remove' button.
     [Arguments]    ${product_name}
-    ${replace_locator}=    common_web.Replace string    locator=${cart_page_locator['btn_remove_item']}    new_string=${product_name}
-    common_web.Click element and wait    
-    ...    locator=${replace_locator}
-    ...    wait_element_locator=${replace_locator}
+    ${replace_locator}=    common_web.Replace locator and wait until element visible    locator=${cart_page_locator['btn_remove_item']}    target_text=${product_name}    replace_text=***replace***
+    common_web.Click element when ready    ...    locator=${replace_locator}
+
 
 Click back to shopping button
     [Documentation]    Click for Continue Shopping at Product list page
