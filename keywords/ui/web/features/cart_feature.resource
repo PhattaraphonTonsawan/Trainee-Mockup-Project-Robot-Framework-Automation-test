@@ -2,6 +2,12 @@
 Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
+Remove product item from cart by click remove button
+    [Documentation]
+    [Arguments]    ${product_name}
+    cart_page.Check cart page title
+    cart_page.Click remove one item from cart    product_name=${product_name}
+
 Verify one item detail at cart page
     [Documentation]    Verifies a single product's details in the cart
     [Arguments]    ${product} 
@@ -20,9 +26,3 @@ Verify Multiple Items In Cart
         ...    price=${item.product_price}
         ...    description=${item.product_description}
     END
-     
-Remove product item from cart by click remove button
-    [Documentation]
-    [Arguments]    ${product_name}
-    cart_page.Check cart page title
-    cart_page.Click remove one item from cart    product_name=${product_name}
