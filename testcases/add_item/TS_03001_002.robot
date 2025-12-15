@@ -5,7 +5,7 @@ Test Teardown    common_web.Close all browser
 *** Test Cases ***
 TS_03001_002
     [Documentation]    เพิ่มสินค้าหนึ่งชิ้นลงตะกร้าโดยใช้ บัญชีผู้ใช้ problem_user
-    [Tags]    F_0003    TS_013001    TS_03001_002    Add_single_item     problem_user  
+    [Tags]    F_0003    TS_03001    TS_03001_002    add_single_item     problem_user  
     # เปิดหน้า login และตรวจสอบหน้า login เปิดสำเร็จ
     login_feature.Open login page and login to product list page    
     ...    username=${account['problem_user']['username']}
