@@ -2,6 +2,11 @@
 Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
+Click cart icon to go to cart page and check cart page title
+    [Documentation]    กดคลิกไอคอนตะกร้าสินค้าและตรวจสอบว่าอยู่หน้าตะกร้าสินค้าแล้ว
+    product_list_page.Click cart icon to go to cart page
+    cart_page.Check cart page title
+    
 Remove product item from cart by click remove button
     [Documentation]
     [Arguments]    ${product_name}
@@ -11,12 +16,10 @@ Remove product item from cart by click remove button
 Verify one item detail at cart page
     [Documentation]    Verifies a single product's details in the cart
     [Arguments]    ${product} 
-    cart_page.Check cart page title
     cart_page.Verify Specific Product Detail In Cart
-    ...    name=${product['${product}']['product_name']}
-    ...    price=${product['${product}']['product_price']}
-    ...    description=${product['${product}']['product_description']}
-    cart_page.Click go to checkout button
+    ...    name=${product['product_name']}
+    ...    price=${product['product_price']}
+    ...    description=${product['product_description']}
 
 Verify Multiple Items In Cart
     [Documentation]    Iterates through a list of product data dictionaries and verifies that each item exists in the cart with correct details.
@@ -27,4 +30,4 @@ Verify Multiple Items In Cart
         ...    price=${item.product_price}
         ...    description=${item.product_description}
     END
-    cart_page.Click go to checkout button
+

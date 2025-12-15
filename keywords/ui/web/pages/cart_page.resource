@@ -25,12 +25,23 @@ Click go to checkout button
 Verify Specific Product Detail In Cart
     [Documentation]    Check product information that have add to cart by check product name, product description and product price
     [Arguments]    ${name}    ${price}    ${description}
-    ${replace_locator}=    common_web.Replace locator and wait until element visible    locator=${cart_page_locator['lbl_item_name']}    target_text=${name}    replace_text=***replace***
-    common_web.Scroll into element and wait until element visible    locator=${replace_locator}
+    ${replace_locator_product_name}=    common_web.Replace locator and wait until element visible    
+    ...    locator=${cart_page_locator['lbl_item_name']}    
+    ...    target_text=***replace*** 
+    ...    replace_text=${name}
+    ${replace_locator_product_description}=    common_web.Replace locator and wait until element visible    
+    ...    locator=${cart_page_locator['lbl_item_description']}    
+    ...    target_text=***replace***
+    ...    replace_text=${name}
+    ${replace_locator_product_price}=    common_web.Replace locator and wait until element visible    
+    ...    locator=${cart_page_locator['lbl_item_price']}    
+    ...    target_text=***replace*** 
+    ...    replace_text=${name}
+    common_web.Scroll into element and wait until element visible    locator=${replace_locator_product_name}
     common_web.Check element text when visible   
-    ...    locator=${cart_page_locator['lbl_item_description']}
+    ...    locator=${replace_locator_product_description}
     ...    text=${description}
     common_web.Check element text when visible
-    ...    locator=${cart_page_locator['lbl_item_price']}
+    ...    locator=${replace_locator_product_price}
     ...    text=${price}
 
