@@ -9,7 +9,7 @@ Add one item to cart
 
 Add multiple products to cart
     [Documentation]    เพิ่มสินค้าหลายรายการลงในตะกร้าโดยใช้ลิสต์สินค้าที่กำหนด
-    @{product_name_list} =    Create product item list
+    @{product_name_list}=    Create product item list
     FOR    ${product_name}    IN    @{product_name_list}
         product_list_page.Click add one item to cart    ${product_name}
     END
