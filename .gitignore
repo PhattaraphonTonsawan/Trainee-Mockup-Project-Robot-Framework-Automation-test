@@ -218,5 +218,6 @@ playwright-log.txt
 
 # Test results / temp files
 results/
+reports/
 *.log
 *.tmp
