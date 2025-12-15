@@ -32,20 +32,13 @@ Input text when ready
     SeleniumLibrary.Input Text    ${locator}    ${text}
 
 Open web browser and maximize window
-    [Documentation]    Open browser with Incognito mode to bypass security alerts
+    [Documentation]    Open browser base on SeleniumLibrary
     [Arguments]    ${url}    ${is_headless}=${web_config['headless_mode']}
-    ${chrome_options}=    BuiltIn.Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
-    BuiltIn.Call Method    ${chrome_options}    add_argument    --incognito
-    ${prefs}=    BuiltIn.Create Dictionary    
-    ...    credentials_enable_service=${False}    
-    ...    profile.password_manager_enabled=${False}
-    BuiltIn.Call Method    ${chrome_options}    add_experimental_option    prefs    ${prefs}
     IF    ${is_headless}
-        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['headless']}    
+        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['headless']}
     ELSE
-        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['gui']}    options=${chrome_options}
+        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['gui']}
     END
-    
     SeleniumLibrary.Maximize Browser Window
 
 Replace locator and wait until element visible
