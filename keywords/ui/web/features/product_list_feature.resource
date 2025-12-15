@@ -7,9 +7,9 @@ Add one item to cart
     [Arguments]    ${product_name}    ${product_price}    ${product_description}
     product_list_page.Click add one item to cart    product_name=${product_name}
     product_list_page.Click go to cart page
-    product_list_page.Check product detail have added to cart    product_detail=${product_name}
-    product_list_page.Check product detail have added to cart    product_detail=${product_price}
-    product_list_page.Check product detail have added to cart    product_detail=${product_description}
+    product_list_page.Check product detail added to cart    product_detail=${product_name}
+    product_list_page.Check product detail added to cart    product_detail=${product_price}
+    product_list_page.Check product detail added to cart    product_detail=${product_description}
 
 Add multiple products to cart
     [Documentation]    เพิ่มสินค้าหลายรายการลงในตะกร้าโดยใช้ลิสต์สินค้าที่กำหนด
