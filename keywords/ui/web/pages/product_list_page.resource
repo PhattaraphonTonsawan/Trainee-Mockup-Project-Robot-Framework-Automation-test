@@ -2,7 +2,7 @@
 Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
-Check product detail have added to cart
+Check product detail added to cart
     [Documentation]    ตรวจสอบข้อมูลสินค้าที่ถูกเพิ่มลงในตะกร้า โดยตรวจสอบชื่อสินค้า, คำอธิบายสินค้า และราคาสินค้า
     [Arguments]    ${product_detail}
     common_web.Check element text when visible

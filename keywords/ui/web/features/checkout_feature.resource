@@ -5,7 +5,7 @@ Resource    ${CURDIR}/../../../../resources/import.resource
 Compare total price
     [Documentation]    เปรียบเทียบราคาทั้งหมดบนหน้าเว็บกับราคาจริง (รวมภาษี)
     [Arguments]    ${items_price}
-    ${tax_element_text}=    checkout_overview_page.Get tax
+    ${tax_element_text}=    checkout_overview_page.Get item tax
     ${clean_tax_str}=    common.Sanitize text    ${tax_element_text}
     ${expected_total_float}=    BuiltIn.Evaluate    round(${items_price} + float('${clean_tax_str}'), 2)
     ${page_total_text}=    checkout_overview_page.Get item total price
