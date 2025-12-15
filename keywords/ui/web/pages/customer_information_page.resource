@@ -30,7 +30,7 @@ Input last name
     ...    locator=${customer_information_page_locator['txt_last_name']}
     ...    text=${last_name}
 
-Input zip postal code
+Input zip or postal code
     [Documentation]    กรอกรหัสไปรษณีย์/Zip Code ในช่องที่กำหนด
     [Arguments]    ${zip_code}
     common_web.Input text when ready    locator=${customer_information_page_locator['txt_zip_code']}    text=${zip_code}
