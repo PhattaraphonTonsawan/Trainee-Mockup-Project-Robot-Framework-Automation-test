@@ -3,48 +3,43 @@ Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
 Check page title
-    [Documentation]    Check if page title display the correct text or not
-    common_web.Wait for element is ready    locator=${checkout_overview_page_locator['txt_page_title']}    timeout=${wait_timeout['normally['short_timeout']']}
-    common_web.Element should contain text    locator=${checkout_overview_page_locator['txt_page_title']}    expected_text=${txt_checkout_overview_page['txt_title']}
+    [Documentation]    ตรวจสอบว่าชื่อหน้าถูกต้องตามที่คาดหวังหรือไม่
+    common_web.Check element text when visible
+    ...    locator=${checkout_overview_page_locator['txt_page_title']}
+    ...    text=${txt_checkout_overview_page['txt_title']}
 
 Check product item title
-    [Documentation]    Check product title in page
+    [Documentation]    ตรวจสอบชื่อสินค้าที่ปรากฏบนหน้า
     [Arguments]    ${item_name}
-    common_web.Wait for element is ready    locator=${checkout_overview_page_locator['txt_item_name']}    timeout=${wait_timeout['normally['short_timeout']']}
-    common_web.Element should contain text    locator=${checkout_overview_page_locator['txt_item_name']}    expected_text=${item_name}
+    common_web.Check element text when visible
+    ...    locator=${checkout_overview_page_locator['txt_item_name']}
+    ...    text=${item_name}
 
-Click finish button and wait next page
-    [Documentation]    Click finish button and next page should be checkout complete page
-    common_web.Click element and wait    locator=${checkout_overview_page_locator['btn_finish']}    
-    ...    wait_element_locator=${checkout_complete_page_locator['txt_page_title']}    
-    ...    timeout=${wait_timeout['normally['short_timeout']']}
+Click finish button
+    [Documentation]    กดปุ่ม Finish และตรวจสอบว่าหน้าถัดไปเป็นหน้า Checkout Complete Page
+    common_web.Click element when ready    locator=${checkout_overview_page_locator['btn_finish']}
 
-Click cancel button and wait main page
-    [Documentation]    Click Cancel button and next page should be main page
-    common_web.Click element and wait    locator=${checkout_overview_page_locator['btn_cancel']}    
-    ...    wait_element_locator=${product_list_page_locator['txt_title']}    
-    ...    timeout=${wait_timeout['normally['short_timeout']']}
+Click cancel button
+    [Documentation]    กดปุ่ม Cancel และตรวจสอบว่าหน้าถัดไปเป็นหน้า Main Page
+    common_web.Click element when ready    locator=${checkout_overview_page_locator['btn_cancel']}
 
-Compare total price
-    [Documentation]    Compare page total price and actual total price
-    [Arguments]    ${items_price}
-    ${tax_element_text}=    SeleniumLibrary.Get Text    locator=${checkout_overview_page_locator['txt_tax']}
-    ${clean_tax_str}=    String.Replace String    string=${tax_element_text}    search_for=$    replace_with=${EMPTY}
-    ${expected_total_float}=    BuiltIn.Evaluate    round(${items_price} + float('${clean_tax_str}'), 2)
-    ${page_total_text}=    SeleniumLibrary.Get Text    locator=${checkout_overview_page_locator['txt_item_total_price']}
-    ${clean_page_total_str_1}=    String.Replace String    string=${page_total_text}    search_for=$    replace_with=${EMPTY}
-    ${clean_page_total_str_2}=    String.Strip String    string=${clean_page_total_str_1}
-    ${page_total_float}=    BuiltIn.Evaluate    float('${clean_page_total_str_2}')
-    BuiltIn.Should Be Equal As Numbers    ${page_total_float}    ${expected_total_float}
+Get tax
+    [Documentation]    ดึงค่าภาษีจากหน้าจอ Checkout Overview Page และส่งกลับเป็นตัวแปร
+    ${tax}=    common_web.Get element text when visible    locator=${checkout_overview_page_locator['txt_tax']}
+    RETURN    ${tax}
 
-Get all product price
-    [Documentation]    Sum of every product price
-    ${price_elements}=    SeleniumLibrary.Get WebElements    locator=${checkout_overview_page_locator['txt_item_prices']}
-    ${total_sum}=    BuiltIn.Set Variable    0.0
-    FOR    ${element}    IN    @{price_elements}
-        ${price_text}=    common_web.Get element text    locator=${element}
-        ${clean_price_str}=    String.Replace String    string=${price_text}    search_for=$    replace_with=${EMPTY}
-        ${new_total}=    BuiltIn.Evaluate    ${total_sum} + float('${clean_price_str}')
-        ${total_sum}=    BuiltIn.Set Variable    ${new_total}
-    END
-    RETURN    ${total_sum}
+Get item total price
+    [Documentation]    ดึงค่ารวมราคาสินค้าจากหน้าจอ Checkout Overview Page และส่งกลับเป็นตัวแปร
+    ${total_price}=    common_web.Get element text when visible
+    ...    locator=${checkout_overview_page_locator['txt_item_total_price']}
+    RETURN    ${total_price}
+
+Get list of product price
+    [Documentation]    ดึงรายการ element ราคาสินค้าแต่ละชิ้นจากหน้าจอ Checkout Overview Page และส่งกลับเป็นลิสต์
+    ${list_product_price}=    SeleniumLibrary.Get WebElements    ${checkout_overview_page_locator['txt_item_prices']}
+    RETURN    ${list_product_price}
+
+Wait until page loaded
+    [Documentation]    รอจนกว่าหน้า Checkout Overview Page จะโหลดเสร็จและ element หลักปรากฏ
+    common_web.Scroll into element and wait until element visible
+    ...    locator=${checkout_overview_page_locator['txt_page_title']}

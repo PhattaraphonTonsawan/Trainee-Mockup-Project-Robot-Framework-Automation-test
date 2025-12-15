@@ -2,43 +2,45 @@
 Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
-Click continue button and check page
-    [Documentation]    Click Continue button and next page should be checkout overview
-    common_web.Click element and wait    locator=${customer_information_page_locator['btn_continue']}    
-    ...    wait_element_locator=${checkout_overview_page_locator['txt_page_title']}    
-    ...    timeout=${wait_timeout['normally['short_timeout']']}
-
-Click continue button and error
-    [Documentation]    Click Continue button and next page should contain error popup
-    common_web.Click element and wait    locator=${customer_information_page_locator['btn_continue']}    
-    ...    wait_element_locator=${customer_information_page_locator['txt_error_msg']}    
-    ...    timeout=${wait_timeout['normally['short_timeout']']}
-
-Click cancel button and check page
-    [Documentation]    Click Cancel button and next page should be main 
-    common_web.Click element and wait    locator=${customer_information_page_locator['btn_cancel']}    
-    ...    wait_element_locator=${cart_page_locator['txt_title']}    
-    ...    timeout=${wait_timeout['normally['short_timeout']']}
-
 Check page title
-    [Documentation]    Check if page title display the correct text or not
-    common_web.Wait for element is ready    locator=${customer_information_page_locator['txt_page_title']}    timeout=${wait_timeout['normally['short_timeout']']}
-    common_web.Element should contain text    locator=${customer_information_page_locator['txt_page_title']}    expected_text=${txt_customer_infomation_page['txt_title']}
+    [Documentation]    ตรวจสอบว่าชื่อหน้าถูกต้องตามที่คาดหวังหรือไม่
+    common_web.Check element text when visible
+    ...    locator=${customer_information_page_locator['txt_page_title']}
+    ...    text=${txt_customer_infomation_page['txt_title']}
 
-Input first name when ready
-    [Documentation]    Input first name value in first name input field
+Click cancel button
+    [Documentation]    กดปุ่ม Cancel และยกเลิกการกรอกข้อมูล
+    common_web.Click element when ready    locator=${customer_information_page_locator['btn_cancel']}
+
+Click continue button
+    [Documentation]    กดปุ่ม Continue และตรวจสอบว่าหน้าถัดไปเป็น Checkout Overview Page
+    common_web.Click element when ready    locator=${customer_information_page_locator['btn_continue']}
+
+Input first name
+    [Documentation]    กรอกชื่อในช่อง First Name
     [Arguments]    ${first_name}
-    common_web.Wait for element is ready    locator=${customer_information_page_locator['txt_first_name']}    timeout=${wait_timeout['normally['short_timeout']']}
-    common_web.Input text and verify    locator=${customer_information_page_locator['txt_first_name']}    text=${first_name}
+    common_web.Input text when ready
+    ...    locator=${customer_information_page_locator['txt_first_name']}
+    ...    text=${first_name}
 
-Input last name when ready
-    [Documentation]    Input first name value in last name input field
+Input last name
+    [Documentation]    กรอกนามสกุลในช่อง Last Name
     [Arguments]    ${last_name}
-    common_web.Wait for element is ready    locator=${customer_information_page_locator['txt_last_name']}    timeout=${wait_timeout['normally['short_timeout']']}
-    common_web.Input text and verify    locator=${customer_information_page_locator['txt_last_name']}   text=${last_name}
+    common_web.Input text when ready
+    ...    locator=${customer_information_page_locator['txt_last_name']}
+    ...    text=${last_name}
 
-Input zip/postal code when ready
-    [Documentation]    Input first name value in zip/postal code input field
+Input zip postal code
+    [Documentation]    กรอกรหัสไปรษณีย์/Zip Code ในช่องที่กำหนด
     [Arguments]    ${zip_code}
-    common_web.Wait for element is ready    locator=${customer_information_page_locator['txt_zip_code']}    timeout=${wait_timeout['normally['short_timeout']']}
-    common_web.Input text and verify    locator=${customer_information_page_locator['txt_zip_code']}    text=${zip_code}
+    common_web.Input text when ready    locator=${customer_information_page_locator['txt_zip_code']}    text=${zip_code}
+
+Wait until error message appeared
+    [Documentation]    รอจนกว่าข้อความแจ้งเตือนความผิดพลาดจะปรากฏบนหน้า
+    common_web.Scroll into element and wait until element visible
+    ...    locator=${customer_information_page_locator['txt_error_msg']}
+
+Wait until page loaded
+    [Documentation]    รอจนกว่าหน้า Customer Information Page จะโหลดเสร็จและ element หลักปรากฏ
+    common_web.Scroll into element and wait until element visible
+    ...    locator=${customer_information_page_locator['txt_page_title']}

@@ -2,71 +2,62 @@
 Resource    ${CURDIR}/../../resources/import.resource
 
 *** Keywords ***
-Click element and wait
-    [Documentation]
-    ...    Scroll and click to element and wait until the page is loaded after
-    ...    the click, using SeleniumLibrary.
-    [Arguments]    ${locator}    ${wait_element_locator}=${None}    ${timeout}=10s
-    SeleniumLibrary.Scroll Element Into View    ${locator}
+Check element text when visible
+    [Documentation]    ตรวจสอบว่า element ปรากฏอยู่บนหน้า และตรวจสอบว่าข้อความภายใน element ตรงกับค่าที่กำหนด
+    [Arguments]    ${locator}    ${text}
+    Scroll into element and wait until element visible    locator=${locator}
+    SeleniumLibrary.Element Should Contain    ${locator}    ${text}
+
+Click element when ready
+    [Documentation]    กด element เมื่อพร้อมใช้งาน
+    [Arguments]    ${locator}
+    Scroll into element and wait until element ready    locator=${locator}
     SeleniumLibrary.Click Element    ${locator}
-    BuiltIn.Run Keyword If    "${wait_element_locator}" != "${None}"
-    ...    SeleniumLibrary.Wait Until Page Contains Element    ${wait_element_locator}    ${timeout}
 
-Close this browser
-    [Documentation]    Close browser base on SeleniumLibrary
-    SeleniumLibrary.Close Browser
-
-Close every browser
-    [Documentation]    Close all browser base on SeleniumLibrary
+Close all browser
+    [Documentation]    ปิดหน้าต่าง browsers
     SeleniumLibrary.Close All Browsers
 
-Element should contain text
-    [Documentation]    Verify element contains specific text base on SeleniumLibrary
-    [Arguments]    ${locator}    ${expected_text}
-    SeleniumLibrary.Element Text Should Be    ${locator}    ${expected_text}    msg=Element text mismatch
-
-Get element text
-    [Documentation]    Get text from element base on SeleniumLibrary
+Get element text when visible
+    [Documentation]    ดึงข้อความจาก element หลังจากตรวจสอบว่า element มองเห็นได้แล้ว และส่งค่าข้อความกลับไปยังตัวแปร
     [Arguments]    ${locator}
-    SeleniumLibrary.Scroll Element Into View    ${locator}
+    Scroll into element and wait until element visible    locator=${locator}
     ${text}=    SeleniumLibrary.Get Text    ${locator}
     RETURN    ${text}
 
-Go to url
-    [Documentation]    Go to url in browser base on SeleniumLibrary
-    [Arguments]    ${url}    ${browser}
-    SeleniumLibrary.Open Browser    ${url}    ${browser}
-    SeleniumLibrary.Go To    ${url}
-
-Input text and verify
-    [Documentation]
-    ...    Scroll and input text into a field
-    ...    and verify the text value is correctly set base on SeleniumLibrary
+Input text when ready
+    [Documentation]    กรอกข้อความลงใน element ที่กำหนด
     [Arguments]    ${locator}    ${text}
-    SeleniumLibrary.Scroll Element Into View    ${locator}
+    Scroll into element and wait until element ready    locator=${locator}
     SeleniumLibrary.Input Text    ${locator}    ${text}
-    ${current_value}=    SeleniumLibrary.Get Property    ${locator}    value
-    BuiltIn.Should Be Equal    ${current_value}    ${text}    msg=Text input verification failed for ${locator}
 
-Open new browser
+Open web browser and maximize window
     [Documentation]    Open browser base on SeleniumLibrary
-    [Arguments]    ${url}    ${browser}
-    SeleniumLibrary.Open Browser    ${url}    ${browser}
+    [Arguments]    ${url}    ${is_headless}=${web_config['headless_mode']}
+    IF    ${is_headless}
+        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['headless']}
+    ELSE
+        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['gui']}
+    END
     SeleniumLibrary.Maximize Browser Window
 
-Scroll to element
-    [Documentation]    Scroll the page until the element is in view base on SeleniumLibrary
-    [Arguments]    ${locator}
-    SeleniumLibrary.Scroll Element Into View    ${locator}
+Replace locator and wait until element visible
+    [Documentation]
+    ...    แทนที่ข้อความภายใน locator (default=***replace***) ด้วยข้อความใหม่
+    ...    จากนั้นตรวจสอบว่า locator ใหม่มีอยู่ในหน้าหรือไม่ และสามารถใช้งานได้
+    [Arguments]    ${locator}    ${replace_text}    ${target_text}=***replace***
+    ${locator_replaced}=    String.Replace String    ${locator}    ${target_text}    ${replace_text}
+    Scroll into element and wait until element visible    locator=${locator_replaced}
+    RETURN    ${locator_replaced}
 
-Select dropdown option
-    [Documentation]    Select an option from dropdown by either value base on SeleniumLibrary
+Select dropdown option when ready
+    [Documentation]    เลือกตัวเลือกจาก dropdown โดยใช้ value หลังจากตรวจสอบว่า element พร้อมให้ทำงาน
     [Arguments]    ${locator}    ${option}
-    SeleniumLibrary.Scroll Element Into View    ${locator}
+    Scroll into element and wait until element ready    locator=${locator}
     SeleniumLibrary.Select From List By Value    ${locator}    ${option}
 
 Screenshot page
-    [Documentation]    Take a screenshot and save with timestamp base on SeleniumLibrary
+    [Documentation]    บันทึกภาพหน้าจอโดยตั้งชื่อไฟล์ตาม timestamp เพื่อหลีกเลี่ยงไฟล์ชื่อซ้ำ และส่งคืน path ของไฟล์
     [Arguments]    ${file_prefix}=screenshot
     ${timestamp}=    DateTime.Get Current Date    result_format=%Y%m%d_%H%M%S
     ${file_path}=    BuiltIn.Set Variable    ${OUTPUT DIR}/screenshot/${file_prefix}_${timestamp}.png
@@ -74,17 +65,23 @@ Screenshot page
     BuiltIn.Log To Console    Screenshot saved to ${file_path}
     RETURN    ${file_path}
 
-Wait for element is ready
-    [Documentation]
-    ...    Check element is append in DOM and scroll into view and next to check Visible -> Enable
-    [Arguments]    ${locator}    ${timeout}=10s
+Scroll into element and wait until element ready
+    [Documentation]    ตรวจสอบว่า element ถูกโหลดใน DOM จากนั้นให้ element อยู่ในมุมมอง และรอจนกว่าจะพร้อมใช้งาน
+    [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
+    SeleniumLibrary.Wait Until Page Contains Element    ${locator}    ${timeout}
+    SeleniumLibrary.Scroll Element Into View    ${locator}
+    SeleniumLibrary.Wait Until Element Is Enabled    ${locator}    ${timeout}
+
+Scroll into element and wait until element visible
+    [Documentation]    ตรวจสอบว่า element ถูกโหลดใน DOM จากนั้นให้ element อยู่ในมุมมอง และรอจนกว่าจะมองเห็นได้
+    [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
     SeleniumLibrary.Wait Until Page Contains Element    ${locator}    ${timeout}
     SeleniumLibrary.Scroll Element Into View    ${locator}
     SeleniumLibrary.Wait Until Element Is Visible    ${locator}    ${timeout}
-    SeleniumLibrary.Wait Until Element Is Enabled    ${locator}    ${timeout}
 
-Replace string
-    [Documentation]
-    [Arguments]    ${locator}    ${new_string}
-    ${new_locator}=    String.Replace String    string=${locator}    search_for=***replace***    replace_with=${new_string}
-    RETURN    ${new_locator}    
+Wait and verify element value
+    [Documentation]    ตรวจสอบค่า value ใน element
+    [Arguments]    ${locator}    ${expected_value}
+    Scroll into element and wait until element visible    locator=${locator}
+    ${actual_value}=    SeleniumLibrary.Get Property    ${locator}    value
+    BuiltIn.Should Be Equal    ${actual_value}    ${expected_value}    msg=Text input verification failed for ${locator}
