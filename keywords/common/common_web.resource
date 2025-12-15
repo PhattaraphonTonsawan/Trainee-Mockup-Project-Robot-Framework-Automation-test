@@ -32,7 +32,9 @@ Input text when ready
     SeleniumLibrary.Input Text    ${locator}    ${text}
 
 Open web browser and maximize window
-    [Documentation]    Open browser with Incognito mode to bypass security alerts
+    [Documentation]    เปิดเบราว์เซอร์ Chrome ไปยัง URL ที่กำหนด พร้อมตั้งค่า Option สำหรับการทดสอบ
+    ...                - เปิดในโหมดไม่ระบุตัวตน เพื่อป้องกันปัญหา Cache และการแจ้งเตือนความปลอดภัย
+    ...                - ปิดระบบ Password Manager และ Pop-up ถามบันทึกรหัสผ่าน
     [Arguments]    ${url}    ${is_headless}=${web_config['headless_mode']}
     ${chrome_options}=    BuiltIn.Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     BuiltIn.Call Method    ${chrome_options}    add_argument    --incognito
@@ -41,7 +43,7 @@ Open web browser and maximize window
     ...    profile.password_manager_enabled=${False}
     BuiltIn.Call Method    ${chrome_options}    add_experimental_option    prefs    ${prefs}
     IF    ${is_headless}
-        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['headless']}    
+        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['headless']}   options=${chrome_options}
     ELSE
         SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['gui']}    options=${chrome_options}
     END
