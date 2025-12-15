@@ -34,16 +34,6 @@ Select sort type option
     ...    locator=${product_list_page_locator['btn_dropdown']}
     ...    option=${option}
 
-Create product item list
-    [Documentation]    Creates and returns a list containing the names of all products
-    ${product_list}=    BuiltIn.Create List
-    ...    ${product['backpack']['product_name']}
-    ...    ${product['jacket']['product_name']}
-    ...    ${product['t_shirt']['product_name']}
-    ...    ${product['bike_light']['product_name']}
-    ...    ${product['Onesie']['product_name']}
-    ...    ${product['red_t-shirt']['product_name']}
-    RETURN    ${product_list}
 Wait until page loaded
     [Documentation]    รอจนกว่าหน้า Product List จะโหลดเสร็จและ element หลักปรากฏ
     common_web.Scroll into element and wait until element visible    locator=${product_list_page_locator['txt_title']}
