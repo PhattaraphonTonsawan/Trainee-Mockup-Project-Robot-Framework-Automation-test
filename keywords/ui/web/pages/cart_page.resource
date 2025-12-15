@@ -26,11 +26,11 @@ Verify Specific Product Detail In Cart
     [Documentation]    Check product information that have add to cart by check product name, product description and product price
     [Arguments]    ${name}    ${price}    ${description}
     ${replace_locator}=    common_web.Replace locator and wait until element visible    locator=${cart_page_locator['lbl_item_name']}    target_text=${name}    replace_text=***replace***
-    common_web.Wait for element is ready    locator=${replace_locator}
-    common_web.Wait and verify element value    
+    common_web.Scroll into element and wait until element visible    locator=${replace_locator}
+    common_web.Check element text when visible   
     ...    locator=${cart_page_locator['lbl_item_description']}
-    ...    expected_value=${description}
-    common_web.Wait and verify element value
+    ...    text=${description}
+    common_web.Check element text when visible
     ...    locator=${cart_page_locator['lbl_item_price']}
-    ...    expected_value=${price}
+    ...    text=${price}
 
