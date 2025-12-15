@@ -9,7 +9,7 @@ TS_04001_001
     login_feature.Open login page and login to product list page    
     ...    username=${account['standard_user']['username']}    
     ...    password=${account['standard_user']['password']}
-    product_list_feature.Add one item to cart    product_name=${product['backpack['product_name']']}
+    product_list_feature.Add one item to cart    product_name=${product['backpack']['product_name']}
     cart_feature.Verify one item detail at cart page    product=${product['backpack']}
     customer_information_feature.Input every fields and proceed to checkout overview page
     

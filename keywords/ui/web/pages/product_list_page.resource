@@ -25,7 +25,7 @@ Click add one item to cart
 
 Click go to cart page
     [Documentation]    กดไอคอนตะกร้าเพื่อไปยังหน้า Cart
-    common_web.Click element when ready    locator=${product_list_page_locator['go_to_cart_btn']}
+    common_web.Click element when ready    locator=${product_list_page_locator['btn_go_to_cart']}
 
 Select sort type option
     [Documentation]    เลือกรูปแบบการเรียงลำดับสินค้าจาก dropdown ตามค่าที่กำหนด
