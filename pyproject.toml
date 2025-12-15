@@ -5,7 +5,10 @@ select = [
 ]
 
 ignore = [
+    "DOC04",  # Disable rule: missing-doc-resource-file
     "NAME02", # Disable rule: wrong-case-in-keyword-name
     "DEPR05", # Disable rule: use-replace-set-variable-with-var
-    "NAME08"  # Disable rule: section-variable-not-uppercase
+    "NAME08", # Disable rule: section-variable-not-uppercase
+    "SPC02",  # Disable rule: empty-lines-missing-trailing-blank-line
+    "SPC03"   # Disable rule: empty-lines-between-sections
 ]
