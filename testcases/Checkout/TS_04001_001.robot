@@ -13,16 +13,16 @@ TS_04001_001
     # ตรวจสอบว่าอยู่หน้า product list สำเร็จ
     product_list_page.Check product list page title
     # เพิ่มสินค้าหนึ่งชิ้นลงตะกร้า
-    product_list_feature.Add one item to cart    product_name=${product['backpack']['product_name']}
+    ${product_list}=    product_list_feature.Add one item to cart    product_name=${product['backpack']['product_name']}
     # ตรวจสอบว่าอยู่หน้า cart สำเร็จ
     cart_feature.Click cart icon to go to cart page and check cart page title
     # ตรวจสอบรายละเอียดสินค้าที่เพิ่มมาที่ตะกร้า
-    cart_feature.Verify one item detail at cart page    product=${product['backpack']}
+    cart_feature.Verify one item detail at cart page    product=${product['${product_list}']}
     # ไปที่หน้า customer information
     cart_page.Click go to checkout button
     # ตรวจสอบว่าอยู่หน้า customer information กรอกข้อมูลครบแล้วไปยังหน้า checkout overview
     customer_information_feature.Input every fields and proceed to checkout overview page
     # ตรวจสอบว่าอยู่หน้า checkout overview และสามารถ checkout ได้สำเร็จด้วยสินค้า 1 ชิ้น
-    checkout_overview_feature.Confirm checkout with 1 item
+    checkout_overview_feature.Confirm checkout with all item    product_list=${product_list}
     # การ checkout สำเร็จและกลับมาที่หน้า product list ได้สำเร็จ
     checkout_complete_feature.Complete checkout and go to product list page
