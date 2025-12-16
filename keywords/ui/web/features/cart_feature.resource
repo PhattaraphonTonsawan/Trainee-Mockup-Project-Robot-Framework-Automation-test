@@ -29,4 +29,3 @@ Verify Multiple Items In Cart
         ...    price=${item['product_price']}
         ...    description=${item['product_description']}
     END
-
