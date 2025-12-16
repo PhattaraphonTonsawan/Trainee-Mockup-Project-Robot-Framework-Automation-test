@@ -3,7 +3,7 @@ Resource    ${CURDIR}/../../resources/import.resource
 Test Teardown    common_web.Close all browser
 
 *** Test Cases ***
-TS_03001_002
+TS_03001_004
     [Documentation]    เพิ่มสินค้าหนึ่งชิ้นลงตะกร้าโดยใช้ บัญชีผู้ใช้ error_user
     [Tags]    F_0003    TS_03001    TS_03001_004    add_single_item     error_user  
     # เปิดหน้า login และตรวจสอบหน้า login เปิดสำเร็จ
