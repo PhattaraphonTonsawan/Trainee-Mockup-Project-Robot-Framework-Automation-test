@@ -18,6 +18,7 @@ Resource    ${CURDIR}/../keywords/ui/web/features/product_list_feature.resource
 Resource    ${CURDIR}/../keywords/ui/web/features/cart_feature.resource
 
 # PAGE
+Resource    ${CURDIR}/../keywords/ui/web/pages/checkout_complete_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/checkout_overview_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/customer_information_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/cart_page.resource
