@@ -22,7 +22,8 @@ Verify one item detail at cart page
 
 Verify multiple items in cart
     [Documentation]    ตรวจสอบรายละเอียดสินค้าหลายชิ้นตามรายการใน List
-    @{expected_item}=    Create product item list
+    [Arguments]    ${product_key}
+    @{expected_item}=    Create product item list    product_key=${product_key}
     FOR    ${item}    IN    @{expected_item}
         cart_page.Verify Specific Product Detail In Cart
         ...    name=${item['product_name']}
