@@ -25,8 +25,7 @@ Verify Multiple Items In Cart
     [Arguments]    ${expected_item}
     FOR    ${item}    IN    @{expected_item}
         cart_page.Verify Specific Product Detail In Cart
-        ...    name=${item.product_name}
-        ...    price=${item.product_price}
-        ...    description=${item.product_description}
+        ...    name=${item['product_name']}
+        ...    price=${item['product_price']}
+        ...    description=${item['product_description']}
     END
-
