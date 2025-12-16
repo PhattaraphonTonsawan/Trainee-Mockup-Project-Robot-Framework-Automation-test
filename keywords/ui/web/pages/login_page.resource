@@ -57,5 +57,5 @@ Wait until login button is ready
     common_web.Scroll into element and wait until element visible    locator=${login_page_locator['btn_login']}
 
 Wait until login error message appears
-    [Documentation]    ตรวจสอบว่าแสดงข้อความแจ้งเตือนเมื่อเกิดข้อผิดพลาดในการ Login
+    [Documentation]    รอจนกว่ากล่องข้อความแจ้งเตือนเมื่อเกิดข้อผิดพลาดในการ Login จะปรากฏ
     common_web.Scroll into element and wait until element visible    locator=${login_page_locator['lbl_login_error']}

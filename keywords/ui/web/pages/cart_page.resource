@@ -44,4 +44,3 @@ Verify Specific Product Detail In Cart
     common_web.Check element text when visible
     ...    locator=${replace_locator_product_price}
     ...    text=${price}
-
