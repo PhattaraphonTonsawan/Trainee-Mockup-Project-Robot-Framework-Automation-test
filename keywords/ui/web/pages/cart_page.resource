@@ -29,7 +29,6 @@ Verify product name in cart
     [Arguments]    ${name}
     ${replace_locator_product_name}=    common_web.Replace locator and wait until element visible
     ...    locator=${cart_page_locator['lbl_item_name']}
-    ...    target_text=***replace***
     ...    replace_text=${name}
     common_web.Scroll into element and wait until element visible    locator=${replace_locator_product_name}
 
@@ -38,7 +37,6 @@ Verify product description in cart
     [Arguments]    ${name}    ${description}
     ${replace_locator_product_description}=    common_web.Replace locator and wait until element visible
     ...    locator=${cart_page_locator['lbl_item_description']}
-    ...    target_text=***replace***
     ...    replace_text=${name}
     common_web.Check element text when visible
     ...    locator=${replace_locator_product_description}
@@ -49,7 +47,6 @@ Verify product price in cart
     [Arguments]    ${name}    ${price}
     ${replace_locator_product_description}=    common_web.Replace locator and wait until element visible
     ...    locator=${cart_page_locator['lbl_item_description']}
-    ...    target_text=***replace***
     ...    replace_text=${name}
     common_web.Check element text when visible
     ...    locator=${replace_locator_product_description}
