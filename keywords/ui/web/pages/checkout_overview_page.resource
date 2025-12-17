@@ -11,8 +11,11 @@ Check page title
 Check product item title
     [Documentation]    ตรวจสอบชื่อสินค้าที่ปรากฏบนหน้า
     [Arguments]    ${item_name}
-    common_web.Check element text when visible
+    ${replace_locator_product_name}=    common_web.Replace locator and wait until element visible
     ...    locator=${checkout_overview_page_locator['txt_item_name']}
+    ...    replace_text=${item_name}
+    common_web.Check element text when visible
+    ...    locator=${replace_locator_product_name}
     ...    text=${item_name}
 
 Click finish button
@@ -28,10 +31,10 @@ Get item tax
     ${tax}=    common_web.Get element text when visible    locator=${checkout_overview_page_locator['txt_tax']}
     RETURN    ${tax}
 
-Get item total price
-    [Documentation]    ดึงค่ารวมราคาสินค้าจากหน้าจอ Checkout Overview Page และส่งกลับเป็นตัวแปร
+Get total price
+    [Documentation]    ดึงค่ารวมราคาสินค้ารวมภาษีจากหน้าจอ Checkout Overview Page และส่งกลับเป็นตัวแปร
     ${total_price}=    common_web.Get element text when visible
-    ...    locator=${checkout_overview_page_locator['txt_item_total_price']}
+    ...    locator=${checkout_overview_page_locator['txt_total_price']}
     RETURN    ${total_price}
 
 Get list of product price

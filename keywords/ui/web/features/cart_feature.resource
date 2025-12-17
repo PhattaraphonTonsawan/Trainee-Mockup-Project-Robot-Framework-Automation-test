@@ -6,27 +6,30 @@ Click cart icon to go to cart page and check cart page title
     [Documentation]    กดคลิ้กไอคอนตะกร้าสินค้าและตรวจสอบว่าอยู่หน้าตะกร้าสินค้าแล้ว
     product_list_page.Click cart icon to go to cart page
     cart_page.Check cart page title
-    
+
 Remove product item from cart by click remove button
     [Documentation]    ลบสินค้าออกจากตะกร้าโดยการกดปุ่มลบสินค้า
     [Arguments]    ${product_name}
     cart_page.Click remove one item from cart    product_name=${product_name}
 
-Verify one item detail at cart page
-    [Documentation]    ตรวจสอบรายละเอียดสินค้าหนึ่งชิ้นในตะกร้า
-    [Arguments]    ${product} 
-    cart_page.Verify Specific Product Detail In Cart
-    ...    name=${product['product_name']}
-    ...    price=${product['product_price']}
-    ...    description=${product['product_description']}
-
-Verify multiple items in cart
+Verify items in cart
     [Documentation]    ตรวจสอบรายละเอียดสินค้าหลายชิ้นตามรายการใน List
-    [Arguments]    ${product_key}
-    @{expected_item}=    Create product item list    product_key=${product_key}
-    FOR    ${item}    IN    @{expected_item}
-        cart_page.Verify Specific Product Detail In Cart
+    [Arguments]    ${multiple_item_list}
+    FOR    ${item}    IN    @{multiple_item_list}
+        cart_page.Verify product name in cart
+        ...    name=${item['product_name']}
+        cart_page.Verify product description in cart
+        ...    name=${item['product_name']}
+        ...    description=${item['product_description']}
+        cart_page.Verify product price in cart
         ...    name=${item['product_name']}
         ...    price=${item['product_price']}
-        ...    description=${item['product_description']}
     END
+
+Verify items in cart should fail
+    [Documentation]    ตรวจสอบรายละเอียดสินค้าหลายชิ้นตามรายการใน List และผลทดสอบไม่สำเร็จ
+    [Arguments]    ${multiple_item_list}
+    ${status}=    BuiltIn.Run Keyword And Return Status
+    ...    Verify items in cart
+    ...    multiple_item_list=${multiple_item_list}
+    IF    ${status}    BuiltIn.Fail
