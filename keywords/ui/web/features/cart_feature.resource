@@ -12,18 +12,10 @@ Remove product item from cart by click remove button
     [Arguments]    ${product_name}
     cart_page.Click remove one item from cart    product_name=${product_name}
 
-Verify one item detail at cart page
-    [Documentation]    ตรวจสอบรายละเอียดสินค้าหนึ่งชิ้นในตะกร้า
-    [Arguments]    ${product} 
-    cart_page.Verify Specific Product Detail In Cart
-    ...    name=${product['product_name']}
-    ...    price=${product['product_price']}
-    ...    description=${product['product_description']}
-
-Verify Multiple Items In Cart
+Verify items in cart
     [Documentation]    ตรวจสอบรายละเอียดสินค้าหลายชิ้นตามรายการใน List
-    [Arguments]    ${expected_item}
-    FOR    ${item}    IN    @{expected_item}
+    [Arguments]    ${multiple_item_list}   
+    FOR    ${item}    IN    @{multiple_item_list}  
         cart_page.Verify Specific Product Detail In Cart
         ...    name=${item['product_name']}
         ...    price=${item['product_price']}
