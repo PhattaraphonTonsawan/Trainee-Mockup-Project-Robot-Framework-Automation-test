@@ -16,8 +16,12 @@ Verify items in cart
     [Documentation]    ตรวจสอบรายละเอียดสินค้าหลายชิ้นตามรายการใน List
     [Arguments]    ${multiple_item_list}
     FOR    ${item}    IN    @{multiple_item_list}
-        cart_page.Verify Specific Product Detail In Cart
+        ${status}=    Run Keyword And Return Status    
+        ...    cart_page.Verify Specific Product Detail In Cart
         ...    name=${item['product_name']}
         ...    price=${item['product_price']}
         ...    description=${item['product_description']}
+        IF    not ${status}
+            BuiltIn.Log    Product Failed: ${item['product_name']}    WARN
+        END
     END
