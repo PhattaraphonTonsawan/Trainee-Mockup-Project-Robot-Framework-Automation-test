@@ -33,11 +33,8 @@ Confirm checkout error
     ...    checkout overview แต่เมื่อกดปุ่ม finish จะไม่สามารถไปยังหน้าต่อไปได้
     [Arguments]    ${product_list}
     checkout_overview_page.Check page title
-    Check all product titles in the page    product_list=${product_list}
+    Check all product titles in the page    product_list=@{product_list}
     ${cart_price}=    checkout_feature.Get all product price
-    ${tax}=    checkout_overview_page.Get item tax
-    ${cart_price_with_tax}=    BuiltIn.Evaluate    ${cart_price} + ${tax}
-    ${page_total_price}=    checkout_overview_page.Get total price
-    BuiltIn.Should Be Equal    ${cart_price_with_tax}    ${page_total_price}
+    checkout_feature.Compare total price    items_price=${cart_price}
     checkout_overview_page.Click finish button
-    checkout_complete_page.Check page title
+    checkout_overview_page.Check page title
