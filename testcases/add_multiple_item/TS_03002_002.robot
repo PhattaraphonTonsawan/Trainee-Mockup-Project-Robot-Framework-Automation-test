@@ -16,5 +16,5 @@ TS_03002_002
     @{product_name}=    product_list_feature.Add products to cart    target_product_keys=@{product}
     # ตรวจสอบว่าอยู่หน้า cart สำเร็จ
     cart_feature.Click cart icon to go to cart page and check cart page title
-    # ตรวจสอบรายละเอียดสินค้าที่เพิ่มมาที่ตะกร้า
+    # ตรวจสอบรายละเอียดสินค้าที่เพิ่มมาที่ตะกร้าในกรณีไม่สามารถเพิ่มสินค้าได้ครบ
     cart_feature.Verify items in cart should fail   multiple_item_list=${product_name}
