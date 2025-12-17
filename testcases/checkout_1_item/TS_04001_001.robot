@@ -13,7 +13,8 @@ TS_04001_001
     # ตรวจสอบว่าอยู่หน้า product list สำเร็จ
     product_list_page.Check product list page title
     # เพิ่มสินค้าหนึ่งชิ้นลงตะกร้า
-    @{product_list}=    product_list_feature.Add products to cart    Sauce Labs Backpack
+    @{product_list}=    product_list_feature.Add products to cart
+    ...    target_product_keys=${testdata['ts_04001']['test_product']}
     # ตรวจสอบว่าอยู่หน้า cart สำเร็จ
     cart_feature.Click cart icon to go to cart page and check cart page title
     # ตรวจสอบรายละเอียดสินค้าที่เพิ่มมาที่ตะกร้า

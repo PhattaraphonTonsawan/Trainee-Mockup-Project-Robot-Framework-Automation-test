@@ -29,30 +29,32 @@ dropdown_list:
   price_lo_to_hi: Price (low to high)
   price_hi_to_lo: Price (high to low)   
 product:
-  Sauce Labs Backpack: 
+  sauce_labs_backpack: 
     product_name: Sauce Labs Backpack
     product_description: carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.    
     product_price: $29.99
-  Sauce Labs Bike Light: 
+  sauce_labs_bike_light: 
     product_name: Sauce Labs Bike Light
     product_description: A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
     product_price: $9.99
-  Sauce Labs Bolt T-Shirt: 
+  sauce_labs_bolt_t-shirt: 
     product_name: Sauce Labs Bolt T-Shirt
     product_description: Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.
     product_price: $15.99
-  Sauce Labs Fleece Jacket:
+  sauce_labs_fleece_jacket:
     product_name: Sauce Labs Fleece Jacket
     product_description: It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.
     product_price: $49.99
-  Sauce Labs Onesie:
+  sauce_labs_onesie:
     product_name: Sauce Labs Onesie
     product_description: Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.
     product_price: $7.99
-  Test.allTheThings() T-Shirt (Red):
+  test.allthethings()_t-shirt_(red):
     product_name: Test.allTheThings() T-Shirt (Red)
     product_description: This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.
     product_price: $15.99
-
-
-
+testdata:
+  ts_03001:
+    test_product: sauce_labs_backpack
+  ts_04001:
+    test_product: sauce_labs_backpack
