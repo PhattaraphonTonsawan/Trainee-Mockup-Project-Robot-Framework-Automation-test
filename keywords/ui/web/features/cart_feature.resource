@@ -26,7 +26,7 @@ Verify items in cart
         ...    price=${item['product_price']}
     END
 
-Verify Items In Cart Should Fail
+Verify items in cart should fail
     [Documentation]    ตรวจสอบรายละเอียดสินค้าหลายชิ้นตามรายการใน List และผลทดสอบไม่สำเร็จ
     [Arguments]    ${multiple_item_list}
     ${status}=    BuiltIn.Run Keyword And Return Status
