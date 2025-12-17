@@ -6,7 +6,7 @@ Click cart icon to go to cart page and check cart page title
     [Documentation]    กดคลิ้กไอคอนตะกร้าสินค้าและตรวจสอบว่าอยู่หน้าตะกร้าสินค้าแล้ว
     product_list_page.Click cart icon to go to cart page
     cart_page.Check cart page title
-    
+
 Remove product item from cart by click remove button
     [Documentation]    ลบสินค้าออกจากตะกร้าโดยการกดปุ่มลบสินค้า
     [Arguments]    ${product_name}
@@ -14,8 +14,8 @@ Remove product item from cart by click remove button
 
 Verify items in cart
     [Documentation]    ตรวจสอบรายละเอียดสินค้าหลายชิ้นตามรายการใน List
-    [Arguments]    ${multiple_item_list}   
-    FOR    ${item}    IN    @{multiple_item_list}  
+    [Arguments]    ${multiple_item_list}
+    FOR    ${item}    IN    @{multiple_item_list}
         cart_page.Verify Specific Product Detail In Cart
         ...    name=${item['product_name']}
         ...    price=${item['product_price']}
