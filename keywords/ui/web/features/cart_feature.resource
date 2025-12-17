@@ -16,8 +16,20 @@ Verify items in cart
     [Documentation]    ตรวจสอบรายละเอียดสินค้าหลายชิ้นตามรายการใน List
     [Arguments]    ${multiple_item_list}
     FOR    ${item}    IN    @{multiple_item_list}
-        cart_page.Verify Specific Product Detail In Cart
+        cart_page.Verify product name in cart
+        ...    name=${item['product_name']}
+        cart_page.Verify product description in cart
+        ...    name=${item['product_name']}
+        ...    description=${item['product_description']}
+        cart_page.Verify product price in cart
         ...    name=${item['product_name']}
         ...    price=${item['product_price']}
-        ...    description=${item['product_description']}
     END
+
+Verify items in cart should fail
+    [Documentation]    ตรวจสอบรายละเอียดสินค้าหลายชิ้นตามรายการใน List และผลทดสอบไม่สำเร็จ
+    [Arguments]    ${multiple_item_list}
+    ${status}=    BuiltIn.Run Keyword And Return Status
+    ...    Verify items in cart
+    ...    multiple_item_list=${multiple_item_list}
+    IF    ${status}    BuiltIn.Fail

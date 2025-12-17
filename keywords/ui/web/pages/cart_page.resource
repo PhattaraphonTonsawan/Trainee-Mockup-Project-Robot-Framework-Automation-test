@@ -24,22 +24,30 @@ Click go to checkout button
     [Documentation]    กดปุ่ม Checkout เพื่อสรุปราคาสินค้าทั้งหมด
     common_web.Click element when ready    locator=${cart_page_locator['btn_checkout']}
 
-Verify specific product detail in cart
-    [Documentation]    ตรวจสอบรายการสินค้าที่ถูกเพิ่มเข้าในตะกร้าโดยตรวจสอบ ชื่อ คำอธิบายสินค้า และ ราคา
-    [Arguments]    ${name}    ${price}    ${description}
+Verify product name in cart
+    [Documentation]    ตรวจสอบชื่อสินค้าที่ถูกเพิ่มเข้าในตะกร้า
+    [Arguments]    ${name}
     ${replace_locator_product_name}=    common_web.Replace locator and wait until element visible
     ...    locator=${cart_page_locator['lbl_item_name']}
     ...    replace_text=${name}
+    common_web.Scroll into element and wait until element visible    locator=${replace_locator_product_name}
+
+Verify product description in cart
+    [Documentation]    ตรวจสอบคำอธิบายสินค้าที่ถูกเพิ่มเข้าในตะกร้า
+    [Arguments]    ${name}    ${description}
     ${replace_locator_product_description}=    common_web.Replace locator and wait until element visible
     ...    locator=${cart_page_locator['lbl_item_description']}
     ...    replace_text=${name}
-    ${replace_locator_product_price}=    common_web.Replace locator and wait until element visible
-    ...    locator=${cart_page_locator['lbl_item_price']}
-    ...    replace_text=${name}
-    common_web.Scroll into element and wait until element visible    locator=${replace_locator_product_name}
     common_web.Check element text when visible
     ...    locator=${replace_locator_product_description}
     ...    text=${description}
+
+Verify product price in cart
+    [Documentation]    ตรวจสอบคำอธิบายสินค้าที่ถูกเพิ่มเข้าในตะกร้า
+    [Arguments]    ${name}    ${price}
+    ${replace_locator_product_description}=    common_web.Replace locator and wait until element visible
+    ...    locator=${cart_page_locator['lbl_item_description']}
+    ...    replace_text=${name}
     common_web.Check element text when visible
-    ...    locator=${replace_locator_product_price}
+    ...    locator=${replace_locator_product_description}
     ...    text=${price}
