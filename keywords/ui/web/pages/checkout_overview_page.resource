@@ -11,9 +11,9 @@ Check page title
 Check product item title
     [Documentation]    ตรวจสอบชื่อสินค้าที่ปรากฏบนหน้า
     [Arguments]    ${item_name}
-    ${replace_locator_product_name}=    common_web.Replace locator and wait until element visible    
-    ...    locator=${checkout_overview_page_locator['txt_item_name']}    
-    ...    target_text=***replace*** 
+    ${replace_locator_product_name}=    common_web.Replace locator and wait until element visible
+    ...    locator=${checkout_overview_page_locator['txt_item_name']}
+    ...    target_text=***replace***
     ...    replace_text=${item_name}
     common_web.Check element text when visible
     ...    locator=${replace_locator_product_name}
