@@ -2,25 +2,20 @@
 Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
-Add one item to cart
-    [Documentation]    เพิ่มสินค้า 1 รายการ (เช่น Sauce Labs Backpack) ลงในตะกร้า
-    [Arguments]    ${product_name}
-    product_list_page.Click add one item to cart    product_name=${product_name}
-    RETURN    ${product_name}
-
-Add multiple products to cart
+Add products to cart
     [Documentation]    เพิ่มสินค้าหลายรายการลงในตะกร้าโดยใช้ลิสต์สินค้าที่กำหนด
-    @{product_name_list}=    Create product item list
-    FOR    ${product_name}    IN    @{product_name_list}
-        product_list_page.Click add one item to cart    ${product_name['product_name']}
+    [Arguments]    @{target_product_keys}
+    @{product_data_list}=    Create product item list    @{target_product_keys}
+    FOR    ${item_data}    IN    @{product_data_list}
+        product_list_page.Click add one item to cart    ${item_data['product_name']}
     END
-    RETURN    ${product_name_list}
+    RETURN    ${product_data_list}
 
 Create product item list
     [Documentation]    สร้างและส่งคืนลิสต์ชื่อสินค้าทั้งหมดจาก dictionary ของสินค้า
-    ${product_list}=    Collections.Get Dictionary Keys    ${product}
-    ${product_name_list}=    BuiltIn.Create List
-    FOR    ${product_item}    IN    @{product_list}
-        Collections.Append To List    ${product_name_list}    ${product['${product_item}']}
+    [Arguments]    @{target_keys}
+    ${product_list}=    BuiltIn.Create List
+    FOR    ${key}    IN    @{target_keys}
+        Collections.Append To List    ${product_list}    ${product['${key}']}
     END
-    RETURN    ${product_name_list}
+    RETURN    ${product_list}
