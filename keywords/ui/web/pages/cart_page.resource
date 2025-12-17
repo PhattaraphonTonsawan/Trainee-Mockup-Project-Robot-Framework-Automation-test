@@ -13,8 +13,7 @@ Click remove one item from cart
     [Arguments]    ${product_name}
     ${replace_locator}=    common_web.Replace locator and wait until element visible
     ...    locator=${cart_page_locator['btn_remove_item']}
-    ...    target_text=${product_name}
-    ...    replace_text=***replace***
+    ...    replace_text=${product_name}
     common_web.Click element when ready    locator=${replace_locator}
 
 Click back to shopping button
@@ -30,7 +29,6 @@ Verify product name in cart
     [Arguments]    ${name}
     ${replace_locator_product_name}=    common_web.Replace locator and wait until element visible
     ...    locator=${cart_page_locator['lbl_item_name']}
-    ...    target_text=***replace***
     ...    replace_text=${name}
     common_web.Scroll into element and wait until element visible    locator=${replace_locator_product_name}
 
@@ -39,7 +37,6 @@ Verify product description in cart
     [Arguments]    ${name}    ${description}
     ${replace_locator_product_description}=    common_web.Replace locator and wait until element visible
     ...    locator=${cart_page_locator['lbl_item_description']}
-    ...    target_text=***replace***
     ...    replace_text=${name}
     common_web.Check element text when visible
     ...    locator=${replace_locator_product_description}
