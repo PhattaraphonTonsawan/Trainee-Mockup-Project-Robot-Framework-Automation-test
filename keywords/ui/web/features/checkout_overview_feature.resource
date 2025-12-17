@@ -19,7 +19,7 @@ Confirm checkout with all item
     [Documentation]    ตรวจสอบขั้นตอนการสั่งซื้อว่าหัวข้อหน้า checkout overview
     ...    แสดงขึ้นมาแล้วเช็คชื่อสินค้าทุกชิ้นในตะกร้าจากนั้นเทียบราคาจริงกับราคาที่แสดงบนหน้า
     ...    checkout overview แล้วไปที่หน้า checkout complete
-    [Arguments]    @{product_list}
+    [Arguments]    ${product_list}
     checkout_overview_page.Check page title
     Check all product titles in the page    product_list=@{product_list}
     ${cart_price}=    checkout_feature.Get all product price
