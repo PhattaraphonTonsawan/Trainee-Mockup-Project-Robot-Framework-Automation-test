@@ -16,7 +16,8 @@ Check all product titles in the page
     END
 
 Confirm checkout with all item
-    [Documentation]    ตรวจสอบขั้นตอนการสั่งซื้อว่าหัวข้อหน้า checkout overview
+    [Documentation]
+    ...    ตรวจสอบขั้นตอนการสั่งซื้อว่าหัวข้อหน้า checkout overview
     ...    แสดงขึ้นมาแล้วเช็คชื่อสินค้าทุกชิ้นในตะกร้าจากนั้นเทียบราคาจริงกับราคาที่แสดงบนหน้า
     ...    checkout overview แล้วไปที่หน้า checkout complete
     [Arguments]    ${product_list}
@@ -28,7 +29,8 @@ Confirm checkout with all item
     checkout_complete_page.Check page title
 
 Confirm checkout error
-    [Documentation]    ตรวจสอบขั้นตอนการสั่งซื้อว่าหัวข้อหน้า checkout overview
+    [Documentation]
+    ...    ตรวจสอบขั้นตอนการสั่งซื้อว่าหัวข้อหน้า checkout overview
     ...    แสดงขึ้นมาแล้วเช็คชื่อสินค้าทุกชิ้นในตะกร้าจากนั้นเทียบราคาจริงกับราคาที่แสดงบนหน้า
     ...    checkout overview แต่เมื่อกดปุ่ม finish จะไม่สามารถไปยังหน้าต่อไปได้
     [Arguments]    ${product_list}
