@@ -51,3 +51,7 @@ Verify product price in cart
     common_web.Check element text when visible
     ...    locator=${replace_locator_product_price}
     ...    text=${price}
+
+Verify the cart is empty
+    [Documentation]    ตรวจสอบว่าตะกร้าสินค้านั้นว่างเปล่า
+    common_web.Wait and verify element not visible    locator=${cart_page_locator['lbl_cart_badge']}
