@@ -19,6 +19,6 @@ TS_04002_002
     # ตรวจสอบรายละเอียดสินค้าที่เพิ่มมาที่ตะกร้าในกรณีไม่สามารถเพิ่มสินค้าได้ครบ
     cart_feature.Verify items in cart should fail   multiple_item_list=${product_list}
     # ไปที่หน้า customer information
-    cart_page.Click go to checkout button
+    cart_page.Click checkout button
     # ตรวจสอบว่าอยู่หน้า customer information กรอกข้อมูลครบแต่นามสกุลไม่ขึ้นในช่องกรอกนามสกุลและขึ้น error
     customer_information_feature.Input every fields and last name error
