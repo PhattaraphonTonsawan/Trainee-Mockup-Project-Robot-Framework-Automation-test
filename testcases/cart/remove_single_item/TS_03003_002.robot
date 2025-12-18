@@ -3,13 +3,13 @@ Resource    ${CURDIR}/../../../resources/import.resource
 Test Teardown    common_web.Close all browser
 
 *** Test Cases ***
-TS_03003_001
-    [Documentation]    ทดสอบลบสินค้าออกจากตะกร้า 1 ชิ้นโดยใช้บัญชี standard_user
-    [Tags]    F_0003    TS_03003    TS_03003_001    remove_single_item     standard_user
+TS_03003_002
+    [Documentation]    ทดสอบลบสินค้าออกจากตะกร้า 1 ชิ้นโดยใช้บัญชี problem_user
+    [Tags]    F_0003    TS_03003    TS_03003_002    remove_single_item     problem_user
     # เปิดหน้า login และตรวจสอบหน้า login เปิดสำเร็จ
     login_feature.Open website and login with username and password
-    ...    username=${account['standard_user']['username']}
-    ...    password=${account['standard_user']['password']}
+    ...    username=${account['problem_user']['username']}
+    ...    password=${account['problem_user']['password']}
     # ตรวจสอบว่าอยู่หน้า product list สำเร็จ
     product_list_page.Check product list page title
     # เพิ่มสินค้าหนึ่งชิ้นลงตะกร้า
