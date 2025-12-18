@@ -5,7 +5,7 @@ Test Teardown    common_web.Close all browser
 *** Test Cases ***
 TS_04001_001
     [Documentation]    สั่งซื้อสินค้าได้ 1 ชิ้นสำเร็จโดยใช้ บัญชีผู้ใช้ standard_user
-    [Tags]    F_0004    TS_04001    TS_04001_001    checkout_1_item    standard_users
+    [Tags]    F_0004    TS_04001    TS_04001_001    checkout_1_item    standard_user
     # เปิดหน้า login และตรวจสอบหน้า login เปิดสำเร็จ
     login_feature.Open website and login with username and password
     ...    username=${account['standard_user']['username']}
@@ -20,7 +20,7 @@ TS_04001_001
     # ตรวจสอบรายละเอียดสินค้าที่เพิ่มมาที่ตะกร้า
     cart_feature.Verify items in cart    multiple_item_list=${product_list}
     # ไปที่หน้า customer information
-    cart_page.Click checkout button and continue to customer information page
+    cart_page.Click checkout button
     # ตรวจสอบว่าอยู่หน้า customer information กรอกข้อมูลครบแล้วไปยังหน้า checkout overview
     customer_information_feature.Input every fields and proceed to checkout overview page
     # ตรวจสอบว่าอยู่หน้า checkout overview และสามารถ checkout ได้สำเร็จด้วยสินค้า 1 ชิ้น
