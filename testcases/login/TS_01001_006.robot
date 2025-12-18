@@ -12,9 +12,9 @@ TS_01001_006
     login_feature.Wait until login element is ready
     # กรอก username และตรวจสอบ value หลังกรอก
     login_feature.Input username and verify value in username box
-    ...    username=${account['visual_user']['username']}
+    ...    username=${account['visual user']['username']}
     # กรอก password และตรวจสอบ value หลังกรอก
     login_feature.Input password and verify value in password box
-    ...    password=${account['visual_user']['password']}
+    ...    password=${account['visual user']['password']}
     # กดปุ่ม login และเปิดหน้า product list สำเร็จ
     login_feature.Click login button and wait for product list page loaded

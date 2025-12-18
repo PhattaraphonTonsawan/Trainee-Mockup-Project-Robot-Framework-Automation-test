@@ -9,8 +9,9 @@ Click login button and wait for product list page loaded
     product_list_page.Check product list page title
 
 Click login button and wait for login error message
-    [Documentation]    กดปุ่ม Login และรอจนกว่าหน้า login จะแสดงข้อความ error
+    [Documentation]    กดปุ่ม Login และรอจนกว่าหน้า login จะแสดงข้อความ error 
     login_page.Click login button
+    product_list_page.Wait until page loaded
     login_page.Wait until login error message appears
 
 Input username and verify value in username box
@@ -25,7 +26,7 @@ Input password and verify value in password box
     login_page.Input password    password=${password}
     login_page.Verify value in password box    password=${password}
 
-Open login page and login as user using username password
+Open login page and login to product list page
     [Documentation]    เปิดหน้า Login และเข้าสู่ระบบด้วย Username และ Password จากนั้นไปยังหน้า Product List
     [Arguments]    ${username}    ${password}
     Open login page and wait until page loaded

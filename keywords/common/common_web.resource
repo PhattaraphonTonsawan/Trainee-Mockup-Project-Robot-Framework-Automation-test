@@ -38,8 +38,8 @@ Open web browser and maximize window
     [Arguments]    ${url}    ${is_headless}=${web_config['headless_mode']}
     ${chrome_options}=    BuiltIn.Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     BuiltIn.Call Method    ${chrome_options}    add_argument    --incognito
-    ${prefs}=    BuiltIn.Create Dictionary
-    ...    credentials_enable_service=${False}
+    ${prefs}=    BuiltIn.Create Dictionary    
+    ...    credentials_enable_service=${False}    
     ...    profile.password_manager_enabled=${False}
     BuiltIn.Call Method    ${chrome_options}    add_experimental_option    prefs    ${prefs}
     IF    ${is_headless}
@@ -47,6 +47,7 @@ Open web browser and maximize window
     ELSE
         SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['gui']}    options=${chrome_options}
     END
+    
     SeleniumLibrary.Maximize Browser Window
 
 Replace locator and wait until element visible
@@ -64,7 +65,7 @@ Select dropdown option when ready
     Scroll into element and wait until element ready    locator=${locator}
     SeleniumLibrary.Select From List By Value    ${locator}    ${option}
 
-Capture page screenshot with timestamp
+Screenshot page
     [Documentation]    บันทึกภาพหน้าจอโดยตั้งชื่อไฟล์ตาม timestamp เพื่อหลีกเลี่ยงไฟล์ชื่อซ้ำ และส่งคืน path ของไฟล์
     [Arguments]    ${file_prefix}=screenshot
     ${timestamp}=    DateTime.Get Current Date    result_format=%Y%m%d_%H%M%S
