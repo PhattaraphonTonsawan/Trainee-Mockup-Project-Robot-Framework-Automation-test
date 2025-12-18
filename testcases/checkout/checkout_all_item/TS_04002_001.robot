@@ -5,7 +5,7 @@ Test Teardown    common_web.Close all browser
 *** Test Cases ***
 TS_04002_001
     [Documentation]    สั่งซื้อสินค้าทุกชิ้นสำเร็จโดยใช้ บัญชีผู้ใช้ standard_user
-    [Tags]    F_0004    TS_04002    TS_04002_001    checkout_all_item    standard_users
+    [Tags]    F_0004    TS_04002    TS_04002_001    checkout_all_item    standard_user
     # เปิดหน้า login และตรวจสอบหน้า login เปิดสำเร็จ
     login_feature.Open website and login with username and password
     ...    username=${account['standard_user']['username']}
