@@ -20,7 +20,7 @@ Click back to shopping button
     [Documentation]    กดปุ่มย้อนกลับไปเลือกซื้อสินค้าต่อ
     common_web.Click element when ready    locator=${cart_page_locator['btn_back_to_shopping']}
 
-Click go to checkout button
+Click checkout button
     [Documentation]    กดปุ่ม Checkout เพื่อสรุปราคาสินค้าทั้งหมด
     common_web.Click element when ready    locator=${cart_page_locator['btn_checkout']}
 
