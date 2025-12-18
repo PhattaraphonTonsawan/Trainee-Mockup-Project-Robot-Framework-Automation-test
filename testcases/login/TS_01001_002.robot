@@ -4,7 +4,7 @@ Test Teardown    common_web.Close all browser
 
 *** Test Cases ***
 TS_01001_002
-    [Documentation]    Verifies that the locked out user can't login and access the Product List page. 
+    [Documentation]    Verifies that the locked out user can't login and access the Product List page.
     [Tags]    F_0001    TS_01001    TS_01001_002    login    locked_out_user
     # เปิดหน้า login และตรวจสอบหน้า login เปิดสำเร็จ
     login_feature.Open login page and wait until page loaded
