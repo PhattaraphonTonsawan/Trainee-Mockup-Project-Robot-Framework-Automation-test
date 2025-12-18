@@ -54,4 +54,4 @@ Verify product price in cart
 
 Verify the cart is empty
     [Documentation]    ตรวจสอบว่าตะกร้าสินค้านั้นว่างเปล่า
-    common_web.Wait and verify element not visible    locator=${cart_page_locator['shopping_cart_bage']}
+    common_web.Wait and verify element not visible    locator=${cart_page_locator['lbl_cart_badge']}
