@@ -20,7 +20,7 @@ TS_04001_003
     # ตรวจสอบรายละเอียดสินค้าที่เพิ่มมาที่ตะกร้า
     cart_feature.Verify items in cart    multiple_item_list=${product_list}
     # ไปที่หน้า customer information
-    cart_page.Click go to checkout button
+    cart_page.Click checkout button and continue to customer information page
     # ตรวจสอบว่าอยู่หน้า customer information กรอกข้อมูลครบแล้วไปยังหน้า checkout overview
     customer_information_feature.Input every fields and proceed to checkout overview page
     # ตรวจสอบว่าอยู่หน้า checkout overview และสามารถ checkout ได้สำเร็จด้วยสินค้า 1 ชิ้น
