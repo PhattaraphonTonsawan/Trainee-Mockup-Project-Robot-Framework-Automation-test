@@ -2,7 +2,7 @@
 Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
-Click go to cart page and verify
+Click cart button and verify page loaded
     [Documentation]    กดคลิ้กไอคอนตะกร้าสินค้าและตรวจสอบว่าอยู่หน้าตะกร้าสินค้าแล้ว
     product_list_page.Click cart icon to go to cart page
     cart_page.Check cart page title
