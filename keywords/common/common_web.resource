@@ -93,3 +93,8 @@ Wait and verify element value
     Scroll into element and wait until element visible    locator=${locator}
     ${actual_value}=    SeleniumLibrary.Get Property    ${locator}    value
     BuiltIn.Should Be Equal    ${actual_value}    ${expected_value}    msg=Text input verification failed for ${locator}
+
+Wait and verify element not visible
+    [Documentation]    ตรวจสอบกรณี Element นั้นหายไป
+    [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
+    SeleniumLibrary.Wait Until Element Is Not Visible    locator=${locator}    timeout=${timeout}

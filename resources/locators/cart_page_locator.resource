@@ -9,3 +9,4 @@
 ...    lbl_item_name=xpath=//div[contains(@class,'inventory_item_name') and text()='***replace***']/ancestor::div[@class='cart_item_label']
 ...    lbl_item_description=xpath=//div[contains(@class,'inventory_item_name') and text()='***replace***']/ancestor::div[@class='cart_item_label']//div[@class='inventory_item_desc']
 ...    lbl_item_price=xpath=//div[contains(@class,'inventory_item_name') and text()='***replace***']/ancestor::div[@class='cart_item_label']//div[@class='inventory_item_price']
+...    lbl_cart_badge=xpath=//span[contains(@class,'shopping_cart_badge')]
