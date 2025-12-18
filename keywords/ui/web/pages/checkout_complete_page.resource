@@ -5,7 +5,7 @@ Resource    ${CURDIR}/../../../../resources/import.resource
 Check page title
     [Documentation]    ตรวจสอบว่าชื่อหน้าถูกต้องตามที่คาดหวังหรือไม่
     common_web.Check element text when visible
-    ...    locator=${checkout_complete_page_locator['page_title']}
+    ...    locator=${checkout_complete_page_locator['txt_page_title']}
     ...    text=${txt_checkout_complete_page['txt_title']}
 
 Check thank you message

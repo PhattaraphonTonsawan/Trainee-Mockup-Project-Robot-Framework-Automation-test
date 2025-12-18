@@ -22,7 +22,7 @@ Confirm checkout with all item
     ...    checkout overview แล้วไปที่หน้า checkout complete
     [Arguments]    ${product_list}
     checkout_overview_page.Check page title
-    Check all product titles in the page    product_list=@{product_list}
+    Check all product titles in the page    product_list=${product_list}
     ${cart_price}=    checkout_feature.Get all product price
     checkout_feature.Compare total price    items_price=${cart_price}
     checkout_overview_page.Click finish button
