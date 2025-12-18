@@ -56,3 +56,5 @@ product:
 testdata:
   ts_03001:
     test_product: sauce_labs_backpack
+  ts_04001:
+    test_product: sauce_labs_backpack
