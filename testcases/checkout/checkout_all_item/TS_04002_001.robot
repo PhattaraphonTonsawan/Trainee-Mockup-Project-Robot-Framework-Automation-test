@@ -22,7 +22,7 @@ TS_04002_001
     cart_page.Click checkout button
     # ตรวจสอบว่าอยู่หน้า customer information กรอกข้อมูลครบแล้วไปยังหน้า checkout overview
     customer_information_feature.Input every fields and proceed to checkout overview page
-    # ตรวจสอบว่าอยู่หน้า checkout overview และสามารถ checkout ได้สำเร็จด้วยสินค้า 1 ชิ้น
-    checkout_overview_feature.Confirm checkout with all item    ${product_list}
+    # ตรวจสอบว่าอยู่หน้า checkout overview และสามารถ checkout ได้สำเร็จด้วยสินค้าทุกชิ้น
+    checkout_overview_feature.Confirm checkout with all item    product_list=${product_list}
     # สามารถ checkout ได้สำเร็จและกลับมาที่หน้า product list ได้สำเร็จ
     checkout_complete_feature.Complete checkout and go to product list page
