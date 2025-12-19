@@ -24,4 +24,4 @@ TS_04001_004
     # ตรวจสอบว่าอยู่หน้า customer information กรอกข้อมูลครบแล้วไปยังหน้า checkout overview
     customer_information_feature.Input every fields and proceed to checkout overview page
     # ตรวจสอบว่าอยู่หน้า checkout overview และสามารถ checkout ได้สำเร็จด้วยสินค้า 1 ชิ้น
-    checkout_overview_feature.Confirm checkout with single item error    product_list=${product_list}
+    checkout_overview_feature.Confirm checkout with all item error    product_list=${product_list}

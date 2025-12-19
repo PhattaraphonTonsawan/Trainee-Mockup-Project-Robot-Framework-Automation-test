@@ -13,7 +13,8 @@ TS_03002_001
     # ตรวจสอบว่าอยู่หน้า product list สำเร็จ
     product_list_page.Check product list page title
     # เพิ่มสินค้าหลายชิ้นลงตะกร้า
-    @{product_name}=    product_list_feature.Add products to cart    target_product_keys=@{product}
+    @{product_name}=    product_list_feature.Add products to cart
+    ...    target_product_keys=@{testdata['ts_03002']['test_product']}
     # ตรวจสอบว่าอยู่หน้า cart สำเร็จ
     cart_feature.Click cart button and verify page loaded
     # ตรวจสอบรายละเอียดสินค้าที่เพิ่มมาที่ตะกร้า

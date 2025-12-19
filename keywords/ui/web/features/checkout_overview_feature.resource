@@ -16,7 +16,7 @@ Check all product titles in the page
     END
 
 Check all product titles in the page should fail
-    [Documentation]    รวจสอบว่ามีชื่อสินค้าทุกชิ้นแสดงอยู่ในหน้า checkout overview และผลทดสอบไม่สำเร็จ
+    [Documentation]    ตรวจสอบว่ามีชื่อสินค้าทุกชิ้นแสดงอยู่ในหน้า checkout overview และผลทดสอบไม่สำเร็จ
     [Arguments]    ${product_list}
     ${status}=    BuiltIn.Run Keyword And Return Status    Check all product titles in the page
     ...    product_list=${product_list}

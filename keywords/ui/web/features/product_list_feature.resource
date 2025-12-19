@@ -14,6 +14,14 @@ Add products to cart
 Create product item list
     [Documentation]    สร้างและส่งคืนลิสต์ชื่อสินค้าทั้งหมดจาก dictionary ของสินค้า
     [Arguments]    ${target_keys}
+    ${product_type}=    Collections.Get Dictionary Keys    ${product}
+    ${product_category}=    BuiltIn.Create Dictionary
+    FOR    ${type}    IN    @{product_type}
+        ${item_list}=    Collections.Get Dictionary Keys    ${product['${type}']}
+        FOR    ${property}    IN    @{item_list}
+            Collections.Set To Dictionary    ${product_category}    ${property}=${product['${type}']['${property}']}
+        END
+    END
     ${is_string}=    BuiltIn.Evaluate    isinstance($target_keys, str)
     IF    ${is_string}
         ${keys_list}=    BuiltIn.Create List   ${target_keys}
@@ -22,6 +30,6 @@ Create product item list
     END
     ${product_list}=    BuiltIn.Create List
     FOR    ${key}    IN    @{keys_list}
-        Collections.Append To List    ${product_list}    ${product['${key}']}
+        Collections.Append To List    ${product_list}    ${product_category['${key}']}
     END
     RETURN    ${product_list}
