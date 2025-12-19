@@ -26,7 +26,6 @@ Input every fields and last name error
 Verify error when firstname is missing
     [Documentation]    กรอกเฉพาะนามสกุลและรหัสไปรษณีย์/ซิปโค้ด ทำให้เกิดข้อความแจ้งเตือนชื่อผู้ใช้หายไป
     customer_information_page.Check page title
-    customer_information_page.Input first name    first_name=${credentials['firstname']}
     customer_information_page.Input last name    last_name=${credentials['lastname']}
     customer_information_page.Input zip or postal code    zip_code=${credentials['zipcode']}
     customer_information_page.Click continue button
