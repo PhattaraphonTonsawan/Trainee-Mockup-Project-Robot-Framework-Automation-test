@@ -15,6 +15,13 @@ Check all product titles in the page
         checkout_overview_page.Check product item title    item_name=${item['product_name']}
     END
 
+Check all product titles in the page should fail
+    [Documentation]    ตรวจสอบว่ามีชื่อสินค้าทุกชิ้นแสดงอยู่ในหน้า checkout overview และผลทดสอบไม่สำเร็จ
+    [Arguments]    ${product_list}
+    ${status}=    BuiltIn.Run Keyword And Return Status    Check all product titles in the page
+    ...    product_list=${product_list}
+    IF    ${status}    BuiltIn.Fail
+
 Confirm checkout with all item
     [Documentation]
     ...    ตรวจสอบขั้นตอนการสั่งซื้อว่าหัวข้อหน้า checkout overview
@@ -28,14 +35,14 @@ Confirm checkout with all item
     checkout_overview_page.Click finish button
     checkout_complete_page.Check page title
 
-Confirm checkout error
+Confirm checkout with error
     [Documentation]
     ...    ตรวจสอบขั้นตอนการสั่งซื้อว่าหัวข้อหน้า checkout overview
     ...    แสดงขึ้นมาแล้วเช็คชื่อสินค้าทุกชิ้นในตะกร้าจากนั้นเทียบราคาจริงกับราคาที่แสดงบนหน้า
     ...    checkout overview แต่เมื่อกดปุ่ม finish จะไม่สามารถไปยังหน้าต่อไปได้
     [Arguments]    ${product_list}
     checkout_overview_page.Check page title
-    Check all product titles in the page    product_list=${product_list}
+    Check all product titles in the page should fail    product_list=${product_list}
     ${cart_price}=    checkout_feature.Get all product price
     checkout_feature.Compare total price    items_price=${cart_price}
     checkout_overview_page.Click finish button
