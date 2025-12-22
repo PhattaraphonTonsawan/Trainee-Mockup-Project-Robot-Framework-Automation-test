@@ -53,4 +53,5 @@ Verfiy products are sorted by price from high to low
     ${default_list}=    product_list_page.Get product price list from page
     ${expected_list}=    Collections.Copy List    list_=${default_list}
     Collections.Sort List    list_=${expected_list}
+    Collections.Reverse List    list_=${expected_list}
     Collections.Lists Should Be Equal    list1=${default_list}    list2=${expected_list}
