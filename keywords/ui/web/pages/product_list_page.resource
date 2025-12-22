@@ -54,7 +54,7 @@ Select sort type option
     [Documentation]    เลือกรูปแบบการเรียงลำดับสินค้าจาก dropdown ตามค่าที่กำหนด
     [Arguments]    ${option}
     common_web.Select dropdown option when ready
-    ...    locator=${product_list_page_locator['btn_sort_dropdown']}
+    ...    locator=${product_list_page_locator['btn_sort_ddl']}
     ...    option=${option}
 
 Wait until page loaded
