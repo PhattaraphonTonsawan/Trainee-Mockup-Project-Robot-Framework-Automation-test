@@ -6,7 +6,6 @@ Automated web testing project for SauceDemo using Robot Framework + Browser (Pla
 
 - Python >= 3.x
 - pip >= 21.x
-- Node >= 16.x
 
 ### Installation
 
@@ -34,12 +33,6 @@ Automated web testing project for SauceDemo using Robot Framework + Browser (Pla
 
    ```sh
    pip install -r requirements.txt
-   ```
-
-4. **Initialize Robot Framework Browser:**
-
-   ```sh
-   rfbrowser init
    ```
 
 ### Command Run Test
