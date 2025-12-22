@@ -25,3 +25,32 @@ Create product item list
         Collections.Append To List    ${product_list}    ${product['${key}']}
     END
     RETURN    ${product_list}
+
+Verify products are sorted by name from a to z
+    [Documentation]    ตรวจสอบว่าสินค้าเรียงตามชื่อ A -> Z ถูกต้อง
+    ${default_list}=    product_list_page.Get product name list from page
+    ${expected_list}=    Collections.Copy List    list_=${default_list}
+    Collections.Sort List    list_=${expected_list}
+    Collections.Lists Should Be Equal    list1=${default_list}    list2=${expected_list}
+
+Verify products are sorted by name from z to a
+    [Documentation]    ตรวจสอบว่าสินค้าเรียงตามชื่อ z -> A ถูกต้อง
+    ${default_list}=    product_list_page.Get product name list from page
+    ${expected_list}=    Collections.Copy List    list_=${default_list}
+    Collections.Sort List    list_=${expected_list}
+    Collections.Reverse List    list_=${expected_list}
+    Collections.Lists Should Be Equal    list1=${default_list}    list2=${expected_list}
+
+Verfiy products are sorted by price from low to high
+    [Documentation]    ตรวจสอบว่าสินค้าเรียงตามราคา ต่ำ ไป สูง ถูกต้อง
+    ${default_list}=    product_list_page.Get product price list from page
+    ${expected_list}=    Collections.Copy List    list_=${default_list}
+    Collections.Sort List    list_=${expected_list}
+    Collections.Lists Should Be Equal    list1=${default_list}    list2=${expected_list}
+
+Verfiy products are sorted by price from high to low
+    [Documentation]    ตรวจสอบว่าสินค้าเรียงตามราคา สูง ไป ต่ำ ถูกต้อง
+    ${default_list}=    product_list_page.Get product price list from page
+    ${expected_list}=    Collections.Copy List    list_=${default_list}
+    Collections.Sort List    list_=${expected_list}
+    Collections.Lists Should Be Equal    list1=${default_list}    list2=${expected_list}
