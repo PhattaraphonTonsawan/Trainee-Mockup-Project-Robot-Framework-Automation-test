@@ -24,4 +24,4 @@ TS_04005_001
     # ตรวจสอบว่าอยู่หน้า customer information กรอกข้อมูลครบแล้วไปยังหน้า checkout overview
     customer_information_feature.Input every fields and proceed to checkout overview page
     # ยกเลิกการสั่งซื้อสินค้า
-    customer_information_feature.Press cancel at customer information page
+    checkout_overview_feature.Cancel checkout process

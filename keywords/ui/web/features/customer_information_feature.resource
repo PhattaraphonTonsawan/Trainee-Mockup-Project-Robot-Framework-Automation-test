@@ -56,8 +56,3 @@ Verify error when zip or postal code is missing
     common_web.Check element text when visible
     ...    locator=${customer_information_page_locator['txt_error_msg']}
     ...    text=${txt_customer_infomation_page['txt_missing_zip/postal_code']}
-
-Press cancel at customer information page
-    [Documentation]    ยกเลิกกระบวนการ Checkout โดยกดปุ่ม Cancel ที่หน้า Customer Information
-    customer_information_page.Check page title
-    customer_information_page.Click cancel button
