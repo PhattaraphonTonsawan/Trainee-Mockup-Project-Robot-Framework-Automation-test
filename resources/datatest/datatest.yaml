@@ -24,10 +24,10 @@ credentials:
   lastname: Dee
   zipcode: 55555
 dropdown_list:
-  a_to_z: Name (A to Z) 
-  z_to_a: Name (Z to A)
-  price_lo_to_hi: Price (low to high)
-  price_hi_to_lo: Price (high to low)   
+  a_to_z: az
+  z_to_a: za
+  price_lo_to_hi: lohi
+  price_hi_to_lo: hilo   
 product:
   sauce_labs_backpack: 
     product_name: Sauce Labs Backpack
