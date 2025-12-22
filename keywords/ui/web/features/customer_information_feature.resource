@@ -34,6 +34,18 @@ Verify error when firstname is missing
     ...    locator=${customer_information_page_locator['txt_error_msg']}
     ...    text=${txt_customer_infomation_page['txt_missing_first_name']}
 
+Verify error when lastname is missing
+    [Documentation]    กรอกเฉพาะนามสกุลและรหัสไปรษณีย์/ซิปโค้ด แต่นามกสุลไปขึ้นที่ชื่อจริงแทน
+    ...    ทำให้เกิดข้อความแจ้งเตือนนามสกุลผู้ใช้หายไป
+    customer_information_page.Check page title
+    customer_information_page.Input last name    last_name=${credentials['lastname']}
+    customer_information_page.Input zip or postal code    zip_code=${credentials['zipcode']}
+    customer_information_page.Click continue button
+    customer_information_page.Wait until error message appeared
+    common_web.Check element text when visible
+    ...    locator=${customer_information_page_locator['txt_error_msg']}
+    ...    text=${txt_customer_infomation_page['txt_missing_last_name']}
+
 Verify error when zip or postal code is missing
     [Documentation]    กรอกเฉพาะชื่อและนามสกุล ทำให้เกิดข้อความแจ้งเตือนรหัสไปรษณีย์/ซิปโค้ดหายไป
     customer_information_page.Check page title
