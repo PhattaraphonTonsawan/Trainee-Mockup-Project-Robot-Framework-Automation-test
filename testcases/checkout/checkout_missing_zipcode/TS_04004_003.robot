@@ -5,7 +5,7 @@ Test Teardown    common_web.Close all browser
 *** Test Cases ***
 TS_04004_003
     [Documentation]    สั่งซื้อสินค้าได้ 1 ชิ้นแต่ไม่กรอกรหัสไปรษณีย์โดยใช้ บัญชีผู้ใช้ performance_glitch_user
-    [Tags]    F_0004    TS_04003    TS_04004_001    checkout_missing_zipcode    performance_glitch_user
+    [Tags]    F_0004    TS_04003    TS_04004_003    checkout_missing_zipcode    performance_glitch_user
     # เปิดหน้า login และตรวจสอบหน้า login เปิดสำเร็จ
     login_feature.Open website and login with username and password
     ...    username=${account['performance_glitch_user']['username']}
