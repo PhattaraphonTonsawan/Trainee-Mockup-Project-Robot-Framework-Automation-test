@@ -1,6 +1,6 @@
 # robotframework-saucedemo-automation-tests
 
-Automated web testing project for SauceDemo using Robot Framework + Browser (Playwright) + Robocop. Covers login, add-to-cart, and checkout flows.
+Automated web testing project for SauceDemo using Robot Framework + Seleniume Framework + Robocop. Covers login, add-to-cart, and checkout flows.
 
 ### Prerequisites
 
@@ -53,12 +53,12 @@ robot -d reports/results -i <tag> .
 
 - F_0001 - Login with all username
 - F_0002 - Sorting product
-- F_0002 - Cart
+- F_0003 - Cart
   - Add 1 item to cart
   - Add multiple items and verify cart count
   - Remove item from cart
   - Open cart with empty cart
-- F_0003 - Checkout
+- F_0004 - Checkout
   - Order of 1 item completed successfully
   - Order all items completed successfully
   - Checkout with missing first name
