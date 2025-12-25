@@ -35,7 +35,7 @@ pipeline {
                         // ใช้ call activate แล้วตามด้วย & เพื่อให้คำสั่งทำงานต่อเนื่องใน session เดียวกัน
                         bat """
                             call venv\\Scripts\\activate
-                            robot -d reports\\results -v BROWSER:${params.BROWSER} ${tagCommand} .
+                            robot --dryrun -d reports\\results -v BROWSER:${params.BROWSER} ${tagCommand} .
                         """
                     }
                 }
