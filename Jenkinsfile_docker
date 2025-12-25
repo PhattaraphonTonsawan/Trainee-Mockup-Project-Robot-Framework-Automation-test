@@ -21,23 +21,14 @@ pipeline {
                 script {
                     echo 'Setting up Virtual Environment'
                     
-                    // --- แก้จุดที่ 1: เปลี่ยน Logic เช็คโฟลเดอร์เป็นแบบ Linux ---
-                    // Windows ใช้: if not exist
-                    // Linux ใช้: [ ! -d "venv" ]
+                    // แก้ไข: สั่งลบ venv เก่าทิ้งเสมอ ก่อนสร้างใหม่
                     sh '''
-                        if [ ! -d "venv" ]; then
-                            python3 -m venv venv
-                        fi
-                    '''
-
-                    // --- แก้จุดที่ 2: เปลี่ยน path จาก Scripts เป็น bin ---
-                    // Windows เก็บ python ไว้ใน venv\Scripts\
-                    // Linux เก็บ python ไว้ใน venv/bin/
-                    sh """
+                        rm -rf venv
+                        python3 -m venv venv
                         . venv/bin/activate
                         pip install --upgrade pip
                         pip install -r requirements.txt
-                    """
+                    '''
                 }
             }
         }
