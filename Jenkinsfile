@@ -1,5 +1,13 @@
 pipeline {
     agent any
+
+    triggers {
+        // เลือกเอาสักอันนะครับ หรือใส่ทั้งคู่ก็ได้
+        // 1. รันทุกวันตอนเที่ยงคืน (Nightly Test)
+        cron('0 0 * * *') 
+        // 2. หรือเช็ค Code ทุก 30 นาที
+        // pollSCM('H/30 * * * *')
+    }
     parameters {
         choice(name: 'BROWSER', choices: ['chrome', 'edge', 'firefox'], description: 'Select browser')
         string(name: 'INCLUDE_TAG', defaultValue: '', description: 'Specify tag to run (leave empty for all)')
