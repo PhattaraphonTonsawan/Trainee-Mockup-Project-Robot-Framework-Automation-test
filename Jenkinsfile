@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        any
-    }
+    agent any
     parameters {
         choice(name: 'BROWSER', choices: ['chrome', 'edge', 'firefox'], description: 'Select browser')
         string(name: 'INCLUDE_TAG', defaultValue: '', description: 'Specify tag to run (leave empty for all)')
