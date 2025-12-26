@@ -37,6 +37,9 @@ Open web browser and maximize window
     ...                - ปิดระบบ Password Manager และ Pop-up ถามบันทึกรหัสผ่าน
     [Arguments]    ${url}    ${is_headless}=${web_config['headless_mode']}
     ${chrome_options}=    BuiltIn.Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    IF    ${is_headless}
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --headless=new
+    END
     BuiltIn.Call Method    ${chrome_options}    add_argument    --incognito
     ${prefs}=    BuiltIn.Create Dictionary
     ...    credentials_enable_service=${False}
