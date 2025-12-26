@@ -37,6 +37,11 @@ Open web browser and maximize window
     ...                - ปิดระบบ Password Manager และ Pop-up ถามบันทึกรหัสผ่าน
     [Arguments]    ${url}    ${is_headless}=${web_config['headless_mode']}
     ${chrome_options}=    BuiltIn.Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    BuiltIn.Call Method    ${chrome_options}    add_argument    --no-sandbox
+    BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+    BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-gpu
+    BuiltIn.Call Method    ${chrome_options}    add_argument    --window-size=1920,1080
+    # Chrome 143+ (สำคัญ)
     IF    ${is_headless}
         BuiltIn.Call Method    ${chrome_options}    add_argument    --headless=new
     END
@@ -46,7 +51,7 @@ Open web browser and maximize window
     ...    profile.password_manager_enabled=${False}
     BuiltIn.Call Method    ${chrome_options}    add_experimental_option    prefs    ${prefs}
     IF    ${is_headless}
-        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['headless']}   options=${chrome_options}
+        Open Browser    ${url}    headlesschrome    options=${chrome_options}
     ELSE
         SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['gui']}    options=${chrome_options}
     END
