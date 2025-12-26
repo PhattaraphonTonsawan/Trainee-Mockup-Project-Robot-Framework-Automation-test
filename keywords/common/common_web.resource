@@ -35,19 +35,37 @@ Open web browser and maximize window
     [Documentation]    เปิดเบราว์เซอร์ Chrome ไปยัง URL ที่กำหนด พร้อมตั้งค่า Option สำหรับการทดสอบ
     ...                - เปิดในโหมดไม่ระบุตัวตน เพื่อป้องกันปัญหา Cache และการแจ้งเตือนความปลอดภัย
     ...                - ปิดระบบ Password Manager และ Pop-up ถามบันทึกรหัสผ่าน
+    ...                - รองรับ Docker Environment (Fix Crash issues)
     [Arguments]    ${url}    ${is_headless}=${web_config['headless_mode']}
+    
+    # 1. Initialize Options
     ${chrome_options}=    BuiltIn.Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    
+    # 2. General Settings (Incognito & Prefs)
     BuiltIn.Call Method    ${chrome_options}    add_argument    --incognito
     ${prefs}=    BuiltIn.Create Dictionary
     ...    credentials_enable_service=${False}
     ...    profile.password_manager_enabled=${False}
     BuiltIn.Call Method    ${chrome_options}    add_experimental_option    prefs    ${prefs}
+
+    # 3. Handle Headless / Docker Specifics
     IF    ${is_headless}
-        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['headless']}   options=${chrome_options}
+        # --- CRITICAL FIX FOR DOCKER CRASHES ---
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --headless=new
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --no-sandbox
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-gpu
+        
+        # Set a fixed size because 'Maximize' doesn't work well without a monitor
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --window-size=1920,1080
+        
+        # Open Browser using standard 'Chrome' but with the heavy options above
+        SeleniumLibrary.Open Browser    ${url}    Chrome    options=${chrome_options}
     ELSE
+        # GUI Mode (Local Machine)
         SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['gui']}    options=${chrome_options}
+        SeleniumLibrary.Maximize Browser Window
     END
-    SeleniumLibrary.Maximize Browser Window
 
 Replace locator and wait until element visible
     [Documentation]
