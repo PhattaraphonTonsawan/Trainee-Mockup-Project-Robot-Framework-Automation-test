@@ -7,5 +7,5 @@ web_config :
 wait_timeout:
   normally:
     mini_timeout: 03s
-    short_timeout: 05s
+    short_timeout: 20s
     long_timeout: 10s
