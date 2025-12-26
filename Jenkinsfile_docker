@@ -36,17 +36,6 @@ pipeline {
         stage('Execute Robot Test') { 
             steps { 
                 script {
-                    echo "Patching Robot Code for Docker..."
-                    
-                    // --- ส่วนที่เพิ่มมา: แอบแก้โค้ดเฉพาะใน Pipeline นี้ ---
-                    // คำสั่งนี้จะค้นหาบรรทัดที่มี '--incognito' แล้วเติม option ของ docker ต่อท้าย
-                    // เปลี่ยน 'tests/Keywords.robot' เป็น path ไฟล์จริงของคุณที่มี Keyword นั้น
-                    sh """
-                        sed -i '/--incognito/a \\ \\ \\ \\ BuiltIn.Call Method    \${chrome_options}    add_argument    --no-sandbox\\n\\ \\ \\ \\ BuiltIn.Call Method    \${chrome_options}    add_argument    --disable-dev-shm-usage\\n\\ \\ \\ \\ BuiltIn.Call Method    \${chrome_options}    add_argument    --disable-gpu' keywords/common/common_web.resource
-                    """
-                    // --------------------------------------------------
-
-                    // รันเทสต์ตามปกติ
                     echo "Running tests..."
                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                          sh """
@@ -75,7 +64,7 @@ pipeline {
             ])
             
             // ใน Docker ควร cleanWs() เสมอเพื่อประหยัดพื้นที่
-            cleanWs() 
+            //cleanWs() 
         }
         failure {
             echo '🚨 JOB FAILED! แจ้งเตือนทีมด่วน!'
