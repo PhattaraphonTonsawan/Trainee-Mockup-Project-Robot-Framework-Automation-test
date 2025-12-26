@@ -47,6 +47,7 @@ Open web browser and maximize window
     ELSE
         SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['gui']}    options=${chrome_options}
     END
+    SeleniumLibrary.Maximize Browser Window
 
 Replace locator and wait until element visible
     [Documentation]
