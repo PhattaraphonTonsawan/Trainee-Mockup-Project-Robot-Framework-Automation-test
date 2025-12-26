@@ -36,17 +36,21 @@ pipeline {
         stage('Execute Robot Test') { 
             steps { 
                 script {
-                    echo "Running tests on browser: ${params.BROWSER}"
+                    echo "Patching Robot Code for Docker..."
                     
-                    def tagCommand = params.INCLUDE_TAG ? "-i ${params.INCLUDE_TAG}" : ""
-                    
+                    // --- ส่วนที่เพิ่มมา: แอบแก้โค้ดเฉพาะใน Pipeline นี้ ---
+                    // คำสั่งนี้จะค้นหาบรรทัดที่มี '--incognito' แล้วเติม option ของ docker ต่อท้าย
+                    // เปลี่ยน 'tests/Keywords.robot' เป็น path ไฟล์จริงของคุณที่มี Keyword นั้น
+                    sh """
+                        sed -i '/--incognito/a \\ \\ \\ \\ BuiltIn.Call Method    \${chrome_options}    add_argument    --no-sandbox\\n\\ \\ \\ \\ BuiltIn.Call Method    \${chrome_options}    add_argument    --disable-dev-shm-usage\\n\\ \\ \\ \\ BuiltIn.Call Method    \${chrome_options}    add_argument    --disable-gpu' keywords/common/common_web.resource
+                    """
+                    // --------------------------------------------------
+
+                    // รันเทสต์ตามปกติ
+                    echo "Running tests..."
                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                        // --- แก้จุดที่ 3: เปลี่ยน bat เป็น sh ---
-                        // Docker ไม่รู้จัก bat ต้องใช้ sh
-                        sh """
+                         sh """
                             . venv/bin/activate
-                            # สำคัญ! ใน Docker ต้องรันแบบ Headless (ไม่มีหน้าจอ)
-                            # คุณอาจต้องแก้ Robot Code หรือเพิ่ม argument ตรงนี้
                             robot -d reports/results -v BROWSER:${params.BROWSER} ${tagCommand} .
                         """
                     }
