@@ -38,25 +38,20 @@ Open web browser and maximize window
     ...                - ปิดระบบ Password Manager
     [Arguments]    ${url}    ${is_headless}=${web_config['headless_mode']}
     ${chrome_options}=    BuiltIn.Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
-    # --- 1. General Options (ใช้ทั้ง GUI และ Headless) ---
     BuiltIn.Call Method    ${chrome_options}    add_argument    --incognito
     ${prefs}=    BuiltIn.Create Dictionary
     ...    credentials_enable_service=${False}
     ...    profile.password_manager_enabled=${False}
-    BuiltIn.Call Method    ${chrome_options}    add_experimental_option    prefs    ${prefs}
-    # --- 2. Headless / Docker Specific Options (ส่วนสำคัญที่แก้ Error) ---
+    BuiltIn.Call Method    ${chrome_options}    add_experimental_option    prefs    ${prefs
     IF    ${is_headless}
         # สั่งให้รันแบบไม่มีหน้าจอ
         BuiltIn.Call Method    ${chrome_options}    add_argument    --headless\=new
-        # (สำคัญมาก) จำเป็นสำหรับ Docker เพื่อป้องกัน Chrome Crash
         BuiltIn.Call Method    ${chrome_options}    add_argument    --no-sandbox
-        # (สำคัญมาก) แก้ปัญหา Shared memory ไม่พอใน Docker (ต้นเหตุ Chrome exited)
-        BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
-        # ป้องกัน GPU Error ในบาง Environment
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usag
         BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-gpu
-        # Headless จะ Maximize ไม่ได้ ต้องระบุขนาดหน้าจอไปตรงๆ (Full HD)
-        #BuiltIn.Call Method    ${chrome_options}    add_argument    --window-size\=1920,1080
-        # แนะนำให้ใช้ browser='chrome' แล้วคุมด้วย options แทนการใช้ alias 'headlesschrome'
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --window-size\=1920,1080
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-software-rasterizer
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-extensions
         SeleniumLibrary.Open Browser    ${url}    browser=chrome    options=${chrome_options}
     ELSE
         # กรณีรันแบบมีหน้าจอ (Local Machine)
