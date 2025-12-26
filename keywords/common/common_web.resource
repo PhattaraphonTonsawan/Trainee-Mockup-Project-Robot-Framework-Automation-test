@@ -47,7 +47,7 @@ Open web browser and maximize window
     # --- 2. Headless / Docker Specific Options (ส่วนสำคัญที่แก้ Error) ---
     IF    ${is_headless}
         # สั่งให้รันแบบไม่มีหน้าจอ
-        BuiltIn.Call Method    ${chrome_options}    add_argument    --headless
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --headless\=new
         # (สำคัญมาก) จำเป็นสำหรับ Docker เพื่อป้องกัน Chrome Crash
         BuiltIn.Call Method    ${chrome_options}    add_argument    --no-sandbox
         # (สำคัญมาก) แก้ปัญหา Shared memory ไม่พอใน Docker (ต้นเหตุ Chrome exited)
