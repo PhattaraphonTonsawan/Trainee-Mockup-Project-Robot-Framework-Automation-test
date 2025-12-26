@@ -42,7 +42,7 @@ Open web browser and maximize window
     ${prefs}=    BuiltIn.Create Dictionary
     ...    credentials_enable_service=${False}
     ...    profile.password_manager_enabled=${False}
-    BuiltIn.Call Method    ${chrome_options}    add_experimental_option    prefs    ${prefs
+    BuiltIn.Call Method    ${chrome_options}    add_experimental_option    prefs    ${prefs}
     IF    ${is_headless}
         # สั่งให้รันแบบไม่มีหน้าจอ
         BuiltIn.Call Method    ${chrome_options}    add_argument    --headless\=new
