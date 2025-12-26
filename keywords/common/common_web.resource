@@ -33,21 +33,36 @@ Input text when ready
 
 Open web browser and maximize window
     [Documentation]    เปิดเบราว์เซอร์ Chrome ไปยัง URL ที่กำหนด พร้อมตั้งค่า Option สำหรับการทดสอบ
-    ...                - เปิดในโหมดไม่ระบุตัวตน เพื่อป้องกันปัญหา Cache และการแจ้งเตือนความปลอดภัย
-    ...                - ปิดระบบ Password Manager และ Pop-up ถามบันทึกรหัสผ่าน
+    ...                - รองรับการรันบน Docker (Headless) โดยแก้ปัญหาเรื่อง Memory และ Sandbox
+    ...                - เปิดในโหมดไม่ระบุตัวตน (Incognito)
+    ...                - ปิดระบบ Password Manager
     [Arguments]    ${url}    ${is_headless}=${web_config['headless_mode']}
     ${chrome_options}=    BuiltIn.Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    # --- 1. General Options (ใช้ทั้ง GUI และ Headless) ---
     BuiltIn.Call Method    ${chrome_options}    add_argument    --incognito
     ${prefs}=    BuiltIn.Create Dictionary
     ...    credentials_enable_service=${False}
     ...    profile.password_manager_enabled=${False}
     BuiltIn.Call Method    ${chrome_options}    add_experimental_option    prefs    ${prefs}
+    # --- 2. Headless / Docker Specific Options (ส่วนสำคัญที่แก้ Error) ---
     IF    ${is_headless}
-        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['headless']}   options=${chrome_options}
+        # สั่งให้รันแบบไม่มีหน้าจอ
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --headless
+        # (สำคัญมาก) จำเป็นสำหรับ Docker เพื่อป้องกัน Chrome Crash
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --no-sandbox
+        # (สำคัญมาก) แก้ปัญหา Shared memory ไม่พอใน Docker (ต้นเหตุ Chrome exited)
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+        # ป้องกัน GPU Error ในบาง Environment
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-gpu
+        # Headless จะ Maximize ไม่ได้ ต้องระบุขนาดหน้าจอไปตรงๆ (Full HD)
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --window-size\=1920,1080
+        # แนะนำให้ใช้ browser='chrome' แล้วคุมด้วย options แทนการใช้ alias 'headlesschrome'
+        SeleniumLibrary.Open Browser    ${url}    browser=chrome    options=${chrome_options}
     ELSE
-        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['gui']}    options=${chrome_options}
+        # กรณีรันแบบมีหน้าจอ (Local Machine)
+        SeleniumLibrary.Open Browser    ${url}    browser=chrome    options=${chrome_options}
+        SeleniumLibrary.Maximize Browser Window
     END
-    SeleniumLibrary.Maximize Browser Window
 
 Replace locator and wait until element visible
     [Documentation]
