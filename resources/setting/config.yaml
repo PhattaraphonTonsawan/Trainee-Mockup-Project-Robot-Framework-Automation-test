@@ -1,4 +1,4 @@
-web_config :
+web_config:
   browser:
     gui: chrome
     headless: headlesschrome
