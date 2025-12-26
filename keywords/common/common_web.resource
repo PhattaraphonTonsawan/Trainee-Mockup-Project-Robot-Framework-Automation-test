@@ -55,7 +55,7 @@ Open web browser and maximize window
         # ป้องกัน GPU Error ในบาง Environment
         BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-gpu
         # Headless จะ Maximize ไม่ได้ ต้องระบุขนาดหน้าจอไปตรงๆ (Full HD)
-        BuiltIn.Call Method    ${chrome_options}    add_argument    --window-size\=1920,1080
+        #BuiltIn.Call Method    ${chrome_options}    add_argument    --window-size\=1920,1080
         # แนะนำให้ใช้ browser='chrome' แล้วคุมด้วย options แทนการใช้ alias 'headlesschrome'
         SeleniumLibrary.Open Browser    ${url}    browser=chrome    options=${chrome_options}
     ELSE
