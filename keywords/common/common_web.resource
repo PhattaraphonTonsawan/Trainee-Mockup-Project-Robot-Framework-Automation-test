@@ -47,8 +47,8 @@ Open web browser and maximize window
         BuiltIn.Call Method    ${chrome_options}    add_argument    --headless
         BuiltIn.Call Method    ${chrome_options}    add_argument    --no-sandbox
         BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
-        BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-gp
-        BuiltIn.Call Method    ${chrome_options}    add_argument    --window-size\=1920,108
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-gpu
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --window-size\=1920,1080
         SeleniumLibrary.Open Browser    ${url}    chrome    options=${chrome_options}
     ELSE
         # โหมด GUI รันปกติ
