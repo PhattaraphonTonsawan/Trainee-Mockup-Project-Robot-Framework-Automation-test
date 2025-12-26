@@ -36,26 +36,25 @@ Open web browser and maximize window
     ...                - เปิดในโหมดไม่ระบุตัวตน เพื่อป้องกันปัญหา Cache และการแจ้งเตือนความปลอดภัย
     ...                - ปิดระบบ Password Manager และ Pop-up ถามบันทึกรหัสผ่าน
     [Arguments]    ${url}    ${is_headless}=${web_config['headless_mode']}
-    ${chrome_options}=    BuiltIn.Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
-    BuiltIn.Call Method    ${chrome_options}    add_argument    --no-sandbox
-    BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
-    BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-gpu
-    BuiltIn.Call Method    ${chrome_options}    add_argument    --window-size=1920,1080
-    # Chrome 143+ (สำคัญ)
-    IF    ${is_headless}
-        BuiltIn.Call Method    ${chrome_options}    add_argument    --headless=new
-    END
+    ${chrome_options}=    BuiltIn.Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()
+    ...    sys, selenium.webdriver
     BuiltIn.Call Method    ${chrome_options}    add_argument    --incognito
     ${prefs}=    BuiltIn.Create Dictionary
     ...    credentials_enable_service=${False}
     ...    profile.password_manager_enabled=${False}
     BuiltIn.Call Method    ${chrome_options}    add_experimental_option    prefs    ${prefs}
     IF    ${is_headless}
-        Open Browser    ${url}    headlesschrome    options=${chrome_options}
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --headless
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --no-sandbox
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --disable-gp
+        BuiltIn.Call Method    ${chrome_options}    add_argument    --window-size\=1920,108
+        SeleniumLibrary.Open Browser    ${url}    chrome    options=${chrome_options}
     ELSE
-        SeleniumLibrary.Open Browser    ${url}    ${web_config['browser']['gui']}    options=${chrome_options}
+        # โหมด GUI รันปกติ
+        SeleniumLibrary.Open Browser    ${url}    chrome    options=${chrome_options}
+        SeleniumLibrary.Maximize Browser Window
     END
-    SeleniumLibrary.Maximize Browser Window
 
 Replace locator and wait until element visible
     [Documentation]
