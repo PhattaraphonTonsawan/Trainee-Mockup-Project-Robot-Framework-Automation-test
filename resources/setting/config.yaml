@@ -2,7 +2,7 @@ web_config :
   browser:
     gui: chrome
     headless: headlesschrome
-  headless_mode: true
+  headless_mode: false
 
 wait_timeout:
   normally:
