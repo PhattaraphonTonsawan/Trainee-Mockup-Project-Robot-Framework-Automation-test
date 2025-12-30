@@ -5,7 +5,6 @@ Resource    ${CURDIR}/../../resources/import.resource
 Open android application
     [Documentation]    เปิดแอนด์ดรอยแอปพลิเคชันของ emulator ที่กำหนด
     # เพิ่ม ${platform_name} เข้าไปในบรรทัดนี้
-    [Arguments]    ${app}    ${remote_url}    ${device_name}    ${automation_name}    ${platform_version}    ${platform_name}
     AppiumLibrary.Open Application    remote_url=${remote_url}
     ...    platformName=${platform_name}
     ...    platformVersion=${platform_version}

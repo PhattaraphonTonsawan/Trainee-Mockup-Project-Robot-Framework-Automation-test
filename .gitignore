@@ -13,3 +13,6 @@ results/
 reports/
 *.log
 *.tmp
+
+# apk
+/app
