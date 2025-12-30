@@ -1,0 +1,8 @@
+platform: android
+platform_name: android
+tags: ts0
+automation_name: UiAutomator2
+platform_version: '16'
+device_name: emulator-5554
+remote_url: http://127.0.0.1:4723
+app: \Users\First\Downloads\com-ebay-mobile-6113003-65141048-7b1fd5dfbd62456ca8267b9a8570eb7c.apk

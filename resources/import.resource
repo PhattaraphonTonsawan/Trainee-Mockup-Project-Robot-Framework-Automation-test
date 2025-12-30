@@ -5,11 +5,13 @@ Library    DateTime
 Library    OperatingSystem
 Library    Process
 Library    String
+Library    AppiumLibrary    run_on_failure=AppiumLibrary.CapturePageScreenshot
 Library    SeleniumLibrary    run_on_failure=common_web.Capture page screenshot with timestamp
 
 # COMMON
 Resource    ${CURDIR}/../keywords/common/common.resource
 Resource    ${CURDIR}/../keywords/common/common_web.resource
+Resource    ${CURDIR}/../keywords/common/common_mobile.resource
 
 # FEATURE
 Resource    ${CURDIR}/../keywords/ui/web/features/cart_feature.resource
@@ -29,15 +31,16 @@ Resource    ${CURDIR}/../keywords/ui/web/pages/login_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/product_list_page.resource
 
 # LOCATOR
-Resource    ${CURDIR}/../resources/locators/cart_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/checkout_complete_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/checkout_overview_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/customer_information_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/login_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/products_list_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/web/cart_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/web/checkout_complete_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/web/checkout_overview_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/web/customer_information_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/web/login_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/web/products_list_page_locator.resource
 
 # SETTING
 Variables    ${CURDIR}/../resources/setting/config.yaml
+Variables    ${CURDIR}/../resources/setting/android_config.yaml
 
 # DATATEST
 Variables    ${CURDIR}/../resources/datatest/datatest.yaml
