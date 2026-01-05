@@ -45,7 +45,6 @@ Variables    ${CURDIR}/../resources/setting/config.yaml
 Variables    ${CURDIR}/../resources/setting/android_config.yaml
 
 # DATATEST
-Variables    ${CURDIR}/../resources/datatest/datatest.yaml
-
+Variables    ${CURDIR}/../resources/datatest/web/datatest.yaml
 # TRANSALATION
 Variables    ${CURDIR}/../resources/transalation/en.yaml
