@@ -10,8 +10,9 @@ Library    SeleniumLibrary    run_on_failure=common_web.Capture page screenshot 
 
 # COMMON
 Resource    ${CURDIR}/../keywords/common/common.resource
-Resource    ${CURDIR}/../keywords/common/common_web.resource
 Resource    ${CURDIR}/../keywords/common/common_mobile.resource
+Resource    ${CURDIR}/../keywords/common/common_web.resource
+
 
 # FEATURE
 Resource    ${CURDIR}/../keywords/ui/web/features/cart_feature.resource
