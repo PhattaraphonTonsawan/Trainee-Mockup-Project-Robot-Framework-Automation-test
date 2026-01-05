@@ -3,14 +3,18 @@ Resource    ${CURDIR}/../../resources/import.resource
 
 *** Keywords ***
 Open android application
-    [Documentation]    เปิดแอนด์ดรอยแอปพลิเคชันของ emulator ที่กำหนด
-    # เพิ่ม ${platform_name} เข้าไปในบรรทัดนี้
-    AppiumLibrary.Open Application    remote_url=${remote_url}
+    [Documentation]    เปิดแอนด์ดรอยแอปพลิเคชัน (รองรับ Real Device โดยเปิดจาก Package/Activity)
+    # 1. เพิ่ม Arguments ให้ครบ เพื่อรับค่าจาก Test Case
+    [Arguments]    ${remote_url}    ${platform_name}    ${platform_version}    ${device_name}    ${automation_name}    ${app_package}    ${app_activity}
+    AppiumLibrary.Open Application    ${remote_url}
     ...    platformName=${platform_name}
     ...    platformVersion=${platform_version}
     ...    deviceName=${device_name}
-    ...    app=${app}
     ...    automationName=${automation_name}
+    ...    appPackage=${app_package}
+    ...    appActivity=${app_activity}
+    ...    noReset=true
+    ...    newCommandTimeout=300
 
 Click element when ready
     [Documentation]    กด element เมื่อพร้อมใช้งาน
@@ -21,19 +25,20 @@ Click element when ready
 Input text when ready
     [Documentation]    กรอกข้อความลงใน element ที่กำหนด
     [Arguments]    ${locator}    ${text}
-    Scroll into element and wait until element ready    locator=${locator}
+    Swipe into element and wait until element ready    locator=${locator}
     AppiumLibrary.Input Text    locator=${locator}    text=${text}
 
-Scroll into element and wait until element ready
-    [Documentation]    ตรวจสอบว่า element ถูกโหลดใน DOM จากนั้นให้ element อยู่ในมุมมอง และรอจนกว่าจะพร้อมใช้งาน
-    [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
+Swipe into element and wait until element ready
+    [Documentation]    เช็ค DOM -> ถ้ามองไม่เห็นให้ Swipe หา -> วนลูปจนกว่าจะเจอ
+    [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}    ${max_swipes}=10
     AppiumLibrary.Wait Until Page Contains Element    locator=${locator}    timeout=${timeout}
-    AppiumLibrary.Scroll Element Into View    ${locator}
-    AppiumLibrary.Expect Element    locator=${locator}    timeout=${timeout}    state='enabled'
-
-Scroll into element and wait until element visible
-    [Documentation]    ตรวจสอบว่า element ถูกโหลดใน DOM จากนั้นให้ element อยู่ในมุมมอง และรอจนกว่าจะมองเห็นได้
-    [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    AppiumLibrary.Wait Until Page Contains Element    locator=${locator}    timeout=${timeout}
-    AppiumLibrary.Scroll Element Into View    ${locator}
-    AppiumLibrary.Expect Element    locator=${locator}    timeout=${timeout}    state='visible'
+    FOR    ${index}    IN RANGE    ${max_swipes}
+        ${is_visible}=    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+        ...    locator=${locator}
+        ...    timeout=${timeout}
+        IF    ${is_visible}
+            BREAK
+        END
+        AppiumLibrary.Swipe By Percent    start_x=50    start_y=80    end_x=50    end_y=20    duration=1000
+    END
+    AppiumLibrary.Wait Until Element Is Visible    locator=${locator}    timeout=${timeout}
