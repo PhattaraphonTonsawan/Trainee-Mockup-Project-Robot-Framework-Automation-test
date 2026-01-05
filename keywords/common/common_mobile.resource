@@ -35,7 +35,7 @@ Swipe into element and wait until element ready
     FOR    ${index}    IN RANGE    ${max_swipes}
         ${is_visible}=    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
         ...    locator=${locator}
-        ...    timeout=1s
+        ...    timeout=${timeout}
         IF    ${is_visible}
             BREAK
         END
