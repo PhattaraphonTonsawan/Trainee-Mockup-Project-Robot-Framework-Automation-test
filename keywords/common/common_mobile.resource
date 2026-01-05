@@ -4,7 +4,6 @@ Resource    ${CURDIR}/../../resources/import.resource
 *** Keywords ***
 Open android application
     [Documentation]    เปิดแอนด์ดรอยแอปพลิเคชัน (รองรับ Real Device โดยเปิดจาก Package/Activity)
-    # 1. เพิ่ม Arguments ให้ครบ เพื่อรับค่าจาก Test Case
     [Arguments]    ${remote_url}    ${platform_name}    ${platform_version}    ${device_name}    ${automation_name}    ${app_package}    ${app_activity}
     AppiumLibrary.Open Application    ${remote_url}
     ...    platformName=${platform_name}
