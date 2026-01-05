@@ -37,6 +37,7 @@ Resource    ${CURDIR}/../resources/locators/web/checkout_overview_page_locator.r
 Resource    ${CURDIR}/../resources/locators/web/customer_information_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/login_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/products_list_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/mobile/android/home_page_locator.resource
 
 # SETTING
 Variables    ${CURDIR}/../resources/setting/config.yaml
