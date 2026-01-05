@@ -14,6 +14,7 @@ Open android application
     ...    appActivity=${app_activity}
     ...    noReset=true
     ...    newCommandTimeout=300
+    ...    autoGrantPermissions=true
 
 Click element when ready
     [Documentation]    กด element เมื่อพร้อมใช้งาน
@@ -32,19 +33,16 @@ Input text when ready
     [Arguments]    ${locator}    ${text}
     Swipe into element and wait until element ready    locator=${locator}
     AppiumLibrary.Input Text    locator=${locator}    text=${text}
+    AppiumLibrary.Hide Keyboard    key_name=Done
 
 Swipe into element and wait until element ready
     [Documentation]    เช็ค DOM -> ถ้ามองไม่เห็นให้ Swipe หา -> วนลูปจนกว่าจะเจอ
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}    ${max_swipes}=10
-    AppiumLibrary.Wait Until Page Contains Element    locator=${locator}    timeout=${timeout}
+    ${is_visible}=    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible    ${locator}    timeout=${timeout}
     FOR    ${index}    IN RANGE    ${max_swipes}
-        ${is_visible}=    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
-        ...    locator=${locator}
-        ...    timeout=${timeout}
-        IF    ${is_visible}
-            BREAK
-        END
-        AppiumLibrary.Swipe By Percent    start_x=50    start_y=80    end_x=50    end_y=20    duration=1000
+        AppiumLibrary.Swipe By Percent    start_x=50    start_y=70    end_x=50    end_y=30    duration=1000
+        ${is_visible}=    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible    ${locator}    timeout=${timeout}
+        IF    ${is_visible}    BREAK
     END
     AppiumLibrary.Wait Until Element Is Visible    locator=${locator}    timeout=${timeout}
 
