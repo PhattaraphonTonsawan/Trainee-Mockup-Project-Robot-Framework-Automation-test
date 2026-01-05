@@ -25,7 +25,7 @@ Click element when ready
 Input text when ready
     [Documentation]    กรอกข้อความลงใน element ที่กำหนด
     [Arguments]    ${locator}    ${text}
-    Scroll into element and wait until element ready    locator=${locator}
+    Swipe into element and wait until element ready    locator=${locator}
     AppiumLibrary.Input Text    locator=${locator}    text=${text}
 
 Swipe into element and wait until element ready
