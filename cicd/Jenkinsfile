@@ -38,7 +38,7 @@ pipeline {
         always {
             echo 'Publishing Robot Results...'
             step([
-                $class: 'RobotPublisher'
+                $class: 'RobotPublisher',
                 outputPath: 'reports/results', 
                 outputFileName: 'output.xml',
                 reportFileName: 'report.html',
