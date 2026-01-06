@@ -13,5 +13,6 @@ Check page title
 
 Verify coins value
     [Documentation]
+    [Arguments]    ${expected value}
     common_mobile.Swipe into element and wait until element ready    locator=${coin_page_locator['lbl_coin_total']}
-    common_mobile.Wait and verify element value    locator=${coin_page_locator['lbl_coin_total']}    expected_value=${}
+    common_mobile.Wait and verify element value    locator=${coin_page_locator['lbl_coin_total']}    expected_value=${expected value}

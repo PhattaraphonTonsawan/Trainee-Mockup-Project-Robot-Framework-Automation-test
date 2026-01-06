@@ -23,10 +23,12 @@ Click register button
 
 Iput password
     [Documentation]
+    [Arguments]    ${password}
     common_mobile.Swipe into element and wait until element ready    locator=${login_page_locator['txt_password_input']}
-    common_mobile.Input text when ready    locator=${login_page_locator['txt_password_input']}    text=${}
+    common_mobile.Input text when ready    locator=${login_page_locator['txt_password_input']}    text=${password}
 
 Input username
     [Documentation]
+    [Arguments]    ${username}
     common_mobile.Swipe into element and wait until element ready    locator=${login_page_locator['txt_user_input']}
-    common_mobile.Input text when ready    locator=${login_page_locator['txt_user_input']}    text=${}
+    common_mobile.Input text when ready    locator=${login_page_locator['txt_user_input']}    text=${username}
