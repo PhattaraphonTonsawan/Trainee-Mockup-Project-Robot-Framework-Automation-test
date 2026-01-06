@@ -1,7 +1,10 @@
 pipeline {
     agent any
+    options {
+        skipDefaultCheckout()
+    }
     triggers {
-        cron('H 0 * * *') 
+        githubPush()
     }
     parameters {
         string(name: 'INCLUDE_TAG', defaultValue: '', description: 'Specify tag to run (leave empty for all)')
@@ -9,6 +12,7 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
+                checkout scmGit(branches: [[name: '*/Jenkins_cicd']], extensions: [], userRemoteConfigs: [[credentialsId: 'githubtoken', url: 'https://github.com/PhattaraphonTonsawan/Trainee-Mockup-Project-Robot-Framework-Automation-test.git']])
                 script {
                     echo '================================= Set Environment =========================================='
                     echo 'Setting up Virtual Environment'
