@@ -40,7 +40,7 @@ pipeline {
                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                         bat """
                             call venv\\Scripts\\activate
-                            robot --dryrun -d "${reportPath}" ${tagcmd} .
+                            robot -d "${reportPath}" ${tagcmd} .
                         """
                     }
                 }
