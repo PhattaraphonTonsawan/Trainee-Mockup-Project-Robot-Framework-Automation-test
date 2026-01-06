@@ -10,6 +10,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
+                    echo '================================= Set Environment =========================================='
                     echo 'Setting up Virtual Environment'
                     bat 'if not exist "venv" (python -m venv venv)'
                     bat 'venv\\Scripts\\python -m pip install --upgrade pip'
@@ -20,6 +21,7 @@ pipeline {
         stage('Execute Robot Test') {
             steps {
                 script {
+                    echo '================================= Test =========================================='
                     def tagCommand = params.INCLUDE_TAG ? "-i ${params.INCLUDE_TAG}" : ""
                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                         bat """
@@ -33,6 +35,7 @@ pipeline {
     }
     post {
         always {
+            echo '================================= Results =========================================='
             echo 'Publishing Robot Results...'
             step([
                 $class: 'RobotPublisher',
