@@ -2,12 +2,17 @@ pipeline {
     agent any
     options {
         skipDefaultCheckout()
+        timeout(time: 1440, unit: 'MINUTES')
     }
     triggers {
-        githubPush()
+        triggers {
+        cron('0 0 * * *')
+        pollSCM('H/30 * * * *')
+    }
     }
     parameters {
-        string(name: 'INCLUDE_TAG', defaultValue: '', description: 'Specify tag to run (leave empty for all)')
+        string(name: 'TAGS_TO_RUN', defaultValue: '', description: 'ระบุ Tag ที่จะรัน (ใช้ OR, AND ได้ เช่น "F_0001 OR F_0002")')
+        string(name: 'TAGS_TO_EXCLUDE', defaultValue: '', description: 'ระบุ Tag ที่จะยกเว้น')
     }
     stages {
         stage('Install dependencies') {
@@ -26,11 +31,18 @@ pipeline {
             steps {
                 script {
                     echo '================================= Test =========================================='
-                    def tagCommand = params.INCLUDE_TAG ? "-i ${params.INCLUDE_TAG}" : ""
+                    def tagcmd = ""
+                    if (params.TAGS_TO_RUN) {
+                        tagcmd += " -i \"${params.TAGS_TO_RUN}\""
+                    }
+                    if (params.TAGS_TO_EXCLUDE) {
+                        tagcmd += " -e \"${params.TAGS_TO_EXCLUDE}\""
+                    }
+                    def reportPath="reports\\results\\build_${env.BUILD_NUMBER}"
                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                         bat """
                             call venv\\Scripts\\activate
-                            robot --dryrun -d reports\\results ${tagCommand} .
+                            robot -d "${reportPath}" ${tagcmd} .
                         """
                     }
                 }
@@ -43,7 +55,7 @@ pipeline {
             echo 'Publishing Robot Results...'
             step([
                 $class: 'RobotPublisher',
-                outputPath: 'reports/results', 
+                outputPath: "reports\\results\\build_${env.BUILD_NUMBER}", 
                 outputFileName: 'output.xml',
                 reportFileName: 'report.html',
                 logFileName: 'log.html',
@@ -56,8 +68,15 @@ pipeline {
         failure {
             echo 'JOB FAILED!'
         }
+        unstable {
+            echo 'JOB UNSTABLE: Pipeline finished, but some tests FAILED. Please check the report.'
+        }
         success {
             echo 'JOB SUCCESS!'
         }
+        aborted {
+            echo 'JOB ABORTED: Job took too long and was timed out.'
+        }
+
     }
 }
