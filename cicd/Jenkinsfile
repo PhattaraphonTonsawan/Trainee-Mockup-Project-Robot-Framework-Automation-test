@@ -8,7 +8,7 @@ pipeline {
         pollSCM('H/30 * * * *')
     }
     parameters {
-        string(name: 'TAGS_TO_RUN', defaultValue: '', description: 'ระบุ Tag ที่จะรัน (ใช้ OR, AND ได้ เช่น "F_0001 OR F_0002")')
+        string(name: 'TAGS_TO_RUN', defaultValue: '', description: 'ระบุ Tag ที่จะรัน (ใช้ OR, AND ได้ เช่น F_0001 OR F_0002)')
         string(name: 'TAGS_TO_EXCLUDE', defaultValue: '', description: 'ระบุ Tag ที่จะยกเว้น')
     }
     stages {
