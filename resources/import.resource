@@ -24,6 +24,15 @@ Resource    ${CURDIR}/../keywords/ui/web/features/login_feature.resource
 Resource    ${CURDIR}/../keywords/ui/web/features/product_list_feature.resource
 
 # PAGE
+Resource    ${CURDIR}/../keywords/ui/mobile/pages/cart_page.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/pages/checkout_page.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/pages/coin_page.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/pages/google_login_page.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/pages/home_page.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/pages/login_mobile_page.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/pages/product_mobile_page.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/pages/profile_page.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/pages/search_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/cart_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/checkout_complete_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/checkout_overview_page.resource
