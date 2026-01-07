@@ -1,8 +1,7 @@
 pipeline {
     agent any
     options {
-        skipDefaultCheckout()
-        timeout(time: 1440, unit: 'MINUTES')
+        timeout(time: 15, unit: 'MINUTES')
     }
     triggers {
         cron('0 0 * * *')
@@ -15,7 +14,6 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                checkout scmGit(branches: [[name: '*/Jenkins_cicd']], extensions: [], userRemoteConfigs: [[credentialsId: 'githubtoken', url: 'https://github.com/PhattaraphonTonsawan/Trainee-Mockup-Project-Robot-Framework-Automation-test.git']])
                 script {
                     echo '================================= Set Environment =========================================='
                     echo 'Setting up Virtual Environment'
