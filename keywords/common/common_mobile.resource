@@ -3,9 +3,9 @@ Resource    ${CURDIR}/../../resources/import.resource
 
 *** Keywords ***
 Open android application
-    [Documentation]    เปิดแอนด์ดรอยแอปพลิเคชัน (รองรับ Real Device โดยเปิดจาก Package/Activity)
-    [Arguments]    ${remote_url}    ${platform_name}    ${platform_version}    ${device_name}    ${automation_name}    ${app_package}    ${app_activity}
-    AppiumLibrary.Open Application    ${remote_url}
+    [Documentation]    เปิดแอนด์ดรอยแอปพลิเคชัน
+    AppiumLibrary.Open Application
+    ...    remote_url=${remote_url}
     ...    platformName=${platform_name}
     ...    platformVersion=${platform_version}
     ...    deviceName=${device_name}
