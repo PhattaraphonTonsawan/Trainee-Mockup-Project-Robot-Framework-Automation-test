@@ -11,5 +11,5 @@
 ...    btn_unselect_variation=xpath=(//android.view.ViewGroup[@resource-id="buttonOption_unselected"])[1]
 ...    variation_section_1=xpath=(//android.view.ViewGroup[@resource-id="cartPanelTierVariation"])[1]
 ...    variation_section_2=xpath=(//android.view.ViewGroup[@resource-id="cartPanelTierVariation"])[2]
-...    txt_product_name_feed=xpath=//android.widget.TextView
+...    txt_product_name_feed=xpath=//android.widget[@resource-id='miniFeedV2_product_card']//android.widget.TextView[1]
 ...    txt_product_name=xpath=//android.widget.TextView[@resource-id="labelProductPageProductName"]
