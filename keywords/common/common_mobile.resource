@@ -4,7 +4,8 @@ Resource    ${CURDIR}/../../resources/import.resource
 *** Keywords ***
 Open android application
     [Documentation]    เปิดแอนด์ดรอยแอปพลิเคชัน
-    AppiumLibrary.Open Application    ${remote_url}
+    AppiumLibrary.Open Application
+    ...    remote_url=${remote_url}
     ...    platformName=${platform_name}
     ...    platformVersion=${platform_version}
     ...    deviceName=${device_name}
