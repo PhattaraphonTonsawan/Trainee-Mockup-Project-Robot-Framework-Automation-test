@@ -36,7 +36,7 @@ Input text when ready
     AppiumLibrary.Hide Keyboard    key_name=Done
 
 Swipe into element and wait until element ready
-    [Documentation]    เช็ค DOM ถ้ามองไม่เห็นให้ Swipe หา Element วนลูปจนกว่าจะเจอ
+    [Documentation]    เช็ค DOM -> ถ้ามองไม่เห็นให้ Swipe หา -> วนลูปจนกว่าจะเจอ
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}    ${max_swipes}=10
     ${is_visible}=    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible    ${locator}    timeout=${timeout}
     FOR    ${index}    IN RANGE    ${max_swipes}
