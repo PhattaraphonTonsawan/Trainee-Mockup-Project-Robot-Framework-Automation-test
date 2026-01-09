@@ -1,0 +1,78 @@
+pipeline {
+    agent any
+    options {
+        timeout(time: 15, unit: 'MINUTES')
+    }
+    triggers {
+        cron('0 0 * * *')
+        pollSCM('H/30 * * * *')
+    }
+    parameters {
+        string(name: 'TAGS_TO_RUN', defaultValue: '', description: 'ระบุ Tag ที่จะรัน (ใช้ OR, AND ได้ เช่น F_0001 OR F_0002)')
+        string(name: 'TAGS_TO_EXCLUDE', defaultValue: '', description: 'ระบุ Tag ที่จะยกเว้น')
+    }
+    stages {
+        stage('Install dependencies') {
+            steps {
+                script {
+                    echo '================================= Set Environment =========================================='
+                    echo 'Setting up Virtual Environment'
+                    bat 'if not exist "venv" (python -m venv venv)'
+                    bat 'venv\\Scripts\\python -m pip install --upgrade pip'
+                    bat 'venv\\Scripts\\pip install -r requirements.txt' 
+                }
+            }
+        }
+        stage('Execute Robot Test') {
+            steps {
+                script {
+                    echo '================================= Test =========================================='
+                    def tagcmd = ""
+                    if (params.TAGS_TO_RUN) {
+                        tagcmd += " -i \"${params.TAGS_TO_RUN}\""
+                    }
+                    if (params.TAGS_TO_EXCLUDE) {
+                        tagcmd += " -e \"${params.TAGS_TO_EXCLUDE}\""
+                    }
+                    def reportPath="reports\\results\\build_${env.BUILD_NUMBER}"
+                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                        bat """
+                            call venv\\Scripts\\activate
+                            robot -d "${reportPath}" ${tagcmd} .
+                        """
+                    }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            echo '================================= Results =========================================='
+            echo 'Publishing Robot Results...'
+            step([
+                $class: 'RobotPublisher',
+                outputPath: "reports\\results\\build_${env.BUILD_NUMBER}", 
+                outputFileName: 'output.xml',
+                reportFileName: 'report.html',
+                logFileName: 'log.html',
+                disableArchiveOutput: false,
+                passThreshold: 100,
+                unstableThreshold: 80,
+                otherFiles: '*.png'
+            ])
+        }
+        failure {
+            echo 'JOB FAILED!'
+        }
+        unstable {
+            echo 'JOB UNSTABLE: Pipeline finished, but some tests FAILED. Please check the report.'
+        }
+        success {
+            echo 'JOB SUCCESS!'
+        }
+        aborted {
+            echo 'JOB ABORTED: Job took too long and was timed out.'
+        }
+
+    }
+}

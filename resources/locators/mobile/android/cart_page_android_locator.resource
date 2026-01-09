@@ -7,3 +7,4 @@
 ...    check_box=xpath=(//android.view.ViewGroup[@resource-id="buttonCheckBoxNotChecked"])[1]/android.view.ViewGroup
 ...    cart_empty_icon=xpath=//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView
 ...    txt_title=id=labelActionBarTitle
+...    txt_product_name=id=labelItemName
