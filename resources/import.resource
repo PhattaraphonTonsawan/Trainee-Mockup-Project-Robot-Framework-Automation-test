@@ -5,10 +5,12 @@ Library    DateTime
 Library    OperatingSystem
 Library    Process
 Library    String
+Library    AppiumLibrary    run_on_failure=AppiumLibrary.CapturePageScreenshot
 Library    SeleniumLibrary    run_on_failure=common_web.Capture page screenshot with timestamp
 
 # COMMON
 Resource    ${CURDIR}/../keywords/common/common.resource
+Resource    ${CURDIR}/../keywords/common/common_mobile.resource
 Resource    ${CURDIR}/../keywords/common/common_web.resource
 
 # FEATURE
@@ -37,6 +39,7 @@ Resource    ${CURDIR}/../resources/locators/login_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/products_list_page_locator.resource
 
 # SETTING
+Variables    ${CURDIR}/../resources/setting/android_config.yaml
 Variables    ${CURDIR}/../resources/setting/config.yaml
 
 # DATATEST
