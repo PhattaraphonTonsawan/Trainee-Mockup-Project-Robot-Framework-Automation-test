@@ -5,7 +5,7 @@
 ...    btn_confirm_delete=id=com.shopee.th:id/buttonDefaultPositive
 ...    btn_direct_delete=//android.view.ViewGroup[@resource-id="itemRow_1586712027_55603322605"]/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]
 ...    btn_reduce_item_quantity=id=buttonReduceQuantity
-...    check_box=xpath=(//android.view.ViewGroup[@resource-id="buttonCheckBoxNotChecked"])[2]/android.view.ViewGroup/android.view.ViewGroup
 ...    cart_empty_icon=xpath=//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView
+...    check_box=xpath=(//android.view.ViewGroup[@resource-id="buttonCheckBoxNotChecked"])[2]/android.view.ViewGroup/android.view.ViewGroup
 ...    txt_title=id=labelActionBarTitle
 ...    txt_product_name=id=labelItemName
