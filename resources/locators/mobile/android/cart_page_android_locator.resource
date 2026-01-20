@@ -7,5 +7,6 @@
 ...    btn_reduce_item_quantity=id=buttonReduceQuantity
 ...    cart_empty_icon=xpath=//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView
 ...    check_box=xpath=(//android.view.ViewGroup[@resource-id="buttonCheckBoxNotChecked"])[2]/android.view.ViewGroup/android.view.ViewGroup
+...    container_page=xpath=//android.widget.ScrollView/android.view.ViewGroup
 ...    txt_title=id=labelActionBarTitle
 ...    txt_product_name=id=labelItemName
