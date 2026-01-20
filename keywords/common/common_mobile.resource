@@ -98,14 +98,14 @@ Tap element when ready
 Wait until element enable
     [Documentation]    รอจนกว่า element จะใช้งานได้
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    AppiumLibrary.Expect Element    locator=${locator}    state='enabled'   timeout=${timeout}
+    AppiumLibrary.Expect Element    locator=${locator}    state=enabled   timeout=${timeout}
 
 Wait until element not visible
     [Documentation]    รอจนกว่า Element จะไม่ปรากฏขึ้นมา
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    AppiumLibrary.Expect Element    locator=${locator}    state='not visible'    timeout=${timeout}
+    AppiumLibrary.Expect Element    locator=${locator}    state=not visible    timeout=${timeout}
 
 Wait until element visible
     [Documentation]    รอจนกว่า Element จะปรากฏขึ้นมา
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    AppiumLibrary.Expect Element    locator=${locator}    state='visible'    timeout=${timeout}
+    AppiumLibrary.Expect Element    locator=${locator}    state=visible    timeout=${timeout}
