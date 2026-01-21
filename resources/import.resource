@@ -31,6 +31,7 @@ Resource    ${CURDIR}/../keywords/ui/web/pages/login_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/product_list_page.resource
 
 # LOCATOR
+Resource    ${CURDIR}/../resources/locators/mobile/android/choose_language_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/cart_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/checkout_complete_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/checkout_overview_page_locator.resource
@@ -46,4 +47,5 @@ Variables    ${CURDIR}/../resources/setting/mobile_config.yaml
 Variables    ${CURDIR}/../resources/datatest/datatest.yaml
 
 # TRANSALATION
-Variables    ${CURDIR}/../resources/transalation/en.yaml
+Variables    ${CURDIR}/../resources/transalation/mobile/th.yaml
+Variables    ${CURDIR}/../resources/transalation/web/en.yaml
