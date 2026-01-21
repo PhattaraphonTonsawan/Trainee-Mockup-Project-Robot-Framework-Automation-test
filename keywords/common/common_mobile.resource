@@ -19,13 +19,13 @@ Input text when ready
 Open android application
     [Documentation]    เปิดแอปพลิเคชันแอนด์ดรอย
     AppiumLibrary.Open Application
-    ...    remote_url=${remote_url}
-    ...    platformName=${platform_name}
-    ...    platformVersion=${platform_version}
-    ...    deviceName=${device_name}
-    ...    automationName=${automation_name}
-    ...    appPackage=${app_package}
-    ...    appActivity=${app_activity}
+    ...    remote_url=${device_capabilities['remote_url']}
+    ...    platformName=${device_capabilities['platform_name']}
+    ...    platformVersion=${device_capabilities['platform_version']}
+    ...    deviceName=${device_capabilities['device_name']}
+    ...    automationName=${device_capabilities['automation_name']}
+    ...    appPackage=${device_capabilities['app_package']}
+    ...    appActivity=${device_capabilities['app_activity']}
     ...    noReset=false
     ...    fullReset=false
     ...    newCommandTimeout=300
@@ -52,25 +52,25 @@ Swipe container until element visible
             RETURN
         END
         IF    '${direction}' == 'left'
-            ${start_x}=    BuiltIn.Evaluate    ${location['x']} + (${element_size['width']} *${Swipe_screen['persent_start']})
+            ${start_x}=    BuiltIn.Evaluate    ${location['x']} + (${element_size['width']} *${swipe_screen['persent_start']})
             ${start_y}=    BuiltIn.Evaluate    ${location['y']} + (${element_size['height']}/2)
-            ${end_x}=    BuiltIn.Evaluate    ${location['x']} + (${element_size['width']} * ${Swipe_screen['persent_end']})
+            ${end_x}=    BuiltIn.Evaluate    ${location['x']} + (${element_size['width']} * ${swipe_screen['persent_end']})
             ${end_y}=    BuiltIn.Set Variable    ${start_y}
         ELSE IF    '${direction}' == 'right'
-            ${start_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}*${Swipe_screen['persent_end']})
+            ${start_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}*${swipe_screen['persent_end']})
             ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}/2)
-            ${end_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}*${Swipe_screen['persent_start']})
+            ${end_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}*${swipe_screen['persent_start']})
             ${end_y}=    BuiltIn.Set Variable    ${start_y}
         ELSE IF    '${direction}' == 'down'
             ${start_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}/2)
-            ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${Swipe_screen['persent_start']})
+            ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_start']})
             ${end_x}=    BuiltIn.Evaluate    ${start_x}
-            ${end_y}=    BuiltIn.Set Variable    ${location['y']}+(${element_size['height']}*${Swipe_screen['persent_end']})
+            ${end_y}=    BuiltIn.Set Variable    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_end']})
         ELSE IF    '${direction}' == 'up'
             ${start_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}/2)
-            ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${Swipe_screen['persent_end']})
+            ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_end']})
             ${end_x}=    BuiltIn.Evaluate    ${start_x}
-            ${end_y}=    BuiltIn.Set Variable    ${location['y']}+(${element_size['height']}*${Swipe_screen['persent_start']})
+            ${end_y}=    BuiltIn.Set Variable    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_start']})
         END
         AppiumLibrary.Swipe    start_x=${start_x}    start_y=${start_y}    end_x=${end_x}    end_y=${end_y}    duration=${duration}
     END
