@@ -1,11 +1,12 @@
-platform_name: Android
-automation_name: UiAutomator2
-platform_version: '16.0'
-device_name: DEVICE_NAME
-remote_url: http://127.0.0.1:4723
-app_package: "com.shopee.th"
-app_activity: "com.shopee.app.ui.home.HomeActivity_"
-
-Swipe_screen:
+device_capabilities:
+  platform_name: Android
+  automation_name: UiAutomator2
+  platform_version: '16.0'
+  device_name: DEVICE_NAME
+  remote_url: http://127.0.0.1:4723
+app_capabilities:
+  app_package: "com.shopee.th"
+  app_activity: "com.shopee.app.ui.home.HomeActivity_"
+swipe_screen:
   persent_start: 0.1
   persent_end: 0.9
