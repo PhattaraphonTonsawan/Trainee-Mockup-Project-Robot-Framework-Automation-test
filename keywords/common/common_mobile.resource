@@ -72,7 +72,7 @@ Swipe container until element visible
             ${end_x}=    BuiltIn.Evaluate    ${start_x}
             ${end_y}=    BuiltIn.Set Variable    ${location['y']}+(${element_size['height']}*${Swipe_screen['persent_start']})
         END
-        AppiumLibrary.Swipe    ${start_x}    ${start_y}    ${end_x}    ${end_y}    ${duration}
+        AppiumLibrary.Swipe    start_x=${start_x}    start_y=${start_y}    end_x=${end_x}    end_y=${end_y}    duration=${duration}
     END
     BuiltIn.Fail    Element '${target_locator}' not visible after swiping ${max_swipe}
 
