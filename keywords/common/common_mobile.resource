@@ -41,7 +41,7 @@ Replace locator and wait until element visible
 
 Swipe container until element visible
     [Documentation]    ทำการ Swipe ภายใน Container ที่กำหนดจนกว่าจะเจอ Element เป้าหมายโดยการลากนิ้ว
-    [Arguments]    ${element_container}    ${target_locator}    ${direction}='up'    ${duration}=1000    ${max_swipe}=10
+    [Arguments]    ${element_container}    ${target_locator}    ${direction}=up    ${duration}=1000    ${max_swipe}=10
     Wait until element visible    locator=${element_container}
     ${location}=    AppiumLibrary.Get Element Location    ${element_container}
     ${element_size}=    AppiumLibrary.Get Element Size    ${element_container}
@@ -65,12 +65,12 @@ Swipe container until element visible
             ${start_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}/2)
             ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_start']})
             ${end_x}=    BuiltIn.Evaluate    ${start_x}
-            ${end_y}=    BuiltIn.Set Variable    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_end']})
+            ${end_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_end']})
         ELSE IF    '${direction}' == 'up'
             ${start_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}/2)
             ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_end']})
             ${end_x}=    BuiltIn.Evaluate    ${start_x}
-            ${end_y}=    BuiltIn.Set Variable    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_start']})
+            ${end_y}=    BuiltIn.Evaluate   ${location['y']}+(${element_size['height']}*${swipe_screen['persent_start']})
         END
         AppiumLibrary.Swipe    start_x=${start_x}    start_y=${start_y}    end_x=${end_x}    end_y=${end_y}    duration=${duration}
     END
