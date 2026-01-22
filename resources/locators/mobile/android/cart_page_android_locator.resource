@@ -11,3 +11,4 @@
 ...    product_card_container=xpath=//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[4]/android.view.ViewGroup/*[1]
 ...    txt_title=id=labelActionBarTitle
 ...    txt_product_name=id=labelItemName
+...    txt_product_qty=id="textInputQuantity"
