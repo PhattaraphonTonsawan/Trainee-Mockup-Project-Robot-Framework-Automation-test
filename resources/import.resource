@@ -32,7 +32,6 @@ Resource    ${CURDIR}/../keywords/ui/web/pages/product_list_page.resource
 
 # LOCATOR
 Resource    ${CURDIR}/../resources/locators/mobile/android/choose_language_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/mobile/android/home_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/cart_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/checkout_complete_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/checkout_overview_page_locator.resource
