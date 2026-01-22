@@ -2,7 +2,7 @@
 Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
-Check cart is empty icon visible
+Check cart empty icon is visible
     [Documentation]    ตรวจสอบว่าตะกร้าสินค้านั้นว่างหรือไม่ โดยการดูไอคอนตะกร้าว่างมีหรือไม่
     common_mobile.Wait until element visible
     ...    locator=${cart_page_mobile_locator['cart_empty_icon']}
