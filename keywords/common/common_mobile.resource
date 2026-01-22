@@ -24,8 +24,8 @@ Open android application
     ...    platformVersion=${device_capabilities['platform_version']}
     ...    deviceName=${device_capabilities['device_name']}
     ...    automationName=${device_capabilities['automation_name']}
-    ...    appPackage=${device_capabilities['app_package']}
-    ...    appActivity=${device_capabilities['app_activity']}
+    ...    appPackage=${app_capabilities['app_package']}
+    ...    appActivity=${app_capabilities['app_activity']}
     ...    noReset=false
     ...    fullReset=false
     ...    newCommandTimeout=300
@@ -51,22 +51,22 @@ Swipe container until element visible
             BuiltIn.Log To Console    Found element '${target_locator}'
             RETURN
         END
-        IF    '${direction}' == 'left'
+        IF    ${direction} == 'left'
             ${start_x}=    BuiltIn.Evaluate    ${location['x']} + (${element_size['width']} *${swipe_screen['persent_start']})
             ${start_y}=    BuiltIn.Evaluate    ${location['y']} + (${element_size['height']}/2)
             ${end_x}=    BuiltIn.Evaluate    ${location['x']} + (${element_size['width']} * ${swipe_screen['persent_end']})
             ${end_y}=    BuiltIn.Set Variable    ${start_y}
-        ELSE IF    '${direction}' == 'right'
+        ELSE IF    ${direction} == 'right'
             ${start_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}*${swipe_screen['persent_end']})
             ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}/2)
             ${end_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}*${swipe_screen['persent_start']})
             ${end_y}=    BuiltIn.Set Variable    ${start_y}
-        ELSE IF    '${direction}' == 'down'
+        ELSE IF    ${direction} == 'down'
             ${start_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}/2)
             ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_start']})
             ${end_x}=    BuiltIn.Evaluate    ${start_x}
             ${end_y}=    BuiltIn.Set Variable    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_end']})
-        ELSE IF    '${direction}' == 'up'
+        ELSE IF    ${direction} == 'up'
             ${start_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}/2)
             ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_end']})
             ${end_x}=    BuiltIn.Evaluate    ${start_x}
