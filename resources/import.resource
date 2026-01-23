@@ -23,6 +23,7 @@ Resource    ${CURDIR}/../keywords/ui/web/features/login_feature.resource
 Resource    ${CURDIR}/../keywords/ui/web/features/product_list_feature.resource
 
 # PAGE
+Resource    ${CURDIR}/../keywords/ui/mobile/pages/shopee_cart_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/cart_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/checkout_complete_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/checkout_overview_page.resource
@@ -31,22 +32,24 @@ Resource    ${CURDIR}/../keywords/ui/web/pages/login_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/product_list_page.resource
 
 # LOCATOR
-Resource    ${CURDIR}/../resources/locators/cart_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/checkout_complete_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/checkout_overview_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/customer_information_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/login_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/mobile/android/cart_page_mobile_locator.resource
 Resource    ${CURDIR}/../resources/locators/mobile/android/choose_language_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/mobile/android/home_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/mobile/android/profile_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/products_list_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/web/cart_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/web/checkout_complete_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/web/checkout_overview_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/web/customer_information_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/web/login_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/web/products_list_page_locator.resource
 
 # SETTING
-Variables    ${CURDIR}/../resources/setting/config.yaml
-Variables    ${CURDIR}/../resources/setting/mobile_config.yaml
+Variables    ${CURDIR}/../resources/setting/mobile/config.yaml
+Variables    ${CURDIR}/../resources/setting/web/config.yaml
 
 # DATATEST
-Variables    ${CURDIR}/../resources/datatest/datatest.yaml
+Variables    ${CURDIR}/../resources/datatest/mobile/datatest.yaml
+Variables    ${CURDIR}/../resources/datatest/web/datatest.yaml
 
 # TRANSALATION
 Variables    ${CURDIR}/../resources/transalation/mobile/th.yaml

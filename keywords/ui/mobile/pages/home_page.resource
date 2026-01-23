@@ -2,6 +2,10 @@
 Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
+Check search bar visible
+    [Documentation]    ตรวจสอบว่าแถบค้นหาสินค้าแสดงในหน้าจอหรือไม่
+    common_mobile.Wait until element visible    locator=${home_page_locator['txt_search_item']}
+
 Tap cart button
     [Documentation]    สัมผัสปุ่มตะกร้าสินค้าเพื่อเข้าสู่หน้าตะกร้าสินค้า
     common_mobile.Tap element when ready    locator=${home_page_locator['btn_cart']}
