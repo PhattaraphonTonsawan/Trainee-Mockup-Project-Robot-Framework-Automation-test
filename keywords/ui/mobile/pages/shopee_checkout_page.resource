@@ -21,9 +21,8 @@ Check product name in checkout page
     ...    locator=${checkout_page_locator['lbl_product_name']}
     ...    text=${product_detail['product_name']}
 
-Swipe to order price in checkout page
-    [Documentation]    เลื่อนลงด้านล่างของหน้าชำระสินค้า
+Swipe to find order price on checkout page
+    [Documentation]    เลื่อนหน้าชำระเงินจนกว่าจะแสดงราคารวมของสินค้า
     common_mobile.Swipe container until element visible
     ...    container_locator=${checkout_page_locator['container_page']}
     ...    target_locator=${checkout_page_locator['lbl_order_price']}
-    ...    direction=up
