@@ -24,6 +24,9 @@ Resource    ${CURDIR}/../keywords/ui/web/features/product_list_feature.resource
 
 # PAGE
 Resource    ${CURDIR}/../keywords/ui/mobile/pages/shopee_cart_page.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/pages/shopee_checkout_page.resource
+Resource    ${CURDIDR}/../keywords/ui/mobile/pages/shopee_product_page.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/pages/shopee_search_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/cart_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/checkout_complete_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/checkout_overview_page.resource
@@ -35,6 +38,8 @@ Resource    ${CURDIR}/../keywords/ui/web/pages/product_list_page.resource
 Resource    ${CURDIR}/../resources/locators/mobile/cart_page_mobile_locator.resource
 Resource    ${CURDIR}/../resources/locators/mobile/checkout_page_mobile_locator.resource
 Resource    ${CURDIR}/../resources/locators/mobile/choose_language_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/mobile/product_page_mobile_locator.resource
+Resource    ${CURDIR}/../resources/locators/mobile/search_page_mobile_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/cart_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/checkout_complete_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/checkout_overview_page_locator.resource
