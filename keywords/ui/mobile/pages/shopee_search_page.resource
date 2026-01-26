@@ -23,11 +23,6 @@ Swipe to find product item
     ...    element_container=${search_page_locator['ctn_page']}
     ...    target_locator=${replaced_locator}
 
-Tap search button after input product name
-    [Documentation]    สัมผัสปุ่มค้นหาหลังจากป้อนชื่อสินค้า
-    common_mobile.Tap element when ready
-    ...    locator=${search_page_locator['btn_search']}
-
 Tap product item
     [Documentation]    สัมผัสสินค้าที่ต้องการจากผลการค้นหา
     ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
@@ -35,6 +30,11 @@ Tap product item
     ...    replace_text=${product_detail['product_name']}
     common_mobile.Tap element when ready
     ...    locator=${replaced_locator}
+
+Tap search button after input product name
+    [Documentation]    สัมผัสปุ่มค้นหาหลังจากป้อนชื่อสินค้า
+    common_mobile.Tap element when ready
+    ...    locator=${search_page_locator['btn_search']}
 
 Tap shopee mall button
     [Documentation]    สัมผัสปุ่ม Shopee Mall เพื่อกรองผลการค้นหาให้แสดงเฉพาะสินค้าจาก Shopee Mall
