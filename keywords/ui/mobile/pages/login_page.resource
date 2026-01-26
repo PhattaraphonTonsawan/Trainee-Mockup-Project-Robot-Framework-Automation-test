@@ -9,6 +9,6 @@ Check page title
     ...    locator=${login_page_locator['txt_page_title']}
     ...    text=${txt_login_page['txt_title']}
 
-Tap google login button
+Tap login with google account button
     [Documentation]    สัมผัสปุ่มดำเนินการต่อด้วย Google เพื่อเข้าสู่หน้า login ด้วย gmail
     common_mobile.Tap element when ready    locator=${login_page_locator['btn_google_login']}
