@@ -25,8 +25,8 @@ Resource    ${CURDIR}/../keywords/ui/web/features/product_list_feature.resource
 # PAGE
 Resource    ${CURDIR}/../keywords/ui/mobile/pages/shopee_cart_page.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/pages/shopee_checkout_page.resource
-Resource    ${CURDIDR}/../keywords/ui/mobile/pages/shopee_product_page.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/pages/shopee_search_page.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/pages/shopee_product_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/cart_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/checkout_complete_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/checkout_overview_page.resource
