@@ -14,7 +14,7 @@ Tap add to cart button on product page
     ...    locator=${product_mobile_page_locator['btn_add_to_cart']}
 
 Tap button in modal on product page
-    [Documentation]    สัมผัสปุ่มในโมดัลที่ปรากฏขึ้นหลังจากการเพิ่มสินค้าลงในรถเข็น
+    [Documentation]    สัมผัสปุ่มในโมเดิ้นที่ปรากฏขึ้นหลังจากการเพิ่มสินค้าลงในรถเข็น
     [Arguments]    ${button_text}
     ${locator_in_modal}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${product_mobile_page_locator['btn_in_modal']}
