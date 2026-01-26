@@ -32,10 +32,10 @@ Resource    ${CURDIR}/../keywords/ui/web/pages/login_page.resource
 Resource    ${CURDIR}/../keywords/ui/web/pages/product_list_page.resource
 
 # LOCATOR
-Resource    ${CURDIR}/../resources/locators/mobile/android/cart_page_mobile_locator.resource
-Resource    ${CURDIR}/../resources/locators/mobile/android/choose_language_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/mobile/android/home_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/mobile/android/profile_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/mobile/cart_page_mobile_locator.resource
+Resource    ${CURDIR}/../resources/locators/mobile/choose_language_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/mobile/home_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/mobile/profile_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/cart_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/checkout_complete_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/checkout_overview_page_locator.resource
