@@ -3,7 +3,7 @@ Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
 Tap home button
-    [Documentation]    สัมผัสปุ่มโฮมสินค้าเพื่อกลับสู่หน้าแรก
+    [Documentation]    สัมผัสปุ่มโฮมเพื่อกลับสู่หน้าแรก
     common_mobile.Tap element when ready    locator=${profile_page_locator['btn_home']}
 
 Tap login button
