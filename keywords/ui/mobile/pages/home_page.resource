@@ -12,7 +12,11 @@ Tap cart button
 
 Tap profile button
     [Documentation]    สัมผัสปุ่มโปรไฟล์พื่อเข้าสู่หน้าโปรไฟล์
-    common_mobile.Tap element when ready    locator=${home_page_locator['btn_profile']}
+    [Arguments]    ${button_name}
+    ${replace_locator}=    common_mobile.Replace locator and wait until element visible
+    ...    locator=${home_page_locator['btn_navbar']}
+    ...    replace_text=${button_name}
+    common_mobile.Tap element when ready    locator=${replace_locator}
 
 Tap search bar
     [Documentation]    สัมผัสที่แถบค้นหาสินค้าเพื่อเปิดหน้าจอการค้นหา

@@ -6,7 +6,7 @@ Check element text when visible
     [Documentation]    ตรวจสอบว่า element ปรากฏอยู่บนหน้า และตรวจสอบว่าข้อความภายใน element ตรงกับค่าที่กำหนด
     [Arguments]    ${locator}    ${text}
     Wait until element visible    locator=${locator}
-    AppiumLibrary.Element Should Contain Text    ${locator}    ${text}
+    AppiumLibrary.Element Text Should Be    ${locator}    ${text}
 
 Input text when ready
     [Documentation]    กรอกข้อความลงใน element ที่กำหนด และตรวจสอบว่าข้อความที่อยู่ในช่องตรงกับที่กรอกไป
@@ -80,7 +80,7 @@ Tap element when ready
     [Documentation]    สัมผัส element เมื่อพร้อม
     [Arguments]    ${locator}
     Wait until element enable    locator=${locator}
-    AppiumLibrary.Tap    ${locator}
+    AppiumLibrary.Tap    ${locator}    duration=${tap_duration}
 
 Wait until element enable
     [Documentation]    รอจนกว่า element จะใช้งานได้
