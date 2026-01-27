@@ -10,3 +10,4 @@ app_capabilities:
 swipe_screen:
   persent_start: 0.1
   persent_end: 0.9
+tap_duration: 500ms
