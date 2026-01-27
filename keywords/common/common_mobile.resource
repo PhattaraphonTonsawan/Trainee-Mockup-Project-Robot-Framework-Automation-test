@@ -1,6 +1,7 @@
 *** Settings ***
 Resource    ${CURDIR}/../../resources/import.resource
 
+
 *** Keywords ***
 Check element text when visible
     [Documentation]    ตรวจสอบว่า element ปรากฏอยู่บนหน้า และตรวจสอบว่าข้อความภายใน element ตรงกับค่าที่กำหนด
@@ -46,46 +47,61 @@ Swipe container until element visible
     ${location}=    AppiumLibrary.Get Element Location    ${element_container}
     ${element_size}=    AppiumLibrary.Get Element Size    ${element_container}
     FOR    ${i}    IN RANGE    ${max_swipe}
-        ${is_target_visible}=    BuiltIn.Run Keyword And Return Status    Wait until element visible    ${target_locator}
+        ${is_target_visible}=    BuiltIn.Run Keyword And Return Status
+        ...    Wait until element visible
+        ...    ${target_locator}
         IF    ${is_target_visible}
             BuiltIn.Log To Console    Found element '${target_locator}'
             RETURN
         END
         IF    '${direction}' == 'left'
-            ${start_x}=    BuiltIn.Evaluate    ${location['x']} + (${element_size['width']} *${swipe_screen['persent_start']})
+            ${start_x}=    BuiltIn.Evaluate
+            ...    ${location['x']} + (${element_size['width']} *${swipe_screen['persent_start']})
             ${start_y}=    BuiltIn.Evaluate    ${location['y']} + (${element_size['height']}/2)
-            ${end_x}=    BuiltIn.Evaluate    ${location['x']} + (${element_size['width']} * ${swipe_screen['persent_end']})
+            ${end_x}=    BuiltIn.Evaluate
+            ...    ${location['x']} + (${element_size['width']} * ${swipe_screen['persent_end']})
             ${end_y}=    BuiltIn.Set Variable    ${start_y}
         ELSE IF    '${direction}' == 'right'
-            ${start_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}*${swipe_screen['persent_end']})
+            ${start_x}=    BuiltIn.Evaluate
+            ...    ${location['x']}+(${element_size['width']}*${swipe_screen['persent_end']})
             ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}/2)
-            ${end_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}*${swipe_screen['persent_start']})
+            ${end_x}=    BuiltIn.Evaluate
+            ...    ${location['x']}+(${element_size['width']}*${swipe_screen['persent_start']})
             ${end_y}=    BuiltIn.Set Variable    ${start_y}
         ELSE IF    '${direction}' == 'down'
             ${start_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}/2)
-            ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_start']})
+            ${start_y}=    BuiltIn.Evaluate
+            ...    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_start']})
             ${end_x}=    BuiltIn.Evaluate    ${start_x}
-            ${end_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_end']})
+            ${end_y}=    BuiltIn.Evaluate
+            ...    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_end']})
         ELSE IF    '${direction}' == 'up'
             ${start_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}/2)
-            ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_end']})
+            ${start_y}=    BuiltIn.Evaluate
+            ...    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_end']})
             ${end_x}=    BuiltIn.Evaluate    ${start_x}
-            ${end_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_start']})
+            ${end_y}=    BuiltIn.Evaluate
+            ...    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_start']})
         END
-        AppiumLibrary.Swipe    start_x=${start_x}    start_y=${start_y}    end_x=${end_x}    end_y=${end_y}    duration=${duration}
+        AppiumLibrary.Swipe
+        ...    start_x=${start_x}
+        ...    start_y=${start_y}
+        ...    end_x=${end_x}
+        ...    end_y=${end_y}
+        ...    duration=${duration}
     END
     BuiltIn.Fail    Element '${target_locator}' not visible after swiping ${max_swipe}
 
 Tap element when ready
     [Documentation]    สัมผัส element เมื่อพร้อม
-    [Arguments]    ${locator}
+    [Arguments]    ${locator}    ${duration}=${tap_duration}
     Wait until element enable    locator=${locator}
-    AppiumLibrary.Tap    ${locator}    duration=${tap_duration}
+    AppiumLibrary.Tap    ${locator}    duration=${duration}
 
 Wait until element enable
     [Documentation]    รอจนกว่า element จะใช้งานได้
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    AppiumLibrary.Expect Element    ${locator}    enabled   ${timeout}
+    AppiumLibrary.Expect Element    ${locator}    enabled    ${timeout}
 
 Wait until element not visible
     [Documentation]    รอจนกว่า Element จะไม่ปรากฏขึ้นมา
