@@ -2,10 +2,12 @@
 Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
-Check cart empty icon is visible
-    [Documentation]    ตรวจสอบว่าตะกร้าสินค้านั้นว่างหรือไม่ โดยการดูไอคอนตะกร้าว่างมีหรือไม่
+Check cart is empty 
+    [Documentation]    ตรวจสอบว่าตะกร้าสินค้านั้นว่างหรือไม่
     common_mobile.Wait until element visible
-    ...    locator=${cart_page_mobile_locator['cart_empty_icon']}
+    ...    locator=${cart_page_mobile_locator['lbl_empty_cart_first']}
+    common_mobile.Wait until element visible
+    ...    locator=${cart_page_mobile_locator['lbl_empty_cart_second']}
 
 Check cart page title
     [Documentation]    ตรวจสอบว่าอยู่หน้ารถเข็นแล้ว
@@ -26,13 +28,13 @@ Check item name
 Check item quantity
     [Documentation]    ตรวจสอบจำนวนสินค้าที่เพิ่มเข้ามาว่าตรงตามข้อมูลทดสอบหรือไม่
     common_mobile.Check element text when visible
-    ...    locator=${cart_page_mobile_locator['product_card_container']}
+    ...    locator=${cart_page_mobile_locator['ctn_product_card']}
     ...    text=${product_detail['product_qty']}
 
 Check item price
     [Documentation]    ตรวจสอบราคาสินค้าที่เพิ่มเข้ามาว่าตรงตามข้อมูลทดสอบหรือไม่
     common_mobile.Check element text when visible
-    ...    locator=${cart_page_mobile_locator['product_card_container']}
+    ...    locator=${cart_page_mobile_locator['ctn_product_card']}
     ...    text=${product_detail['product_price']}
 
 Tap to delete item button
@@ -48,6 +50,6 @@ Tap to increase item quantity
 Swipe to find delete item button
     [Documentation]    ปัดสินค้าไปทางซ้ายเพื่อให้ปุ่มลบสินค้าแสดงขี้นมา
     common_mobile.Swipe container until element visible
-    ...    element_container=${cart_page_mobile_locator['product_card_container']}
+    ...    element_container=${cart_page_mobile_locator['ctn_product_card']}
     ...    target_locator=${cart_page_mobile_locator['btn_direct_delete']}
     ...    direction='left'
