@@ -4,10 +4,14 @@ Resource    ${CURDIR}/../../../../resources/import.resource
 *** Keywords ***
 Check cart is empty 
     [Documentation]    ตรวจสอบว่าตะกร้าสินค้านั้นว่างหรือไม่
-    common_mobile.Wait until element visible
+    ${replace_text_first}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${cart_page_mobile_locator['lbl_empty_cart_first']}
-    common_mobile.Wait until element visible
+    ...    replace_text=${txt_shopee_cart_page['txt_cart_empty_first']}
+    ${replace_text_second}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${cart_page_mobile_locator['lbl_empty_cart_second']}
+    ...    replace_text=${txt_shopee_cart_page['txt_cart_empty_second']}
+    common_mobile.Wait until element visible    locator=${replace_text_first}
+    common_mobile.Wait until element visible    locator=${replace_text_second}
 
 Check cart page title
     [Documentation]    ตรวจสอบว่าอยู่หน้ารถเข็นแล้ว
@@ -39,8 +43,11 @@ Check item price
 
 Tap to delete item button
     [Documentation]    สัมผัสปุ่มลบสินค้าเพื่อลบสินค้าออกจากตะกร้า
-    common_mobile.Tap element when ready
+    ${replace_text}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${cart_page_mobile_locator['btn_direct_delete']}
+    ...    replace_text=${txt_shopee_cart_page['txt_btn_delete']}
+    common_mobile.Tap element when ready
+    ...    locator=${replace_text}
 
 Tap to increase item quantity
     [Documentation]    สัมผัสเพื่อเพิ่มจำนวนสินค้านั้นๆที่อยู่ในตะกร้า

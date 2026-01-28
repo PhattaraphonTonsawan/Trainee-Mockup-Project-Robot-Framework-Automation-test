@@ -3,9 +3,9 @@
 ...    btn_add_item_quantity=id=buttonAddMoreQuantity
 ...    btn_checkout=id=buttonCheckout
 ...    btn_confirm_delete=id=com.shopee.th:id/buttonDefaultPositive
-...    btn_direct_delete=xpath=//android.widget.TextView[@text="ลบ"]
-...    lbl_empty_cart_first=//android.widget.TextView[@text="ถึงเค้าจะไม่ว่าง แต่เราว่างอยู่นะ!"]
-...    lbl_empty_cart_second=//android.widget.TextView[@text="เลือกสินค้าโดนใจใส่รถเข็นไว้เลย"]
+...    btn_direct_delete=xpath=//android.widget.TextView[@text="***replace***"]
+...    lbl_empty_cart_first=//android.widget.TextView[@text="***replace***"]
+...    lbl_empty_cart_second=//android.widget.TextView[@text="***replace***"]
 ...    ctn_page=xpath=//android.widget.ScrollView/android.view.ViewGroup0
 ...    ctn_product_card=xpath=//android.widget.TextView[@text="***replace***"]/ancestor::android.view.ViewGroup[starts-with(@resource-id,"itemRow_790202409")]
 ...    txt_title=id=labelActionBarTitle

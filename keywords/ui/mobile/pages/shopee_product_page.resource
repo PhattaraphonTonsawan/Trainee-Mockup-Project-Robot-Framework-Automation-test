@@ -13,12 +13,19 @@ Tap add to cart button on product page
     common_mobile.Tap element when ready
     ...    locator=${product_mobile_page_locator['btn_add_to_cart']}
 
-Tap button in modal on product page
-    [Documentation]    สัมผัสปุ่มในโมเดิ้นที่ปรากฏขึ้นหลังจากการเพิ่มสินค้าลงในรถเข็น
-    [Arguments]    ${button_text}
+Tap buy item now button in modal on product page
+    [Documentation]    สัมผัสปุ่มซื้อสินค้าทันทีในโมเดิ้นที่ปรากฏขึ้นหลังจากการเพิ่มสินค้าลงในรถเข็น
     ${locator_in_modal}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${product_mobile_page_locator['btn_in_modal']}
-    ...    replace_text=${button_text}
+    ...    replace_text=${txt_product_page['txt_btn_buy_now']}
+    common_mobile.Tap element when ready
+    ...    locator=${locator_in_modal}
+
+Tap buy item now button in modal on product page
+    [Documentation]    สัมผัสปุ่มเพิ่มสินค้าลงรถเข็นในโมเดิ้นที่ปรากฏขึ้นหลังจากการเพิ่มสินค้าลงในรถเข็น
+    ${locator_in_modal}=    common_mobile.Replace locator and wait until element visible
+    ...    locator=${product_mobile_page_locator['btn_in_modal']}
+    ...    replace_text=${txt_product_page['txt_btn_add_to_cart']}
     common_mobile.Tap element when ready
     ...    locator=${locator_in_modal}
 

@@ -10,8 +10,14 @@ Input product name in search box
 
 Swipe to find shopee mall button
     [Documentation]    เลื่อนหน้าค้นหาจนกว่าจะแสดงปุ่ม Shopee Mall
-    common_mobile.Swipe container until element visible    element_container=${search_page_locator['ctn_fiter_lts']}
-    ...    target_locator=${search_page_locator['btn_shopee_mall']}
+    ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
+    ...    locator=${search_page_locator['btn_sctn_fiter_lts']}
+    ...    replace_text=${txt_search_page['txt_shopee_mall']}
+    ${replaced_locator_btn}=    common_mobile.Replace locator and wait until element visible
+    ...    locator=${search_page_locator['btn_shopee_mall']}
+    ...    replace_text=${txt_search_page['txt_shopee_mall']}
+    common_mobile.Swipe container until element visible    element_container=${replaced_locator}
+    ...    target_locator=${replaced_locator_btn}
     ...    direction=left
 
 Swipe to find product item
@@ -38,5 +44,8 @@ Tap search button after input product name
 
 Tap shopee mall button
     [Documentation]    สัมผัสปุ่ม Shopee Mall เพื่อกรองผลการค้นหาให้แสดงเฉพาะสินค้าจาก Shopee Mall
-    common_mobile.Tap element when ready
+    ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${search_page_locator['btn_shopee_mall']}
+    ...    replace_text=${txt_search_page['txt_shopee_mall']}
+    common_mobile.Tap element when ready
+    ...    locator=${replaced_locator}
