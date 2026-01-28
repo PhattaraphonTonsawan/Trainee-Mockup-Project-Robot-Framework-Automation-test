@@ -12,10 +12,9 @@ Tap cart button
 
 Tap profile button
     [Documentation]    สัมผัสปุ่มโปรไฟล์พื่อเข้าสู่หน้าโปรไฟล์
-    [Arguments]    ${button_name}
     ${replace_locator}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${home_page_locator['btn_navbar']}
-    ...    replace_text=${button_name}
+    ...    replace_text=${txt_home_page['txt_profile_button']}
     common_mobile.Tap element when ready    locator=${replace_locator}
 
 Tap search bar
