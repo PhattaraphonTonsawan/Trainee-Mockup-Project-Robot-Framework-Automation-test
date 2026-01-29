@@ -6,7 +6,7 @@ Check search bar visible
     [Documentation]    ตรวจสอบว่าแถบค้นหาสินค้าแสดงในหน้าจอหรือไม่
     common_mobile.Wait until element visible    locator=${home_page_locator['txt_search_item']}
 
-Navigate to profile page
+Tap button in bottom navigation bar
     [Documentation]    สัมผัสปุ่มโปรไฟล์พื่อเข้าสู่หน้าโปรไฟล์
     [Arguments]    ${button_name}
     ${replace_locator}=    common_mobile.Replace locator and wait until element visible
