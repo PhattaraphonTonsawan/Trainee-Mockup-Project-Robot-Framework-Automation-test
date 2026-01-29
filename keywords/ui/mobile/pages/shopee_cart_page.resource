@@ -31,14 +31,20 @@ Check item name
 
 Check item quantity
     [Documentation]    ตรวจสอบจำนวนสินค้าที่เพิ่มเข้ามาว่าตรงตามข้อมูลทดสอบหรือไม่
+    ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
+    ...    locator=${cart_page_mobile_locator['txt_product_quantity']}
+    ...    replace_text=${txt_shopee_cart_page['txt_product_quantity']}
     common_mobile.Check element text when visible
-    ...    locator=${cart_page_mobile_locator['ctn_product_card']}
+    ...    locator=${cart_page_mobile_locator['replaced_locator']}
     ...    text=${product_detail['product_qty']}
 
 Check item price
     [Documentation]    ตรวจสอบราคาสินค้าที่เพิ่มเข้ามาว่าตรงตามข้อมูลทดสอบหรือไม่
+    ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
+    ...    locator=${cart_page_mobile_locator['txt_product_quantity']}
+    ...    replace_text=${txt_shopee_cart_page['txt_product_price']}
     common_mobile.Check element text when visible
-    ...    locator=${cart_page_mobile_locator['ctn_product_card']}
+    ...    locator=${cart_page_mobile_locator['replaced_locator']}
     ...    text=${product_detail['product_price']}
 
 Tap to delete item button

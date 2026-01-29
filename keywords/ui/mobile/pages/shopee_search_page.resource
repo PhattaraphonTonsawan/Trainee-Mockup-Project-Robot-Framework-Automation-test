@@ -23,7 +23,7 @@ Swipe to find shopee mall button
 Swipe to find product item
     [Documentation]    เลื่อนหน้าค้นหาจนกว่าจะแสดงสินค้าที่ต้องการ
     ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
-    ...    locator=${search_page_locator['product_container']}
+    ...    locator=${search_page_locator['ctn_product']}
     ...    replace_text=${product_detail['product_name']}
     common_mobile.Swipe container until element visible
     ...    element_container=${search_page_locator['ctn_page']}
@@ -32,7 +32,7 @@ Swipe to find product item
 Tap product item
     [Documentation]    สัมผัสสินค้าที่ต้องการจากผลการค้นหา
     ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
-    ...    locator=${search_page_locator['product_container']}
+    ...    locator=${search_page_locator['ctn_product']}
     ...    replace_text=${product_detail['product_name']}
     common_mobile.Tap element when ready
     ...    locator=${replaced_locator}

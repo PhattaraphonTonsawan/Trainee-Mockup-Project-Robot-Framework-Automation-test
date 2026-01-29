@@ -7,6 +7,8 @@ txt_shopee_cart_page:
   txt_cart_empty_first: ถึงเค้าจะไม่ว่าง แต่เราว่างอยู่นะ!
   txt_cart_empty_second: เลือกสินค้าโดนใจใส่รถเข็นไว้เลย
   txt_btn_delete: ลบ
+  txt_product_price: 1,350
+  txt_product_quantity: 1
 
 txt_product_page:
   txt_btn_buy_now: ซื้อเลย
