@@ -1,7 +1,6 @@
 *** Settings ***
 Resource    ${CURDIR}/../../../../resources/import.resource
 
-
 *** Keywords ***
 Check page title
     [Documentation]    ตรวจสอบว่าแถบค้นหาสินค้าแสดงในหน้าจอหรือไม่
