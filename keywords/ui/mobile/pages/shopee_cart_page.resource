@@ -2,7 +2,7 @@
 Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
-Check cart is empty 
+Check message when cart is empty
     [Documentation]    ตรวจสอบว่าตะกร้าสินค้านั้นว่างหรือไม่
     ${replace_text_first}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${cart_page_mobile_locator['lbl_empty_cart_first']}

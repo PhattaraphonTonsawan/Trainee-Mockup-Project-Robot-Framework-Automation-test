@@ -6,6 +6,6 @@
 ...    lbl_empty_cart_first=//android.widget.TextView[@text="***replace***"]
 ...    lbl_empty_cart_second=//android.widget.TextView[@text="***replace***"]
 ...    ctn_page=xpath=//android.widget.ScrollView/android.view.ViewGroup0
-...    ctn_product_card=xpath=//android.widget.TextView[@text="***replace***"]/ancestor::android.view.ViewGroup[starts-with(@resource-id,"itemRow_790202409")]
+...    ctn_product_card=xpath=//android.widget.TextView[@text="***replace***"]/ancestor::android.view.ViewGroup[starts-with(@resource-id,"itemRow_")]
 ...    txt_title=id=labelActionBarTitle
 ...    txt_product_name=id=labelItemName
