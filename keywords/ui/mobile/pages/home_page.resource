@@ -7,7 +7,7 @@ Check search bar visible
     common_mobile.Wait until element visible    locator=${home_page_locator['txt_search_item']}
 
 Tap button in bottom navigation bar
-    [Documentation]    สัมผัสปุ่มโปรไฟล์พื่อเข้าสู่หน้าโปรไฟล์
+    [Documentation]    สัมผัสปุ่มที่ Navbar ด้านล่างของหน้าจอ
     [Arguments]    ${button_name}
     ${replace_locator}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${home_page_locator['btn_navbar']}
