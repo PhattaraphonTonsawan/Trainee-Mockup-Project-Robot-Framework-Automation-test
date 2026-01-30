@@ -1,13 +1,12 @@
 *** Variables ***
 &{cart_page_mobile_locator}
-...    btn_add_item_quantity=id=buttonAddMoreQuantity
+...    btn_add_item_quantity=xpath=//android.widget.TextView[@text="***replace***"]/ancestor::android.view.ViewGroup[@resource-id="buttonAddMoreQuantity"]
 ...    btn_checkout=id=buttonCheckout
-...    btn_confirm_delete=id=com.shopee.th:id/buttonDefaultPositive
-...    btn_direct_delete=xpath=//android.view.ViewGroup[@resource-id="itemRow_1586712027_55603322605"]/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]
-...    btn_reduce_item_quantity=id=buttonReduceQuantity
-...    cart_empty_icon=xpath=//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView
-...    check_box=xpath=(//android.view.ViewGroup[@resource-id="buttonCheckBoxNotChecked"])[2]/android.view.ViewGroup/android.view.ViewGroup
-...    ctn_page=xpath=//android.widget.ScrollView/android.view.ViewGroup
-...    product_card_container=xpath=//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[4]/android.view.ViewGroup/*[1]
+...    btn_direct_delete=xpath=//android.widget.TextView[@text="***replace_product_name***"]/ancestor::android.view.ViewGroup[starts-with(@resource-id,"itemRow_")]//android.widget.TextView[@text="***replace***"]
+...    lbl_empty_cart_first=xpath//android.widget.TextView[@text="***replace***"]
+...    lbl_empty_cart_second=xpath//android.widget.TextView[@text="***replace***"]
+...    ctn_page=xpath=//android.widget.ScrollView
+...    ctn_product_card=xpath=//android.widget.TextView[@text="***replace***"]/ancestor::android.view.ViewGroup[starts-with(@resource-id,"itemRow_")]
 ...    txt_title=id=labelActionBarTitle
 ...    txt_product_name=id=labelItemName
+...    txt_product_quantity=id=textInputQuantity
