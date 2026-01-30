@@ -18,12 +18,9 @@ Check order price in checkout page
 Check product name in checkout page
     [Documentation]    ตรวจสอบชื่อสินค้าว่าถูกต้องในหน้าชำระสินค้า
     [Arguments]    ${product_name}
-    ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
+    common_mobile.Replace locator and wait until element visible
     ...    locator=${checkout_page_locator['lbl_product_name']}
     ...    replace_text=${product_name}
-    common_mobile.Check element text when visible
-    ...    locator=${replaced_locator}
-    ...    text=${replaced_locator}
 
 Swipe to find order price on checkout page
     [Documentation]    เลื่อนหน้าชำระเงินจนกว่าจะแสดงราคารวมของสินค้า
