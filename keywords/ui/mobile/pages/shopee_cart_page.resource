@@ -39,14 +39,10 @@ Check item quantity
 
 Tap to delete item button
     [Documentation]    สัมผัสปุ่มลบสินค้าเพื่อลบสินค้าออกจากตะกร้า
-    [Arguments]    ${item_name}    ${delete_button_text}
-    ${replaced__product_name}=    String.Replace String
-    ...    ${cart_page_mobile_locator['btn_direct_delete']}
-    ...    ***replace_product_name***
-    ...    ${item_name}
+    [Arguments]    ${item_name}
     ${replaced_button_locator}=    common_mobile.Replace locator and wait until element visible
-    ...    locator=${replaced__product_name}
-    ...    replace_text=${delete_button_text}
+    ...    locator=${cart_page_mobile_locator['btn_direct_delete']}
+    ...    replace_text=${item_name}
     common_mobile.Tap element when ready
     ...    locator=${replaced_button_locator}
 
@@ -61,7 +57,11 @@ Tap to increase item quantity
 
 Swipe to find delete item button
     [Documentation]    ปัดสินค้าไปทางซ้ายเพื่อให้ปุ่มลบสินค้าแสดงขี้นมา
+    [Arguments]    ${item_name}
+    ${replace_locator}=    common_mobile.Replace locator and wait until element visible
+    ...    locator==${cart_page_mobile_locator['btn_direct_delete']}
+    ...    replace_text=${item_name}
     common_mobile.Swipe container until element visible
     ...    element_container=${cart_page_mobile_locator['ctn_product_card']}
-    ...    target_locator=${cart_page_mobile_locator['btn_direct_delete']}
+    ...    target_locator=${replace_locator}
     ...    direction='left'
