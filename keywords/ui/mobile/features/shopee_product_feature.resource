@@ -7,7 +7,7 @@ Verify product details on product page
     shopee_product_page.Check product name on product page
     shopee_product_page.Check product price on product page
 
-Add item to cart 
+Add item to cart
     [Documentation]    เพิ่มสินค้าลงในรถเข็น
     shopee_product_page.Tap add to cart button on product page
     shopee_product_page.Tap add item to cart button in modal on product page
