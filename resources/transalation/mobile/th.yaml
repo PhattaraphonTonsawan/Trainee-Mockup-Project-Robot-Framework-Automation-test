@@ -6,6 +6,14 @@ txt_login_page:
   txt_title: เข้าสู่ระบบ
 txt_shopee_cart_page:
   txt_title: รถเข็น
-
+  txt_cart_empty_first: ถึงเค้าจะไม่ว่าง แต่เราว่างอยู่นะ!
+  txt_cart_empty_second: เลือกสินค้าโดนใจใส่รถเข็นไว้เลย
+  txt_btn_delete: ลบ
+txt_product_page:
+  txt_buy_now: ซื้อเลย
+  txt_add_to_cart: เพิ่มใส่รถเข็น
 txt_shopee_checkout_page:
   txt_title: ทำการสั่งซื้อ
+  txt_order_price: 1,350
+txt_search_page:
+  txt_shopee_mall: Shopee Mall
