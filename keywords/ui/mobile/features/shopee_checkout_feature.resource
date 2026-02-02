@@ -4,7 +4,7 @@ Resource    ${CURDIR}/../../../../resources/import.resource
 *** Keywords ***
 Verify order details on checkout page
     [Documentation]    ตรวจสอบความถูกต้องของข้อมูลบนหน้า Checkout (หัวข้อหน้า, ชื่อสินค้า, และราคาก่อนหักส่วนลด)
-    [Arguments]    ${product_name}    ${product_qty}=1
+    [Arguments]    ${product_name}    ${product_qty}=${product_detail['product_qty']}
     ${order_price}=    BuiltIn.Evaluate    int(${product_detail['product_price']}) * (${product_qty})
     shopee_checkout_page.Check checkout page title
     shopee_checkout_page.Check product name in checkout page    product_name=${product_name}
