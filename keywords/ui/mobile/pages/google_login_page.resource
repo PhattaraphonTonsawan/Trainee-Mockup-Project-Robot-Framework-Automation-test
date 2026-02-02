@@ -2,6 +2,18 @@
 Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
+Check fingerprint enable popup
+    [Documentation]    ตรวจสอบ popup การเปิดใช้งานการเข้าสู่ระบบด้วยลายนิ้วมือ
+    common_mobile.Check element text when visible
+    ...    locator=${google_login_page_locator['txt_fingerprint_enable']}
+    ...    text=${txt_google_login_page['txt_fingerprint_enable']}
+
+Check quick login title in passkey page
+    [Documentation]    ตรวจสอบหัวข้อยืนยันตัวตนสำหรับการเข้าสู่ระบบแบบรวดเร็ว
+    common_mobile.Check element text when visible
+    ...    locator=${google_login_page_locator['lbl_quick_login_title']}
+    ...    text=${txt_google_login_page['txt_quick_login_title']}
+
 Tap accept fingerprint pop up
     [Documentation]    สัมผัสปุ่มตกลงเมื่อ popup ใช้แสกนนิ้วมือแสดงขึ้นมา
     common_mobile.Tap element when ready    locator=${google_login_page_locator['btn_fingerprint_accep']}
