@@ -21,19 +21,19 @@ Tap add to cart button on product page
 
 Tap buy item now button in modal on product page
     [Documentation]    สัมผัสปุ่มซื้อสินค้าทันทีในโมเดิ้นที่ปรากฏขึ้นหลังจากการเพิ่มสินค้าลงในรถเข็น
-    ${locator_in_modal}=    common_mobile.Replace locator and wait until element visible
+    ${btn_buy_now_locator}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${product_mobile_page_locator['btn_in_modal']}
-    ...    replace_text=${txt_product_page['txt_btn_buy_now']}
+    ...    replace_text=${txt_product_page['txt_buy_now']}
     common_mobile.Tap element when ready
-    ...    locator=${locator_in_modal}
+    ...    locator=${btn_buy_now_locator}
 
 Tap add item to cart button in modal on product page
     [Documentation]    สัมผัสปุ่มเพิ่มสินค้าลงรถเข็นในโมเดิ้นที่ปรากฏขึ้นหลังจากการเพิ่มสินค้าลงในรถเข็น
-    ${locator_in_modal}=    common_mobile.Replace locator and wait until element visible
+    ${btn_add-to_cart_locator}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${product_mobile_page_locator['btn_in_modal']}
-    ...    replace_text=${txt_product_page['txt_btn_add_to_cart']}
+    ...    replace_text=${txt_product_page['txt_add_to_cart']}
     common_mobile.Tap element when ready
-    ...    locator=${locator_in_modal}
+    ...    locator=${btn_add-to_cart_locator}
 
 Tap buy now button on product page
     [Documentation]    สัมผัสปุ่มเพื่อซื้อสินค้านั้นทันที

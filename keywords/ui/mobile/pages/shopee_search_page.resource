@@ -11,15 +11,15 @@ Input product name in search box
 
 Swipe to find shopee mall button
     [Documentation]    เลื่อนหน้าค้นหาจนกว่าจะแสดงปุ่ม Shopee Mall
-    ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
+    ${filter_container}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${search_page_locator['ctn_fiter_lts']}
     ...    replace_text=${txt_search_page['txt_shopee_mall']}
-    ${replaced_locator_btn}=    common_mobile.Replace locator and wait until element visible
+    ${ฺbtn_shopee_mall}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${search_page_locator['btn_shopee_mall']}
     ...    replace_text=${txt_search_page['txt_shopee_mall']}
     common_mobile.Swipe container until element visible
-    ...    element_container=${replaced_locator}
-    ...    target_locator=${replaced_locator_btn}
+    ...    element_container=${filter_container}
+    ...    target_locator=${ฺbtn_shopee_mall}
     ...    direction=left
 
 Swipe to find product item
