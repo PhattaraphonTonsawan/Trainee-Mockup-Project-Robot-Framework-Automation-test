@@ -4,15 +4,10 @@ Resource    ${CURDIR}/../../../../resources/import.resource
 *** Keywords ***
 Check product name on product page
     [Documentation]    ตรวจสอบชื่อสินค้าว่าตรงกับค่าที่คาดหวังบนหน้าสินค้า
+    [Arguments]    ${product_name}
     common_mobile.Check element text when visible
     ...    locator=${product_mobile_page_locator['txt_product_name']}
-    ...    text=${product_detail['product_name']}
-
-Check product price on product page
-    [Documentation]    ตรวจสอบราคาสินค้าว่าตรงกับค่าที่คาดหวังบนหน้าสินค้า
-    common_mobile.Check element text when visible
-    ...    locator=${product_mobile_page_locator['txt_product_price']}
-    ...    text=${product_detail['product_price']}
+    ...    text=${product_name}
 
 Tap add to cart button on product page
     [Documentation]    สัมผัสปุ่มเพื่อเพิ่มสินค้าลงในรถเข็น
@@ -29,11 +24,11 @@ Tap buy item now button in modal on product page
 
 Tap add item to cart button in modal on product page
     [Documentation]    สัมผัสปุ่มเพิ่มสินค้าลงรถเข็นในโมเดิ้นที่ปรากฏขึ้นหลังจากการเพิ่มสินค้าลงในรถเข็น
-    ${btn_add-to_cart_locator}=    common_mobile.Replace locator and wait until element visible
+    ${btn_add_to_cart_locator}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${product_mobile_page_locator['btn_in_modal']}
     ...    replace_text=${txt_product_page['txt_add_to_cart']}
     common_mobile.Tap element when ready
-    ...    locator=${btn_add-to_cart_locator}
+    ...    locator=${btn_add_to_cart_locator}
 
 Tap buy now button on product page
     [Documentation]    สัมผัสปุ่มเพื่อซื้อสินค้านั้นทันที
