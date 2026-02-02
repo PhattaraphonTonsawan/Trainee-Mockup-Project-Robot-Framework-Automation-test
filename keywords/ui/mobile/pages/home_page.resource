@@ -11,7 +11,7 @@ Tap button in bottom navigation bar
     [Arguments]    ${button_name}
     ${replace_locator}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${home_page_locator['btn_navbar']}
-    ...    replace_text=${txt_home_page['txt_profile_button']}
+    ...    replace_text=${button_name}
     common_mobile.Tap element when ready    locator=${replace_locator}
 
 Tap cart button
