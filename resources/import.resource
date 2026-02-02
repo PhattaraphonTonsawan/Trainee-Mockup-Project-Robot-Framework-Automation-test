@@ -14,6 +14,10 @@ Resource    ${CURDIR}/../keywords/common/common_mobile.resource
 Resource    ${CURDIR}/../keywords/common/common_web.resource
 
 # FEATURE
+Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_cart_feature.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_checkout_feature.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_login_feature.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_product_feature.resource
 Resource    ${CURDIR}/../keywords/ui/web/features/cart_feature.resource
 Resource    ${CURDIR}/../keywords/ui/web/features/checkout_complete_feature.resource
 Resource    ${CURDIR}/../keywords/ui/web/features/checkout_feature.resource
