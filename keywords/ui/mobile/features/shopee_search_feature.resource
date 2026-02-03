@@ -21,3 +21,8 @@ Filter search results by shopee mall
     [Documentation]    กรองผลการค้นหาโดยเลือก Shopee Mall
     shopee_search_page.Swipe to find shopee mall button
     shopee_search_page.Tap shopee mall button
+
+Tap search bar
+    [Documentation]    กดค้นหาสินค้าที่หน้าโฮม
+    home_page.Check search bar visible
+    home_page.Tap search bar
