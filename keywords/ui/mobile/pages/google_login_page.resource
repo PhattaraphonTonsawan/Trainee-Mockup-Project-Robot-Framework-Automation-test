@@ -24,8 +24,4 @@ Tap return button in passkey page
 
 Select google account
     [Documentation]    เลือก gmail account ที่ต้องใช้สำหรับเข้าสู่ระบบด้วย gmail
-    [Arguments]    ${gmail_name}=${google_account['gmail']}
-    ${google_account_button}=    common_mobile.Replace locator and wait until element visible
-    ...    locator=${google_login_page_locator['btn_gmail']}
-    ...    replace_text=${gmail_name}
-    common_mobile.Tap element when ready    locator=${google_account_button}
+    common_mobile.Tap element when ready    ${google_login_page_locator['btn_gmail']}
