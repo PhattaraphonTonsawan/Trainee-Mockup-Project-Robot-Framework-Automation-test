@@ -17,6 +17,7 @@ Resource    ${CURDIR}/../keywords/common/common_web.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/features/choose_language_feature.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/features/home_page_feature.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/features/profile_feature.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/features/google_login_feature.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_cart_feature.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_checkout_feature.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_product_feature.resource
@@ -56,7 +57,6 @@ Resource    ${CURDIR}/../resources/locators/mobile/search_page_mobile_locator.re
 Resource    ${CURDIR}/../resources/locators/mobile/login_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/mobile/product_page_mobile_locator.resource
 Resource    ${CURDIR}/../resources/locators/mobile/profile_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/mobile/product_page_mobile_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/cart_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/checkout_complete_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/checkout_overview_page_locator.resource
