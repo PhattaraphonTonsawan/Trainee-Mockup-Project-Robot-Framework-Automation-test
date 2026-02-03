@@ -8,6 +8,10 @@ Check page title
     ...    locator=${choose_language_page_locator['lbl_title']}
     ...    text=${txt_choose_langauge_page['txt_title']}
 
+Check welcome page pop up
+    [Documentation]    ตรวจสอบ pop up ตอนรับเข้าสู่แอปพลิเคชัน
+    common_mobile.Wait until element visible    locator=${choose_language_page_locator['img_popup']}
+
 Choose thai language
     [Documentation]    สัมผัสปุ่มตัวเลือกภาษาไทย
     common_mobile.Tap element when ready    locator=${choose_language_page_locator['btn_thai_language']}
