@@ -56,6 +56,7 @@ Resource    ${CURDIR}/../resources/locators/web/login_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/products_list_page_locator.resource
 
 # SETTING
+Variables    ${CURDIR}/../resources/setting/authen_setting.yaml
 Variables    ${CURDIR}/../resources/setting/mobile/config.yaml
 Variables    ${CURDIR}/../resources/setting/web/config.yaml
 
