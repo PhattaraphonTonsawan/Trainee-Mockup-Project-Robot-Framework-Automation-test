@@ -45,6 +45,7 @@ Resource    ${CURDIR}/../keywords/ui/web/pages/product_list_page.resource
 Resource    ${CURDIR}/../resources/locators/mobile/cart_page_mobile_locator.resource
 Resource    ${CURDIR}/../resources/locators/mobile/checkout_page_mobile_locator.resource
 Resource    ${CURDIR}/../resources/locators/mobile/choose_language_page_locator.resource
+Resource    ${CURDIR}/../resources/locators/mobile/google_login_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/mobile/home_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/mobile/search_page_mobile_locator.resource
 Resource    ${CURDIR}/../resources/locators/mobile/login_page_locator.resource
@@ -59,6 +60,7 @@ Resource    ${CURDIR}/../resources/locators/web/login_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/products_list_page_locator.resource
 
 # SETTING
+Variables    ${CURDIR}/../resources/setting/authen_setting.yaml
 Variables    ${CURDIR}/../resources/setting/mobile/config.yaml
 Variables    ${CURDIR}/../resources/setting/web/config.yaml
 

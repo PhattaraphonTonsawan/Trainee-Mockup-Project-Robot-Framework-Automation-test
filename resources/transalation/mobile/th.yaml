@@ -15,3 +15,6 @@ txt_shopee_checkout_page:
   txt_order_price: 1,350
 txt_search_page:
   txt_shopee_mall: Shopee Mall
+txt_google_login_page:
+  txt_fingerprint_enable: คุณได้เปิดใช้งานการเข้าสู่ระบบด้วยลายนิ้วมือแล้ว
+  txt_quick_login_title: ยืนยันตัวตนสำหรับการเข้าสู่ระบบแบบรวดเร็ว
