@@ -1,7 +1,9 @@
 txt_choose_langauge_page:
-    txt_title: เลือกภาษา
+  txt_title: เลือกภาษา
+txt_home_page:
+  txt_profile_button: ฉัน
 txt_login_page:
-    txt_title: เข้าสู่ระบบ
+  txt_title: เข้าสู่ระบบ
 txt_shopee_cart_page:
   txt_title: รถเข็น
   txt_cart_empty_first: ถึงเค้าจะไม่ว่าง แต่เราว่างอยู่นะ!

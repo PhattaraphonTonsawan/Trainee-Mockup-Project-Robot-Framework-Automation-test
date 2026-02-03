@@ -9,10 +9,10 @@ Check search bar visible
 Tap button in bottom navigation bar
     [Documentation]    สัมผัสปุ่มที่ Navbar ด้านล่างของหน้าจอ
     [Arguments]    ${button_name}
-    ${replace_locator}=    common_mobile.Replace locator and wait until element visible
+    ${bottom_navigation_button}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${home_page_locator['btn_navbar']}
     ...    replace_text=${button_name}
-    common_mobile.Tap element when ready    locator=${replace_locator}
+    common_mobile.Tap element when ready    locator=${bottom_navigation_button}
 
 Tap cart button
     [Documentation]    สัมผัสปุ่มตะกร้าสินค้าเพื่อเข้าสู่หน้าตะกร้าสินค้า
