@@ -11,8 +11,13 @@ TS_01001_001
     choose_language_feature.Choose language and check welcome page popup
     # Step 3: กดปุ่มเริ่มต้นและไปยังหน้าหลัก
     choose_language_feature.Tap start button and navigate to home page
+    # Step 4: กดปุ่มเมนู ฉัน
+    home_page.Tap button in bottom navigation bar
+    ...    button_name=${txt_home_page['txt_profile_button']}
+    # Step 5: กดปุ่มลงชื่อเข้าใจ
+    profile_feature.Tap login button and check login page title
     # Step 10: ค้นหาสินค้าด้วยการ Search ชื่อสินค้า
-    home_page.Tap search bar
+    home_page_feature.Tap search bar
     shopee_search_feature.Input product name in search box and tap search button
     ...    product_name=${product_detail['product_name']}
     # Step 11: ค้นหาสินค้าจากผลลัพธ์การค้นหากดเลือกสินค้าเป้าหมาย
