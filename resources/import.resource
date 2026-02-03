@@ -14,6 +14,7 @@ Resource    ${CURDIR}/../keywords/common/common_mobile.resource
 Resource    ${CURDIR}/../keywords/common/common_web.resource
 
 # FEATURE
+Resource    ${CURDIR}/../keywords/ui/mobile/features/choose_language_feature.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_cart_feature.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_checkout_feature.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_product_feature.resource
