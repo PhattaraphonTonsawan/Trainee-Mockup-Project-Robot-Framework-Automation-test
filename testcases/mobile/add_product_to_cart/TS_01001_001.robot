@@ -19,6 +19,7 @@ TS_01001_001
     login_feature.Tap login button and check login page title
     # Step 6: เลือกดำเนินการต่อด้วย google
     login_page.Tap login with google account button
+    google_login_page.Swipe to google account
     google_login_page.Select google account
     # Step 7: กดปุ่มตกลงที่หน้าสแกนลายนิ้วมือและไปที่หน้า passkey
     # Step 8:  กดปุ่มย้อนกลับ ที่หน้ายืนยันตัวตนด้วยพาสคีย์
