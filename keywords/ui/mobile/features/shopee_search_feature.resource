@@ -7,7 +7,7 @@ Tap search and input product name in search box and tap search button
     [Arguments]    ${product_name}
     shopee_search_page.Input product name in search box
     ...    product_name=${product_name}
-    shopee_search_page.Press
+    shopee_search_page.Press button done after input product name
     shopee_search_page.Verify search result text    expected_product_name=${product_name}
 
 Find product in search results and tap product item

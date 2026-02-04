@@ -9,6 +9,10 @@ Input product name in search box
     ...    locator=${search_page_locator['txt_search']}
     ...    text=${product_name}
 
+Press button done after input product name
+    [Documentation]    กดปุ่มเสร็จสิ้นหลังจากพิมพ์ชื่อสินค้าเพื่อเริ่มค้นหา
+    common_mobile.Press keyboard on device    button_keycode=${device_capabilities['btn_enter_key']}
+
 Swipe to find shopee mall button
     [Documentation]    เลื่อนหน้าค้นหาจนกว่าจะแสดงปุ่ม Shopee Mall
     ${filter_container}=    common_mobile.Replace locator and wait until element visible
@@ -25,12 +29,10 @@ Swipe to find shopee mall button
 Swipe to find product item
     [Documentation]    เลื่อนหน้าค้นหาจนกว่าจะแสดงสินค้าที่ต้องการ
     [Arguments]    ${product_name}
-    ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
-    ...    locator=${search_page_locator['ctn_product']}
-    ...    replace_text=${product_name}
+    ${locator_replaced}=    String.Replace String    ${search_page_locator['ctn_product']}    ***replace***    ${product_name}
     common_mobile.Swipe container until element visible
     ...    element_container=${search_page_locator['ctn_page']}
-    ...    target_locator=${replaced_locator}
+    ...    target_locator=${locator_replaced}
 
 Tap product item
     [Documentation]    สัมผัสสินค้าที่ต้องการจากผลการค้นหา
@@ -55,7 +57,3 @@ Verify search result text
     common_mobile.Check element text when visible
     ...    locator=${search_page_locator['txt_search_result']}
     ...    text=${expected_product_name}
-
-Press
-    [Documentation]    ทดลองการกดปุ่มบนคีย์บอร์ด
-    AppiumLibrary.Press Keycode    keycode=66
