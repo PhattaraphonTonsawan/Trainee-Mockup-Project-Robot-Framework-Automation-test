@@ -13,7 +13,6 @@ Input text when ready
     [Arguments]    ${locator}    ${text}
     Wait until element enable    locator=${locator}
     AppiumLibrary.Input Text    ${locator}    ${text}
-    AppiumLibrary.Hide Keyboard    Done
 
 Open android application
     [Documentation]    เปิดแอปพลิเคชันแอนด์ดรอย

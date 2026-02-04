@@ -49,14 +49,13 @@ Tap shopee mall button
     common_mobile.Tap element when ready
     ...    locator=${replaced_locator}
 
-<<<<<<< Updated upstream
 Verify search result text
-    [Documentation]    ตรวจสอบข้อความผลการค้นหาว่าตรงกับชื่อสินค้าที่ป้อนหรือไม่
-=======
-Verify search text
-    [Documentation]    ตรวจสอบข้อความผลการค้นหาว่าตรงกับชื่อสินค้าที่ค้นหาหรือไม่
->>>>>>> Stashed changes
+    [Documentation]    ตรวจสอบข้อความผลการค้นหาว่าตรงกับชื่อสิน
     [Arguments]    ${expected_product_name}
     common_mobile.Check element text when visible
     ...    locator=${search_page_locator['txt_search_result']}
     ...    text=${expected_product_name}
+
+Press
+    [Documentation]    ทดลองการกดปุ่มบนคีย์บอร์ด
+    AppiumLibrary.Press Keycode    keycode=66

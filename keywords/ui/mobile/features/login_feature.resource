@@ -2,25 +2,12 @@
 Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
-Login with gmail account and verify fingerprint popup is visible
-    [Documentation]    เลือก account ที่ต้องการและเข้าสู่หน้าแสกนลายนิ้วมือ
-    google_login_page.Select google account
-<<<<<<< Updated upstream
-    BuiltIn.Run Keyword And Ignore Error    google_login_page.Check fingerprint enable popup
-
-Tap accept in fingerprint page and verify passkey page title
+Handle fingerprint popup and passkey page
     [Documentation]    กดปุ่มตกลงที่หน้าสแกนลายนิ้วมือและไปที่หน้า passkey
+    BuiltIn.Run Keyword And Ignore Error    google_login_page.Check fingerprint enable popup
     BuiltIn.Run Keyword And Ignore Error    google_login_page.Tap accept fingerprint pop up
     BuiltIn.Run Keyword And Ignore Error    google_login_page.Check quick login title in passkey page
-=======
-
-Tap accept in fingerprint page and verify passkey page title
-    [Documentation]    กดปุ่มตกลงที่หน้าสแกนลายนิ้วมือและไปที่หน้า passkey
-    BuiltIn.Runkeyword And Ignore Error    google_login_page.Check fingerprint enable popup
-    BuiltIn.Runkeyword And Ignore Error    google_login_page.Tap accept fingerprint pop up
-    BuiltIn.Runkeyword And Ignore Error    google_login_page.Check quick login title in passkey page
-    BuiltIn.Runkeyword And Ignore Error    google_login_page.Tap return button in passkey page
->>>>>>> Stashed changes
+    BuiltIn.Run Keyword And Ignore Error    google_login_page.Tap return button in passkey page
 
 Tap login button and check login page title
     [Documentation]    กดปุ่มเข้าสู่ระบบเพื่อไปที่หน้าเข้าสู่ระบบ
