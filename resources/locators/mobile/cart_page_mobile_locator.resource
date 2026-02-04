@@ -8,8 +8,8 @@ Resource    ${CURDIR}/../../import.resource
 ...    btn_direct_delete=xpath=//android.widget.TextView[@text="***replace***"]/ancestor::android.view.ViewGroup[starts-with(@resource-id,"itemRow_")]//android.widget.TextView[@text="${txt_shopee_cart_page['txt_btn_delete']}"]
 ...    ctn_page=xpath=//android.widget.ScrollView
 ...    ctn_product_card=xpath=//android.widget.TextView[@text="***replace***"]/ancestor::android.view.ViewGroup[starts-with(@resource-id,"itemRow_")]
-...    lbl_empty_cart_first=xpath//android.widget.TextView[@text="${txt_shopee_cart_page['txt_lbl_empty_cart_first']}"]
-...    lbl_empty_cart_second=xpath//android.widget.TextView[@text="${txt_shopee_cart_page['txt_lbl_empty_cart_second']}"]
+...    lbl_empty_cart_first=xpath//android.widget.TextView[@text="${txt_shopee_cart_page['txt_cart_empty_first']}"]
+...    lbl_empty_cart_second=xpath//android.widget.TextView[@text="${txt_shopee_cart_page['txt_cart_empty_second']}"]
 ...    txt_product_name=id=labelItemName
 ...    txt_product_quantity=id=textInputQuantity
 ...    txt_title=id=labelActionBarTitle
