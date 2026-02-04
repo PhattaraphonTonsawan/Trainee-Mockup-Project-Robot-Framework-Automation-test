@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ${CURDIR}/../../../resources/import.resource
+Resource    ${CURDIR}/../../../../resources/import.resource
 Test Teardown    common_web.Close all browser
 
 *** Test Cases ***
