@@ -41,11 +41,6 @@ Tap product item
     common_mobile.Tap element when ready
     ...    locator=${replaced_locator}
 
-Tap search button after input product name
-    [Documentation]    สัมผัสปุ่มค้นหาหลังจากป้อนชื่อสินค้า
-    common_mobile.Tap element when ready
-    ...    locator=${search_page_locator['btn_search']}
-
 Tap shopee mall button
     [Documentation]    สัมผัสปุ่ม Shopee Mall เพื่อกรองผลการค้นหาให้แสดงเฉพาะสินค้าจาก Shopee Mall
     ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
@@ -53,3 +48,14 @@ Tap shopee mall button
     ...    replace_text=${txt_search_page['txt_shopee_mall']}
     common_mobile.Tap element when ready
     ...    locator=${replaced_locator}
+
+Verify search result text
+    [Documentation]    ตรวจสอบข้อความผลการค้นหาว่าตรงกับชื่อสิน
+    [Arguments]    ${expected_product_name}
+    common_mobile.Check element text when visible
+    ...    locator=${search_page_locator['txt_search_result']}
+    ...    text=${expected_product_name}
+
+Press
+    [Documentation]    ทดลองการกดปุ่มบนคีย์บอร์ด
+    AppiumLibrary.Press Keycode    keycode=66

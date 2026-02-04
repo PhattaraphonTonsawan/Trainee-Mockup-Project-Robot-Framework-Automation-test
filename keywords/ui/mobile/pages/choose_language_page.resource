@@ -4,8 +4,12 @@ Resource    ${CURDIR}/../../../../resources/import.resource
 *** Keywords ***
 Check page title
     [Documentation]    ตรวจสอบหัวข้อหน้า
-    common_mobile.Check element text when visible
+    [Arguments]    ${langeuage_page_title}
+    ${replaced_page_title}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${choose_language_page_locator['lbl_title']}
+    ...    replace_text=${langeuage_page_title}
+    common_mobile.Check element text when visible
+    ...    locator=${replaced_page_title}
     ...    text=${txt_choose_langauge_page['txt_title']}
 
 Check welcome page pop up

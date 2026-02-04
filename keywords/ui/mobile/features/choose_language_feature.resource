@@ -15,5 +15,6 @@ Tap start button and navigate to home page
 
 Open shopee application and verify choose language page
     [Documentation]    เปิดแอปพลิเคชัน Shopee และตรวจสอบว่าหน้าเลือกภาษาปรากฏขึ้น
+    [Arguments]    ${langeuage_page_title}
     common_mobile.Open android application
-    choose_language_page.Check page title
+    choose_language_page.Check page title    langeuage_page_title=${langeuage_page_title}
