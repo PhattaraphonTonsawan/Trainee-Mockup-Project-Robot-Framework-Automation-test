@@ -1,5 +1,6 @@
 *** Settings ***
 Resource    ${CURDIR}/../../../resources/import.resource
+Test Teardown    AppiumLibrary.Terminate Application    app_id=${app_capabilities['app_package']}
 
 *** Test Cases ***
 TS_01001_001
@@ -15,19 +16,19 @@ TS_01001_001
     home_page.Tap button in bottom navigation bar
     ...    button_name=${txt_home_page['txt_profile_button']}
     # Step 5: กดปุ่มลงชื่อเข้าใช้
-    profile_feature.Tap login button and check login page title
+    login_feature.Tap login button and check login page title
     # Step 6: เลือกดำเนินการต่อด้วย google
     login_page.Tap login with google account button
-    google_login_feature.Login with gmail account and verify fingerprint popup is visible
+    login_feature.Login with gmail account and verify fingerprint popup is visible
     # Step 7: กดปุ่มตกลงที่หน้าสแกนลายนิ้วมือและไปที่หน้า passkey
-    google_login_feature.Tap accept in fingerprint page and verify passkey page title
+    login_feature.Tap accept in fingerprint page and verify passkey page title
     # Step 8:  กดปุ่มย้อนกลับ ที่หน้ายืนยันตัวตนด้วยพาสคีย์
     google_login_page.Tap return button in passkey page
     # Step 9: กดเลือกไปที่ปุ่ม "หน้าแรก"
     profile_page.Tap home button
     ...    button_name=${txt_home_page['txt_home_button']}
     # Step 10: ค้นหาสินค้าด้วยการ Search ชื่อสินค้า
-    home_page_feature.Tap search bar
+    shopee_search_feature.Tap search bar
     shopee_search_feature.Input product name in search box and tap search button
     ...    product_name=${product_detail['product_name']}
     # Step 11: ค้นหาสินค้าจากผลลัพธ์การค้นหากดเลือกสินค้าเป้าหมาย
