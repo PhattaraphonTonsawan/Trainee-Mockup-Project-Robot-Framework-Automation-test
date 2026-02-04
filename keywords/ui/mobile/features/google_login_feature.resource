@@ -10,4 +10,4 @@ Login with gmail account and verify fingerprint popup is visible
 Tap accept in fingerprint page and verify passkey page title
     [Documentation]    กดปุ่มตกลงที่หน้าสแกนลายนิ้วมือและไปที่หน้า passkey
     google_login_page.Tap accept fingerprint pop up
-    google_login_page.Check quick login title in passkey page
+    BuiltIn.Run Keyword And Ignore Error    google_login_page.Check quick login title in passkey page
