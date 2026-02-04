@@ -41,11 +41,6 @@ Tap product item
     common_mobile.Tap element when ready
     ...    locator=${replaced_locator}
 
-Tap search button after input product name
-    [Documentation]    สัมผัสปุ่มค้นหาหลังจากป้อนชื่อสินค้า
-    common_mobile.Tap element when ready
-    ...    locator=${search_page_locator['btn_search']}
-
 Tap shopee mall button
     [Documentation]    สัมผัสปุ่ม Shopee Mall เพื่อกรองผลการค้นหาให้แสดงเฉพาะสินค้าจาก Shopee Mall
     ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
@@ -54,8 +49,13 @@ Tap shopee mall button
     common_mobile.Tap element when ready
     ...    locator=${replaced_locator}
 
+<<<<<<< Updated upstream
 Verify search result text
     [Documentation]    ตรวจสอบข้อความผลการค้นหาว่าตรงกับชื่อสินค้าที่ป้อนหรือไม่
+=======
+Verify search text
+    [Documentation]    ตรวจสอบข้อความผลการค้นหาว่าตรงกับชื่อสินค้าที่ค้นหาหรือไม่
+>>>>>>> Stashed changes
     [Arguments]    ${expected_product_name}
     common_mobile.Check element text when visible
     ...    locator=${search_page_locator['txt_search_result']}

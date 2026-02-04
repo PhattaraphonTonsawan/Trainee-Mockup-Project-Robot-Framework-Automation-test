@@ -6,7 +6,7 @@ Tap home button
     [Documentation]    สัมผัสปุ่มโฮมเพื่อกลับสู่หน้าแรก
     [Arguments]    ${button_name}
     ${replace_locator}=    common_mobile.Replace locator and wait until element visible
-    ...    locator=${profile_page_locator['btn_navbar']}
+    ...    locator=${home_page_locator['btn_navbar']}
     ...    replace_text=${button_name}
     common_mobile.Tap element when ready    locator=${replace_locator}
 

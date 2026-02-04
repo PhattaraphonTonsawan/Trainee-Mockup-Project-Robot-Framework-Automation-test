@@ -21,15 +21,22 @@ TS_01001_001
     login_page.Tap login with google account button
     login_feature.Login with gmail account and verify fingerprint popup is visible
     # Step 7: กดปุ่มตกลงที่หน้าสแกนลายนิ้วมือและไปที่หน้า passkey
+<<<<<<< Updated upstream
     login_feature.Tap accept in fingerprint page and verify passkey page title
+=======
+>>>>>>> Stashed changes
     # Step 8:  กดปุ่มย้อนกลับ ที่หน้ายืนยันตัวตนด้วยพาสคีย์
-    google_login_page.Tap return button in passkey page
+    login_feature.Tap accept in fingerprint page and verify passkey page title
     # Step 9: กดเลือกไปที่ปุ่ม "หน้าแรก"
     profile_page.Tap home button
     ...    button_name=${txt_home_page['txt_home_button']}
     # Step 10: ค้นหาสินค้าด้วยการ Search ชื่อสินค้า
+<<<<<<< Updated upstream
     shopee_search_feature.Tap search bar and verify search box visible
     shopee_search_feature.Input product name in search box and tap search button
+=======
+    shopee_search_feature.Tap search and input product name in search box and tap search button
+>>>>>>> Stashed changes
     ...    product_name=${product_detail['product_name']}
     # Step 11: ค้นหาสินค้าจากผลลัพธ์การค้นหากดเลือกสินค้าเป้าหมาย
     shopee_search_feature.Filter search results by shopee mall

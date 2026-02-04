@@ -4,6 +4,7 @@ device_capabilities:
   platform_version: '16.0'
   device_name: R5CW42DVEXV
   remote_url: http://127.0.0.1:4723
+  btn_enter_key: 66
 app_capabilities:
   app_package: "com.shopee.th"
   app_activity: "com.shopee.app.ui.home.HomeActivity_"
