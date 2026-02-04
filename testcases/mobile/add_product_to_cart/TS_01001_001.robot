@@ -28,7 +28,7 @@ TS_01001_001
     profile_page.Tap home button
     ...    button_name=${txt_home_page['txt_home_button']}
     # Step 10: ค้นหาสินค้าด้วยการ Search ชื่อสินค้า
-    shopee_search_feature.Tap search bar
+    shopee_search_feature.Tap search bar and verify search box visible
     shopee_search_feature.Input product name in search box and tap search button
     ...    product_name=${product_detail['product_name']}
     # Step 11: ค้นหาสินค้าจากผลลัพธ์การค้นหากดเลือกสินค้าเป้าหมาย

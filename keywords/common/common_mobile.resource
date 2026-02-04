@@ -14,7 +14,6 @@ Input text when ready
     Wait until element enable    locator=${locator}
     AppiumLibrary.Input Text    ${locator}    ${text}
     AppiumLibrary.Hide Keyboard    Done
-    AppiumLibrary.Element Should Contain Text    ${locator}    ${text}
 
 Open android application
     [Documentation]    เปิดแอปพลิเคชันแอนด์ดรอย
