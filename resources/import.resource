@@ -14,6 +14,12 @@ Resource    ${CURDIR}/../keywords/common/common_mobile.resource
 Resource    ${CURDIR}/../keywords/common/common_web.resource
 
 # FEATURE
+Resource    ${CURDIR}/../keywords/ui/mobile/features/choose_language_feature.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/features/login_feature.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_cart_feature.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_checkout_feature.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_product_feature.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_search_feature.resource
 Resource    ${CURDIR}/../keywords/ui/web/features/cart_feature.resource
 Resource    ${CURDIR}/../keywords/ui/web/features/checkout_complete_feature.resource
 Resource    ${CURDIR}/../keywords/ui/web/features/checkout_feature.resource
@@ -24,6 +30,7 @@ Resource    ${CURDIR}/../keywords/ui/web/features/product_list_feature.resource
 
 # PAGE
 Resource    ${CURDIR}/../keywords/ui/mobile/pages/choose_language_page.resource
+Resource    ${CURDIR}/../keywords/ui/mobile/pages/google_login_page.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/pages/home_page.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/pages/login_page.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/pages/profile_page.resource
