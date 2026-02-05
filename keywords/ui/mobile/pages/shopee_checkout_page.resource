@@ -11,10 +11,9 @@ Check checkout page title
 Check order price in checkout page
     [Documentation]    ตรวจสอบราคาสินค้าว่าถูกต้องในหน้าชำระสินค้า
     [Arguments]    ${order_price}
-    ${clean_text}    common.Sanitize text    text=${order_price}
     common_mobile.Check element text when visible
     ...    locator=${checkout_page_locator['lbl_order_price']}
-    ...    text=${clean_text}
+    ...    text=฿${order_price}
 
 Check product name in checkout page
     [Documentation]    ตรวจสอบชื่อสินค้าว่าถูกต้องในหน้าชำระสินค้า
