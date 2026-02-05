@@ -33,3 +33,7 @@ Tap buy now button on product page
     [Documentation]    สัมผัสปุ่มเพื่อซื้อสินค้านั้นทันที
     common_mobile.Tap element when ready
     ...    locator=${product_mobile_page_locator['btn_buy_now']}
+
+Tap cart button on product page
+    [Documentation]    สัมผัสปุ่มตะกร้าสินค้าเพื่อเข้าสู่หน้าตะกร้าสินค้า
+    common_mobile.Tap element when ready    locator=${product_mobile_page_locator['btn_cart']}

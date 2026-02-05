@@ -24,4 +24,10 @@ Tap return button in passkey page
 
 Select google account
     [Documentation]    เลือก gmail account ที่ต้องใช้สำหรับเข้าสู่ระบบด้วย gmail
-    common_mobile.Tap element when ready    ${google_login_page_locator['btn_gmail']}
+    common_mobile.Tap element when ready    locator=${google_login_page_locator['btn_gmail']}
+
+Swipe to google account
+    [Documentation]    เลื่อนหน้าจอเพื่อหา gmail account ที่ต้องใช้สำหรับเข้าสู่ระบบด้วย gmail
+    common_mobile.Swipe container until element visible
+    ...    element_container=${google_login_page_locator['ctn_gmail_list']}
+    ...    target_locator=${google_login_page_locator['btn_gmail']}
