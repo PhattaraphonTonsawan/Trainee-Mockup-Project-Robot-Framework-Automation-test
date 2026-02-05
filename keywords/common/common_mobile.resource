@@ -30,6 +30,11 @@ Open android application
     ...    autoGrantPermissions=true
     ...    disableWindowAnimation=true
 
+Press keyboard on device
+    [Documentation]    กดปุ่มคีย์บอร์ดของเครื่อง
+    [Arguments]    ${button_keycode}
+    AppiumLibrary.Press Keycode    ${button_keycode}
+
 Replace locator and wait until element visible
     [Documentation]    แทนที่ข้อความภายใน locator (default=***replace***) ด้วยข้อความใหม่
     [Arguments]    ${locator}    ${replace_text}    ${target_text}=***replace***
