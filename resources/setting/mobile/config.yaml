@@ -10,7 +10,7 @@ app_capabilities:
   app_activity: "com.shopee.app.ui.home.HomeActivity_"
 swipe_screen:
   persent_start: 0.1
-  persent_end: 0.9
+  persent_end: 0.7
 tap_duration: 500ms
 product:
   defult_product_quantity: 1

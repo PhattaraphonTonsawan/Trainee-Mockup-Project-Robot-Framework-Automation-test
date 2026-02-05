@@ -40,5 +40,5 @@ TS_01001_001
     shopee_product_feature.Buy item now from product page
     shopee_checkout_page.Check checkout page title
     shopee_checkout_feature.Verify order details on checkout page
-    ...    product_name=${product_detail['product_name']}
+    ...    product_name=${product_detail['full_product_name']}
     ...    product_qty=${product['quantity']}
