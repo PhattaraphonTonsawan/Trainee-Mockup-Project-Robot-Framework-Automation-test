@@ -12,6 +12,7 @@ txt_shopee_cart_page:
   txt_btn_delete: ลบ
 txt_product_page:
   txt_buy_now: ซื้อเลย
+  txt_buy_with_pro: ซื้อโดยใช้โค้ด
   txt_add_to_cart: เพิ่มใส่รถเข็น
 txt_shopee_checkout_page:
   txt_title: ทำการสั่งซื้อ

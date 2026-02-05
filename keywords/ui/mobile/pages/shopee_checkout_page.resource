@@ -11,9 +11,10 @@ Check checkout page title
 Check order price in checkout page
     [Documentation]    ตรวจสอบราคาสินค้าว่าถูกต้องในหน้าชำระสินค้า
     [Arguments]    ${order_price}
+    ${clean_text}    common.Sanitize text    text=${order_price}
     common_mobile.Check element text when visible
     ...    locator=${checkout_page_locator['lbl_order_price']}
-    ...    text=${order_price}
+    ...    text=${clean_text}
 
 Check product name in checkout page
     [Documentation]    ตรวจสอบชื่อสินค้าว่าถูกต้องในหน้าชำระสินค้า
@@ -24,9 +25,6 @@ Check product name in checkout page
 
 Swipe to find order price on checkout page
     [Documentation]    เลื่อนหน้าชำระเงินจนกว่าจะแสดงราคารวมของสินค้า
-    ${txt_order_price}=    common_mobile.Replace locator and wait until element visible
-    ...    locator=${checkout_page_locator['lbl_order_price']}
-    ...    replace_text=${txt_shopee_checkout_page['txt_order_price']}
     common_mobile.Swipe container until element visible
     ...    element_container=${checkout_page_locator['ctn_page']}
-    ...    target_locator=${txt_order_price}
+    ...    target_locator=${checkout_page_locator['lbl_order_price']}

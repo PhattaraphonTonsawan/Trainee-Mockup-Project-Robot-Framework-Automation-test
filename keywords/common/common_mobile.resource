@@ -82,7 +82,7 @@ Swipe container until element visible
 Tap element when ready
     [Documentation]    สัมผัส element เมื่อพร้อม
     [Arguments]    ${locator}    ${duration}=${tap_duration}
-    Wait until element enable    locator=${locator}
+    Wait until element visible    locator=${locator}
     AppiumLibrary.Tap    ${locator}    duration=${duration}
 
 Wait until element enable
