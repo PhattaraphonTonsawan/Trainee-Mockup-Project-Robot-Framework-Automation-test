@@ -7,8 +7,8 @@ Check element text when visible
     [Arguments]    ${locator}    ${text}
     Wait until element visible    locator=${locator}
     ${actual}=    AppiumLibrary.Get Element Attribute    ${locator}    text
-    ${expected}=    Convert To String    ${text}
-    Should Be Equal    ${actual}    ${expected}
+    ${expected}=    BuiltIn.Convert To String    ${text}
+    AppiumLibrary.Element Text Should Be    ${actual}    ${expected}
 
 Input text when ready
     [Documentation]    กรอกข้อความลงใน element ที่กำหนด และตรวจสอบว่าข้อความที่อยู่ในช่องตรงกับที่กรอกไป
