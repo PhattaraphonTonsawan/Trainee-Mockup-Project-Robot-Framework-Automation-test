@@ -27,3 +27,22 @@ TS_02001_001
     # Step 9: กดเลือกไปที่ปุ่ม "หน้าแรก"
     profile_page.Tap home button
     ...    button_name=${txt_home_page['txt_home_button']}
+    # Step 10: ค้นหาสินค้าด้วยการ Search ชื่อสินค้า
+    shopee_search_feature.Tap search bar and verify search box visible
+    shopee_search_feature.Tap search and input product name in search box and tap search button
+    ...    product_name=${product_detail['product_name']}
+    # Step 11: ค้นหาสินค้าจากผลลัพธ์การค้นหากดเลือกสินค้าเป้าหมาย
+    shopee_search_feature.Filter search results by shopee mall
+    shopee_search_feature.Find product in search results and tap product item
+    ...    product_name=${product_detail['product_name']}
+    shopee_product_page.Check product name on product page
+    ...    product_name=${product_detail['product_name']}
+    # Step 12: เพิ่มสินค้าใส่ตะกร้า
+    shopee_product_feature.Add item to cart
+    # Step 13: กดปุ่มตะกร้าสินค้า
+    shopee_product_page.Tap cart button on product page
+    # Step 14: ลบสินค้า
+    shopee_cart_feature.Check cart details after adding item
+    ...    item_name=${product_detail['product_name']}
+    ...    item_quantity=${product_detail['product_qty']}
+    shopee_cart_feature.Delete item from cart and verify cart is empty    item_name=${product_detail['product_name']}
