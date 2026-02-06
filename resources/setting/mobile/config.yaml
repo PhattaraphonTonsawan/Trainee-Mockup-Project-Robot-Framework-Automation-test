@@ -2,7 +2,7 @@ device_capabilities:
   platform_name: Android
   automation_name: UiAutomator2
   platform_version: '16.0'
-  device_name: DEVICE_NAME
+  device_name: R5CW42DVEXV
   remote_url: http://127.0.0.1:4723
   btn_enter_key: 66
 app_capabilities:
