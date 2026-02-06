@@ -14,6 +14,12 @@ Check quick login title in passkey page
     ...    locator=${google_login_page_locator['lbl_quick_login_title']}
     ...    text=${txt_google_login_page['txt_quick_login_title']}
 
+Check pass key enable title
+    [Documentation]    ตรวจสอบหัวข้อยืนยันตัวตนด้วยพาสคีย์
+    common_mobile.Check element text when visible
+    ...    locator=${google_login_page_locator['lbl_passkey_enable']}
+    ...    text=${txt_google_login_page['txt_passkey_enable']}
+
 Tap accept fingerprint pop up
     [Documentation]    สัมผัสปุ่มตกลงเมื่อ popup ใช้แสกนนิ้วมือแสดงขึ้นมา
     common_mobile.Tap element when ready    locator=${google_login_page_locator['btn_fingerprint_accept']}

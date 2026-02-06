@@ -9,3 +9,4 @@ Resource    ${CURDIR}/../../import.resource
 ...    ctn_gmail_list=id=com.google.android.gms:id/account_picker_container
 ...    lbl_fingerprint_enable_title=xpath=//android.widget.FrameLayout[@resource-id="com.shopee.th:id/customViewFrame"]//android.widget.TextView[@text="${txt_google_login_page['txt_fingerprint_enable']}"]
 ...    lbl_quick_login_title=xpath=//android.widget.TextView[@text="${txt_google_login_page['txt_quick_login_title']}"]
+...    lbl_passkey_enable=xpath=//android.widget.TextView[@text="${txt_google_login_page['txt_passkey_enable']}"]

@@ -21,3 +21,4 @@ txt_search_page:
 txt_google_login_page:
   txt_fingerprint_enable: คุณได้เปิดใช้งานการเข้าสู่ระบบด้วยลายนิ้วมือแล้ว
   txt_quick_login_title: ยืนยันตัวตนสำหรับการเข้าสู่ระบบแบบรวดเร็ว
+  txt_passkey_enable: ยืนยันตัวตนด้วยพาสคีย์
