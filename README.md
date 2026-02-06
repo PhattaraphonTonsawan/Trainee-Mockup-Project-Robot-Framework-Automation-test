@@ -20,7 +20,7 @@ Automated web testing project for SauceDemo using Robot Framework + Seleniume Fr
    **On Windows:**
 
    ```sh
-   d
+   .\.venv\Scripts\activate
    ```
 
    **On macOS and Linux:**
