@@ -31,26 +31,24 @@ Check message when cart is empty
     common_mobile.Wait until element visible    locator=${cart_page_mobile_locator['lbl_empty_cart_first']}
     common_mobile.Wait until element visible    locator=${cart_page_mobile_locator['lbl_empty_cart_second']}
 
-Get product delete button
-    [Documentation]    หาปุ่มลบสินค้าของสินค้านั้นๆ
-    [Arguments]    ${item_name}
-    ${locator_replaced}=    String.Replace String    ${cart_page_mobile_locator['btn_direct_delete']}    ***replace***    ${item_name}
-    RETURN    ${locator_replaced}
-
-Get product contaier
-    [Documentation]    temporary
-    [Arguments]    ${item_name}
-    ${locator_replaced}=    String.Replace String    ${cart_page_mobile_locator['ctn_product_card']}    ***replace***    ${item_name}
+Replace locator in cart page
+    [Documentation]    แทนที่ข้อความภายใน locator (default=***replace***) ด้วยข้อความใหม่สำหรับหร้าตะกร้า
+    [Arguments]    ${locator}    ${replace_text}    ${target_text}=***replace***
+    ${locator_replaced}=    String.Replace String    ${locator}    ${target_text}    ${replace_text}
     RETURN    ${locator_replaced}
 
 Swipe to find delete item button
     [Documentation]    ปัดสินค้าไปทางซ้ายเพื่อให้ปุ่มลบสินค้าแสดงขี้นมา
     [Arguments]    ${item_name}
-    ${replace_locator}=    Get product delete button    item_name=${item_name}
-    ${replace_locator2}=    Get product contaier    item_name=${item_name}
+    ${delete_button}=    Replace locator in cart page
+    ...    locator=${cart_page_mobile_locator['btn_direct_delete']}
+    ...    replace_text=${item_name}
+    ${product_card}=    Replace locator in cart page
+    ...    locator=${cart_page_mobile_locator['ctn_product_card']}
+    ...    replace_text=${item_name}
     common_mobile.Swipe container until element visible
-    ...    element_container=${replace_locator2}
-    ...    target_locator=${replace_locator}
+    ...    element_container=${product_card}
+    ...    target_locator=${delete_button}
     ...    direction=right
 
 Tap to delete item button
