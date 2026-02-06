@@ -46,7 +46,7 @@ Replace locator and wait until element visible
 
 Swipe container until element visible
     [Documentation]    ทำการ Swipe ภายใน Container ที่กำหนดจนกว่าจะเจอ Element เป้าหมายโดยการลากนิ้ว
-    [Arguments]    ${element_container}    ${target_locator}    ${direction}=up    ${duration}=1000    ${max_swipe}=10
+    [Arguments]    ${element_container}    ${target_locator}    ${direction}=up    ${duration}=500    ${max_swipe}=10
     Wait until element visible    locator=${element_container}
     ${location}=    AppiumLibrary.Get Element Location    ${element_container}
     ${element_size}=    AppiumLibrary.Get Element Size    ${element_container}
@@ -90,12 +90,12 @@ Tap element when ready
 Wait until element enable
     [Documentation]    รอจนกว่า element จะใช้งานได้
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    AppiumLibrary.Expect Element    ${locator}    enabled   ${timeout}
+    AppiumLibrary.Expect Element    ${locator}    enabled    ${timeout}
 
 Wait until element not visible
     [Documentation]    รอจนกว่า Element จะไม่ปรากฏขึ้นมา
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    AppiumLibrary.Expect Element    ${locator}    not visible    ${timeout}
+    AppiumLibrary.Wait Until Page Does Not Contain Element    ${locator}    timeout=${timeout}
 
 Wait until element visible
     [Documentation]    รอจนกว่า Element จะปรากฏขึ้นมา

@@ -28,25 +28,30 @@ Check item quantity
 
 Check message when cart is empty
     [Documentation]    ตรวจสอบว่าตะกร้าสินค้านั้นว่างหรือไม่
-    ${replace_text_first}=    common_mobile.Replace locator and wait until element visible
-    ...    locator=${cart_page_mobile_locator['lbl_empty_cart_first']}
-    ...    replace_text=${txt_shopee_cart_page['txt_cart_empty_first']}
-    ${replace_text_second}=    common_mobile.Replace locator and wait until element visible
-    ...    locator=${cart_page_mobile_locator['lbl_empty_cart_second']}
-    ...    replace_text=${txt_shopee_cart_page['txt_cart_empty_second']}
-    common_mobile.Wait until element visible    locator=${replace_text_first}
-    common_mobile.Wait until element visible    locator=${replace_text_second}
+    common_mobile.Wait until element visible    locator=${cart_page_mobile_locator['lbl_empty_cart_first']}
+    common_mobile.Wait until element visible    locator=${cart_page_mobile_locator['lbl_empty_cart_second']}
+
+Get product delete button
+    [Documentation]    หาปุ่มลบสินค้าของสินค้านั้นๆ
+    [Arguments]    ${item_name}
+    ${locator_replaced}=    String.Replace String    ${cart_page_mobile_locator['btn_direct_delete']}    ***replace***    ${item_name}
+    RETURN    ${locator_replaced}
+
+Get product contaier
+    [Documentation]    temporary
+    [Arguments]    ${item_name}
+    ${locator_replaced}=    String.Replace String    ${cart_page_mobile_locator['ctn_product_card']}    ***replace***    ${item_name}
+    RETURN    ${locator_replaced}
 
 Swipe to find delete item button
     [Documentation]    ปัดสินค้าไปทางซ้ายเพื่อให้ปุ่มลบสินค้าแสดงขี้นมา
     [Arguments]    ${item_name}
-    ${replace_locator}=    common_mobile.Replace locator and wait until element visible
-    ...    locator=${cart_page_mobile_locator['btn_direct_delete']}
-    ...    replace_text=${item_name}
+    ${replace_locator}=    Get product delete button    item_name=${item_name}
+    ${replace_locator2}=    Get product contaier    item_name=${item_name}
     common_mobile.Swipe container until element visible
-    ...    element_container=${cart_page_mobile_locator['ctn_product_card']}
+    ...    element_container=${replace_locator2}
     ...    target_locator=${replace_locator}
-    ...    direction='left'
+    ...    direction=right
 
 Tap to delete item button
     [Documentation]    สัมผัสปุ่มลบสินค้าเพื่อลบสินค้าออกจากตะกร้า
