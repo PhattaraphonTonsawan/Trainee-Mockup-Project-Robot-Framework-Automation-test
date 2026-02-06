@@ -8,6 +8,10 @@ Handle fingerprint popup and passkey page
     IF    ${has_fingerprint}
         google_login_page.Tap accept fingerprint pop up
     END
+    ${has_passkey_enable}=    BuiltIn.Run Keyword And Return Status    google_login_page.Check pass key enable title
+    IF    ${has_passkey_enable}
+        google_login_page.Tap return button in passkey page
+    END
     ${has_passkey}=    BuiltIn.Run Keyword And Return Status    google_login_page.Check quick login title in passkey page
     IF    ${has_passkey}
         google_login_page.Tap return button in passkey page
