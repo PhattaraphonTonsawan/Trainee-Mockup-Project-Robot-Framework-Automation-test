@@ -48,6 +48,10 @@ Swipe to find delete item button
     ...    target_locator=${replace_locator}
     ...    direction='left'
 
+Tap to checkout button
+    [Documentation]    สัมผัสปุ่ม checkout เพื่อทำรายการชำระเงิน
+    common_mobile.Tap element when ready    locator=${cart_page_mobile_locator['btn_checkout']}
+
 Tap to delete item button
     [Documentation]    สัมผัสปุ่มลบสินค้าเพื่อลบสินค้าออกจากตะกร้า
     [Arguments]    ${item_name}

@@ -5,9 +5,8 @@ Resource    ${CURDIR}/../../../../resources/import.resource
 Check product name on product page
     [Documentation]    ตรวจสอบชื่อสินค้าว่าตรงกับค่าที่คาดหวังบนหน้าสินค้า
     [Arguments]    ${product_name}
-    common_mobile.Check element text when visible
-    ...    locator=${product_mobile_page_locator['txt_product_name']}
-    ...    text=${product_name}
+    common_mobile.Wait until element visible    ${product_mobile_page_locator['txt_product_name']}
+    AppiumLibrary.Element Should Contain Text    ${product_mobile_page_locator['txt_product_name']}    ${product_name}
 
 Tap add to cart button on product page
     [Documentation]    สัมผัสปุ่มเพื่อเพิ่มสินค้าลงในรถเข็น
@@ -34,3 +33,7 @@ Tap buy now button on product page
     [Documentation]    สัมผัสปุ่มเพื่อซื้อสินค้านั้นทันที
     common_mobile.Tap element when ready
     ...    locator=${product_mobile_page_locator['btn_buy_now']}
+
+Tap cart button on product page
+    [Documentation]    สัมผัสปุ่มตะกร้าสินค้าเพื่อเข้าสู่หน้าตะกร้าสินค้า
+    common_mobile.Tap element when ready    locator=${product_mobile_page_locator['btn_cart']}
