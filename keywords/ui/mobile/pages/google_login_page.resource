@@ -20,7 +20,7 @@ Tap accept fingerprint pop up
 
 Tap return button in passkey page
     [Documentation]    สัมผัสปุ่มย้อนกลับในหน้ายืนยันการใช้พาสคีย์
-    BuiltIn.Run Keyword And Ignore Error    common_mobile.Tap element when ready    locator=${google_login_page_locator['btn_return_passkey']}
+    common_mobile.Tap element when ready    locator=${google_login_page_locator['btn_return_passkey']}
 
 Select google account
     [Documentation]    เลือก gmail account ที่ต้องใช้สำหรับเข้าสู่ระบบด้วย gmail
