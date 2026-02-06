@@ -28,7 +28,7 @@ Automated web testing project for SauceDemo using Robot Framework + Seleniume Fr
    ```sh
    source .venv/bin/activate
    ```
-d
+
 3. **Install the required dependencies:**
 
    ```sh
