@@ -29,7 +29,7 @@ Swipe to find shopee mall button
 Swipe to find product item
     [Documentation]    เลื่อนหน้าค้นหาจนกว่าจะแสดงสินค้าที่ต้องการ
     [Arguments]    ${product_name}
-    ${search_term}=    String.Get Substring    ${product_name}    start=0    end=45
+    ${search_term}=    String.Get Substring    ${product_name}    start=${substring_config['first_string']}    end=${substring_config['last_string']}
     ${locator_replaced}=    String.Replace String    ${search_page_locator['ctn_product']}    ***replace***    ${search_term}
     common_mobile.Swipe container until element visible
     ...    element_container=${search_page_locator['ctn_page']}
