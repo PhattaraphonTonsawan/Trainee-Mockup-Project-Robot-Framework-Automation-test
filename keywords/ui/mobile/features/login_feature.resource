@@ -5,15 +5,12 @@ Resource    ${CURDIR}/../../../../resources/import.resource
 Handle fingerprint popup and passkey page
     [Documentation]    ตรวจสอบว่ามี Popup ลายนิ้วมือหรือไม่ ถ้ามีให้กดปุ่มตกลง และ ตรวจสอบว่ามีหน้า Passkey หรือไม่ถ้ามีให้กดปุ่มย้อนกลับ
     ${has_fingerprint}=    BuiltIn.Run Keyword And Return Status    google_login_page.Check fingerprint enable popup
-    IF    ${has_fingerprint}
+    IF    ${has_fingerprint}    
         google_login_page.Tap accept fingerprint pop up
     END
     ${has_passkey_enable}=    BuiltIn.Run Keyword And Return Status    google_login_page.Check pass key enable title
-    IF    ${has_passkey_enable}
-        google_login_page.Tap return button in passkey page
-    END
     ${has_passkey}=    BuiltIn.Run Keyword And Return Status    google_login_page.Check quick login title in passkey page
-    IF    ${has_passkey}
+    IF    ${has_passkey_enable} or ${has_passkey}
         google_login_page.Tap return button in passkey page
     END
 
