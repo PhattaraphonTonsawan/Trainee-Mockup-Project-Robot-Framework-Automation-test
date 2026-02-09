@@ -28,25 +28,28 @@ Check item quantity
 
 Check message when cart is empty
     [Documentation]    ตรวจสอบว่าตะกร้าสินค้านั้นว่างหรือไม่
-    ${replace_text_first}=    common_mobile.Replace locator and wait until element visible
-    ...    locator=${cart_page_mobile_locator['lbl_empty_cart_first']}
-    ...    replace_text=${txt_shopee_cart_page['txt_cart_empty_first']}
-    ${replace_text_second}=    common_mobile.Replace locator and wait until element visible
-    ...    locator=${cart_page_mobile_locator['lbl_empty_cart_second']}
-    ...    replace_text=${txt_shopee_cart_page['txt_cart_empty_second']}
-    common_mobile.Wait until element visible    locator=${replace_text_first}
-    common_mobile.Wait until element visible    locator=${replace_text_second}
+    common_mobile.Wait until element visible    locator=${cart_page_mobile_locator['lbl_empty_cart_first']}
+    common_mobile.Wait until element visible    locator=${cart_page_mobile_locator['lbl_empty_cart_second']}
+
+Replace locator in cart page
+    [Documentation]    แทนที่ข้อความภายใน locator (default=***replace***) ด้วยข้อความใหม่สำหรับหร้าตะกร้า
+    [Arguments]    ${locator}    ${replace_text}    ${target_text}=***replace***
+    ${locator_replaced}=    String.Replace String    ${locator}    ${target_text}    ${replace_text}
+    RETURN    ${locator_replaced}
 
 Swipe to find delete item button
     [Documentation]    ปัดสินค้าไปทางซ้ายเพื่อให้ปุ่มลบสินค้าแสดงขี้นมา
     [Arguments]    ${item_name}
-    ${replace_locator}=    common_mobile.Replace locator and wait until element visible
+    ${delete_button}=    Replace locator in cart page
     ...    locator=${cart_page_mobile_locator['btn_direct_delete']}
     ...    replace_text=${item_name}
+    ${product_card}=    Replace locator in cart page
+    ...    locator=${cart_page_mobile_locator['ctn_product_card']}
+    ...    replace_text=${item_name}
     common_mobile.Swipe container until element visible
-    ...    element_container=${cart_page_mobile_locator['ctn_product_card']}
-    ...    target_locator=${replace_locator}
-    ...    direction='left'
+    ...    element_container=${product_card}
+    ...    target_locator=${delete_button}
+    ...    direction=right
 
 Tap to checkout button
     [Documentation]    สัมผัสปุ่ม checkout เพื่อทำรายการชำระเงิน

@@ -12,6 +12,7 @@ ignore = [
     "NAME08", # Disable rule: section-variable-not-uppercase
     "SPC02",  # Disable rule: empty-lines-missing-trailing-blank-line
     "SPC03",  # Disable rule: empty-lines-between-sections
+    "LEN03",  # Disable rule: many keyword
     "LEN04",  # Disable rule: test-case too long
     "LEN08",  # Disable rule: line-too-long
     "LEN06"   # Disable rule: too-many-calls-in-test-case
