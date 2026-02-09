@@ -1,12 +1,12 @@
 *** Settings ***
 Resource    ${CURDIR}/../../../resources/import.resource
-Test Setup    common_feature.Test set up
+Test Setup    common_feature.Test setup
 Test Teardown    AppiumLibrary.Terminate Application    app_id=${app_capabilities['app_package']}
 
 *** Test Cases ***
 TS_02001_001
     [Documentation]    ทดสอบการลบสินค้า 1 ชิ้น ออกจากตะกร้าแล้วเช็คตะกร้าว่างเปล่า ด้วยการเข้าสู่ระบบด้วย บัญชี google
-    [Tags]    F_0002    TS_02001    TS_02001_001    remove_item_from_cart    mobile
+    [Tags]    F_0002    TS_02001    TS_02001_001    remove_item_from_cart    shopee
     # Step 1: เปิดแอปพลิเคชัน Shopee และตรวจสอบว่าหน้าเลือกภาษาปรากฏขึ้น
     choose_language_feature.Open shopee application and verify choose language page    langeuage_page_title=${txt_choose_langauge_page['txt_title']}
     # Step 2: เลือกภาษาไทยแล้วรอ popup ต้อนรับผู้ใช้งานใหม่
