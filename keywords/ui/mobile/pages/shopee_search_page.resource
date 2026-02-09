@@ -29,7 +29,8 @@ Swipe to find shopee mall button
 Swipe to find product item
     [Documentation]    เลื่อนหน้าค้นหาจนกว่าจะแสดงสินค้าที่ต้องการ
     [Arguments]    ${product_name}
-    ${locator_replaced}=    String.Replace String    ${search_page_locator['ctn_product']}    ***replace***    ${product_name}
+    ${search_term}=    String.Get Substring    ${product_name}    start=${substring_config['first_string']}    end=${substring_config['last_string']}
+    ${locator_replaced}=    String.Replace String    ${search_page_locator['ctn_product']}    ***replace***    ${search_term}
     common_mobile.Swipe container until element visible
     ...    element_container=${search_page_locator['ctn_page']}
     ...    target_locator=${locator_replaced}
@@ -37,9 +38,10 @@ Swipe to find product item
 Tap product item
     [Documentation]    สัมผัสสินค้าที่ต้องการจากผลการค้นหา
     [Arguments]    ${product_name}
+    ${search_term}=    String.Get Substring    ${product_name}    start=0    end=45
     ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${search_page_locator['ctn_product']}
-    ...    replace_text=${product_name}
+    ...    replace_text=${search_term}
     common_mobile.Tap element when ready
     ...    locator=${replaced_locator}
 
