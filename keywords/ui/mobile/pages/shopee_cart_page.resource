@@ -38,8 +38,8 @@ Check message when cart is empty
 
 Replace locator in cart page
     [Documentation]    แทนที่ข้อความภายใน locator (default=***replace***) ด้วยข้อความใหม่สำหรับหร้าตะกร้า
-    [Arguments]    ${locator}    ${replace_text}    ${target_text}=***replace***
-    ${locator_replaced}=    String.Replace String    ${locator}    ${target_text}    ${replace_text}
+    [Arguments]    ${locator}    ${replace_text}
+    ${locator_replaced}=    common.Replace locator    ${locator}    ${replace_text}
     RETURN    ${locator_replaced}
 
 Swipe to find delete item button
