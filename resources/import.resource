@@ -14,6 +14,7 @@ Resource    ${CURDIR}/../keywords/common/common_mobile.resource
 Resource    ${CURDIR}/../keywords/common/common_web.resource
 
 # FEATURE
+Resource    ${CURDIR}/../keywords/ui/mobile/features/common_featrue.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/features/choose_language_feature.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/features/login_feature.resource
 Resource    ${CURDIR}/../keywords/ui/mobile/features/shopee_cart_feature.resource
@@ -55,7 +56,6 @@ Resource    ${CURDIR}/../resources/locators/mobile/search_page_mobile_locator.re
 Resource    ${CURDIR}/../resources/locators/mobile/login_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/mobile/product_page_mobile_locator.resource
 Resource    ${CURDIR}/../resources/locators/mobile/profile_page_locator.resource
-Resource    ${CURDIR}/../resources/locators/mobile/product_page_mobile_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/cart_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/checkout_complete_page_locator.resource
 Resource    ${CURDIR}/../resources/locators/web/checkout_overview_page_locator.resource

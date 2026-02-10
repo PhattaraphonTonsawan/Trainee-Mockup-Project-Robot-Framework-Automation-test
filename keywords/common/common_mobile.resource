@@ -9,12 +9,10 @@ Check element text when visible
     AppiumLibrary.Element Text Should Be    ${locator}    ${text}
 
 Input text when ready
-    [Documentation]    กรอกข้อความลงใน element ที่กำหนด และตรวจสอบว่าข้อความที่อยู่ในช่องตรงกับที่กรอกไป
+    [Documentation]    รอจนกว่า element จะพร้อมใช้งาน แล้วจึงกรอกข้อความลงใน element ที่กำหนด
     [Arguments]    ${locator}    ${text}
     Wait until element enable    locator=${locator}
     AppiumLibrary.Input Text    ${locator}    ${text}
-    AppiumLibrary.Hide Keyboard    Done
-    AppiumLibrary.Element Should Contain Text    ${locator}    ${text}
 
 Open android application
     [Documentation]    เปิดแอปพลิเคชันแอนด์ดรอย
@@ -32,10 +30,15 @@ Open android application
     ...    autoGrantPermissions=true
     ...    disableWindowAnimation=true
 
+Press keyboard on device
+    [Documentation]    กดปุ่มคีย์บอร์ดของเครื่อง
+    [Arguments]    ${button_keycode}
+    AppiumLibrary.Press Keycode    ${button_keycode}
+
 Replace locator and wait until element visible
-    [Documentation]    แทนที่ข้อความภายใน locator (default=***replace***) ด้วยข้อความใหม่
-    [Arguments]    ${locator}    ${replace_text}    ${target_text}=***replace***
-    ${locator_replaced}=    String.Replace String    ${locator}    ${target_text}    ${replace_text}
+    [Documentation]    แทนที่ข้อความภายใน locator (default=***replace***) ด้วยข้อความใหม่และเช็คว่าแสดงใหม่
+    [Arguments]    ${locator}    ${replace_text}
+    ${locator_replaced}=    common.Replace locator    locator=${locator}    replace_text=${replace_text}
     Wait until element visible    locator=${locator_replaced}
     RETURN    ${locator_replaced}
 
@@ -64,12 +67,12 @@ Swipe container until element visible
         ELSE IF    '${direction}' == 'down'
             ${start_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}/2)
             ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_start']})
-            ${end_x}=    BuiltIn.Evaluate    ${start_x}
+            ${end_x}=    BuiltIn.Set Variable    ${start_x}
             ${end_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_end']})
         ELSE IF    '${direction}' == 'up'
             ${start_x}=    BuiltIn.Evaluate    ${location['x']}+(${element_size['width']}/2)
             ${start_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_end']})
-            ${end_x}=    BuiltIn.Evaluate    ${start_x}
+            ${end_x}=    BuiltIn.Set Variable    ${start_x}
             ${end_y}=    BuiltIn.Evaluate    ${location['y']}+(${element_size['height']}*${swipe_screen['persent_start']})
         END
         AppiumLibrary.Swipe    start_x=${start_x}    start_y=${start_y}    end_x=${end_x}    end_y=${end_y}    duration=${duration}
@@ -90,7 +93,7 @@ Wait until element enable
 Wait until element not visible
     [Documentation]    รอจนกว่า Element จะไม่ปรากฏขึ้นมา
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    AppiumLibrary.Expect Element    ${locator}    not visible    ${timeout}
+    AppiumLibrary.Wait Until Page Does Not Contain Element    ${locator}    ${timeout}
 
 Wait until element visible
     [Documentation]    รอจนกว่า Element จะปรากฏขึ้นมา

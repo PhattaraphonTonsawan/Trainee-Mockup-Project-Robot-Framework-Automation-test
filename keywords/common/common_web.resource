@@ -53,8 +53,8 @@ Replace locator and wait until element visible
     [Documentation]
     ...    แทนที่ข้อความภายใน locator (default=***replace***) ด้วยข้อความใหม่
     ...    จากนั้นตรวจสอบว่า locator ใหม่มีอยู่ในหน้าหรือไม่ และสามารถใช้งานได้
-    [Arguments]    ${locator}    ${replace_text}    ${target_text}=***replace***
-    ${locator_replaced}=    String.Replace String    ${locator}    ${target_text}    ${replace_text}
+    [Arguments]    ${locator}    ${replace_text}
+    ${locator_replaced}=    common.Replace locator    locator=${locator}    replace_text=${replace_text}
     Scroll into element and wait until element visible    locator=${locator_replaced}
     RETURN    ${locator_replaced}
 

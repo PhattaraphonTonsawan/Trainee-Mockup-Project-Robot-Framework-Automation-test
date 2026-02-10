@@ -5,7 +5,7 @@ Resource    ${CURDIR}/../../../../resources/import.resource
 Check fingerprint enable popup
     [Documentation]    ตรวจสอบ popup การเปิดใช้งานการเข้าสู่ระบบด้วยลายนิ้วมือ
     common_mobile.Check element text when visible
-    ...    locator=${google_login_page_locator['txt_fingerprint_enable']}
+    ...    locator=${google_login_page_locator['lbl_fingerprint_enable_title']}
     ...    text=${txt_google_login_page['txt_fingerprint_enable']}
 
 Check quick login title in passkey page
@@ -14,9 +14,15 @@ Check quick login title in passkey page
     ...    locator=${google_login_page_locator['lbl_quick_login_title']}
     ...    text=${txt_google_login_page['txt_quick_login_title']}
 
+Check pass key enable title
+    [Documentation]    ตรวจสอบหัวข้อยืนยันตัวตนด้วยพาสคีย์
+    common_mobile.Check element text when visible
+    ...    locator=${google_login_page_locator['lbl_passkey_enable']}
+    ...    text=${txt_google_login_page['txt_passkey_enable']}
+
 Tap accept fingerprint pop up
     [Documentation]    สัมผัสปุ่มตกลงเมื่อ popup ใช้แสกนนิ้วมือแสดงขึ้นมา
-    common_mobile.Tap element when ready    locator=${google_login_page_locator['btn_fingerprint_accep']}
+    common_mobile.Tap element when ready    locator=${google_login_page_locator['btn_fingerprint_accept']}
 
 Tap return button in passkey page
     [Documentation]    สัมผัสปุ่มย้อนกลับในหน้ายืนยันการใช้พาสคีย์
@@ -24,4 +30,10 @@ Tap return button in passkey page
 
 Select google account
     [Documentation]    เลือก gmail account ที่ต้องใช้สำหรับเข้าสู่ระบบด้วย gmail
-    common_mobile.Tap element when ready    ${google_login_page_locator['btn_gmail']}
+    common_mobile.Tap element when ready    locator=${google_login_page_locator['btn_gmail']}
+
+Swipe to google account
+    [Documentation]    เลื่อนหน้าจอเพื่อหา gmail account ที่ต้องใช้สำหรับเข้าสู่ระบบด้วย gmail
+    common_mobile.Swipe container until element visible
+    ...    element_container=${google_login_page_locator['ctn_gmail_list']}
+    ...    target_locator=${google_login_page_locator['btn_gmail']}

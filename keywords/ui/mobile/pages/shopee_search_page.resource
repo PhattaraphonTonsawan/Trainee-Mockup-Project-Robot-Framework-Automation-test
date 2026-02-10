@@ -9,6 +9,10 @@ Input product name in search box
     ...    locator=${search_page_locator['txt_search']}
     ...    text=${product_name}
 
+Press done button after input product name
+    [Documentation]    กดปุ่มเสร็จสิ้นหลังจากพิมพ์ชื่อสินค้าเพื่อเริ่มค้นหา
+    common_mobile.Press keyboard on device    button_keycode=${device_capabilities['btn_enter_key']}
+
 Swipe to find shopee mall button
     [Documentation]    เลื่อนหน้าค้นหาจนกว่าจะแสดงปุ่ม Shopee Mall
     ${filter_container}=    common_mobile.Replace locator and wait until element visible
@@ -25,26 +29,21 @@ Swipe to find shopee mall button
 Swipe to find product item
     [Documentation]    เลื่อนหน้าค้นหาจนกว่าจะแสดงสินค้าที่ต้องการ
     [Arguments]    ${product_name}
-    ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
-    ...    locator=${search_page_locator['ctn_product']}
-    ...    replace_text=${product_name}
+    ${search_term}=    String.Get Substring    ${product_name}    start=${substring_config['first_string']}    end=${substring_config['last_string']}
+    ${locator_replaced}=    String.Replace String    ${search_page_locator['ctn_product']}    ***replace***    ${search_term}
     common_mobile.Swipe container until element visible
     ...    element_container=${search_page_locator['ctn_page']}
-    ...    target_locator=${replaced_locator}
+    ...    target_locator=${locator_replaced}
 
 Tap product item
     [Documentation]    สัมผัสสินค้าที่ต้องการจากผลการค้นหา
     [Arguments]    ${product_name}
+    ${search_term}=    String.Get Substring    ${product_name}    start=0    end=45
     ${replaced_locator}=    common_mobile.Replace locator and wait until element visible
     ...    locator=${search_page_locator['ctn_product']}
-    ...    replace_text=${product_name}
+    ...    replace_text=${search_term}
     common_mobile.Tap element when ready
     ...    locator=${replaced_locator}
-
-Tap search button after input product name
-    [Documentation]    สัมผัสปุ่มค้นหาหลังจากป้อนชื่อสินค้า
-    common_mobile.Tap element when ready
-    ...    locator=${search_page_locator['btn_search']}
 
 Tap shopee mall button
     [Documentation]    สัมผัสปุ่ม Shopee Mall เพื่อกรองผลการค้นหาให้แสดงเฉพาะสินค้าจาก Shopee Mall
@@ -53,3 +52,10 @@ Tap shopee mall button
     ...    replace_text=${txt_search_page['txt_shopee_mall']}
     common_mobile.Tap element when ready
     ...    locator=${replaced_locator}
+
+Verify search result text
+    [Documentation]    ตรวจสอบข้อความผลการค้นหาว่าตรงกับชื่อสินค้า
+    [Arguments]    ${expected_product_name}
+    common_mobile.Check element text when visible
+    ...    locator=${search_page_locator['txt_search_result']}
+    ...    text=${expected_product_name}
