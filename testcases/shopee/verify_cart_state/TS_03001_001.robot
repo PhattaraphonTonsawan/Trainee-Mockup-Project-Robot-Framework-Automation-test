@@ -6,7 +6,7 @@ Test Teardown    AppiumLibrary.Terminate Application    app_id=${app_capabilitie
 *** Test Cases ***
 TS_03001_001
     [Documentation]    ทดสอบสินค้าคงอยู่ในตะกร้าเมื่อเปลี่ยนไปหน้าอื่น ด้วยการเข้าสู่ระบบด้วย บัญชี google
-    [Tags]    F_0003    TS_03001    TS_03001_001    verify_cart_state    mobile
+    [Tags]    F_0003    TS_03001    TS_03001_001    verify_cart_state    shopee
     # Step 1: เปิดแอปพลิเคชัน Shopee และตรวจสอบว่าหน้าเลือกภาษาปรากฏขึ้น
     choose_language_feature.Open shopee application and verify choose language page    langeuage_page_title=${txt_choose_langauge_page['txt_title']}
     # Step 2: เลือกภาษาไทยแล้วรอ popup ต้อนรับผู้ใช้งานใหม่
