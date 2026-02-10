@@ -93,7 +93,7 @@ Wait until element enable
 Wait until element not visible
     [Documentation]    รอจนกว่า Element จะไม่ปรากฏขึ้นมา
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    AppiumLibrary.Wait Until Page Does Not Contain Element    ${locator}    timeout=${timeout}
+    AppiumLibrary.Expect Element    ${locator}    not visible    ${timeout}
 
 Wait until element visible
     [Documentation]    รอจนกว่า Element จะปรากฏขึ้นมา
