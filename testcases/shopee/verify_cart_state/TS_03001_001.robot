@@ -6,7 +6,7 @@ Test Teardown    AppiumLibrary.Terminate Application    app_id=${app_capabilitie
 *** Test Cases ***
 TS_03001_001
     [Documentation]    ทดสอบสินค้าคงอยู่ในตะกร้าเมื่อเปลี่ยนไปหน้าอื่น ด้วยการเข้าสู่ระบบด้วย บัญชี google
-    [Tags]    F_0002    TS_02001    TS_02001_001    remove_item_from_cart    mobile
+    [Tags]    F_0003    TS_03001    TS_03001_001    verify_cart_state    mobile
     # Step 1: เปิดแอปพลิเคชัน Shopee และตรวจสอบว่าหน้าเลือกภาษาปรากฏขึ้น
     choose_language_feature.Open shopee application and verify choose language page    langeuage_page_title=${txt_choose_langauge_page['txt_title']}
     # Step 2: เลือกภาษาไทยแล้วรอ popup ต้อนรับผู้ใช้งานใหม่
@@ -39,11 +39,8 @@ TS_03001_001
     ...    product_name=${product_detail['product_name']}
     # Step 12: เพิ่มสินค้าใส่ตะกร้า
     shopee_product_feature.Add item to cart
-    # Step 13: กดปุ่มย้อนกลับ
-    common_mobile.Tap element when ready    locator=${product_mobile_page_locator['btn_return']}
-    common_mobile.Tap element when ready    locator=${search_page_locator['btn_return_product_list']}
-    common_mobile.Tap element when ready    locator=${search_page_locator['btn_return']}    duration=500ms
-    common_mobile.Tap element when ready    locator=${search_page_locator['btn_return']}    duration=500ms
+    # Step 13: กลับไปที่หน้าหลัก
+    shopee_product_feature.Navigate back to home page
     # Step 14: กดปุ่มตะกร้าสินค้า
     home_page.Tap cart button
     shopee_cart_feature.Check cart details after adding item
