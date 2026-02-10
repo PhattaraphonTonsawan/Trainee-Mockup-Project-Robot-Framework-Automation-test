@@ -31,7 +31,7 @@ Check message when cart is empty
     common_mobile.Wait until element visible    locator=${cart_page_mobile_locator['lbl_empty_cart_second']}
 
 Replace locator in cart page
-    [Documentation]    แทนที่ข้อความภายใน locator (default=***replace***) ด้วยข้อความใหม่สำหรับหร้าตะกร้า
+    [Documentation]    แทนที่ข้อความภายใน locator (default=***replace***) ด้วยข้อความใหม่สำหรับตะกร้า
     [Arguments]    ${locator}    ${replace_text}    ${target_text}=***replace***
     ${locator_replaced}=    String.Replace String    ${locator}    ${target_text}    ${replace_text}
     RETURN    ${locator_replaced}
