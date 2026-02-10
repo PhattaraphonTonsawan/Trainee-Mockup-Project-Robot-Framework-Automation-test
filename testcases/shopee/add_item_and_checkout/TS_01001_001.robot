@@ -5,7 +5,7 @@ Test Teardown    AppiumLibrary.Terminate Application    app_id=${app_capabilitie
 *** Test Cases ***
 TS_01001_001
     [Documentation]    ทดสอบการทำการสั่งซื้อสินค้า 1 ชิ้น แล้วมาที่หน้าแสดงหน้าทำการสั่งซื้อ ด้วยการเข้าสู่ระบบด้วย บัญชี google
-    [Tags]    F_0001    TS_01001    TS_01001_001    add_product_then_checkout    mobile
+    [Tags]    F_0001    TS_01001    TS_01001_001    add_product_then_checkout    shopee
     # Step 1: เปิดแอปพลิเคชัน Shopee และตรวจสอบว่าหน้าเลือกภาษาปรากฏขึ้น
     choose_language_feature.Open shopee application and verify choose language page    langeuage_page_title=${txt_choose_langauge_page['txt_title']}
     # Step 2: เลือกภาษาไทยแล้วรอ popup ต้อนรับผู้ใช้งานใหม่
