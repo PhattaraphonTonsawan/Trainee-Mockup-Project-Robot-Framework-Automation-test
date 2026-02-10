@@ -2,7 +2,7 @@
 Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
-Test set up
+Test setup
     [Documentation]    ลบสินค้าออกจากตะกร้าก่อนเริ่มทำการทดสอบ
     choose_language_feature.Open shopee application and verify choose language page    langeuage_page_title=${txt_choose_langauge_page['txt_title']}
     choose_language_feature.Choose language and check welcome page popup
