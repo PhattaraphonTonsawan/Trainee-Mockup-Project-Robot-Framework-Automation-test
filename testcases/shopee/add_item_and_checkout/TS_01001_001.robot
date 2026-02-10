@@ -4,9 +4,9 @@ Test Setup    common_feature.Test setup
 Test Teardown    AppiumLibrary.Terminate Application    app_id=${app_capabilities['app_package']}
 
 *** Test Cases ***
-TS_01001_002
-    [Documentation]    ทดสอบการเพิ่มสินค้า 1 ชิ้นลงตะกร้าสินค้า เปิดหน้าตะกร้าสินค้า เพิ่มจำนวนสินค้า 1ชิ้น และเปิดหน้าทำการสั่งซื้อ  ด้วยการเข้าสู่ระบบด้วย บัญชี google
-    [Tags]    F_0001    TS_01001    TS_01001_002    add_product_and_add_item_quantity    
+TS_01001_001
+    [Documentation]    ทดสอบการทำการสั่งซื้อสินค้า 1 ชิ้น แล้วมาที่หน้าแสดงหน้าทำการสั่งซื้อ ด้วยการเข้าสู่ระบบด้วย บัญชี google
+    [Tags]    F_0001    TS_01001    TS_01001_001    add_product_then_checkout    shopee
     # Step 1: เปิดแอปพลิเคชัน Shopee และตรวจสอบว่าหน้าเลือกภาษาปรากฏขึ้น
     choose_language_feature.Open shopee application and verify choose language page    langeuage_page_title=${txt_choose_langauge_page['txt_title']}
     # Step 2: เลือกภาษาไทยแล้วรอ popup ต้อนรับผู้ใช้งานใหม่
@@ -35,14 +35,9 @@ TS_01001_002
     ...    product_name=${product_detail['product_name']}
     shopee_product_page.Check product name on product page
     ...    product_name=${product_detail['product_name']}
-    # Step 12: เพิ่มสินค้าลงตะกร้าสิค้า.
-    shopee_product_feature.Add item to cart
-    shopee_product_page.Tap cart button on product page
-    shopee_cart_page.Tap to increase item quantity    item_name=${product_detail['product_name']}
-    shopee_cart_feature.Check cart details after adding item    item_name=${product_detail['product_name']}    item_quantity=${product_detail['qty_after_add']}
-    # Step 13: กดปุ่มชำระเงิน
-    shopee_cart_page.Tap to checkout button
+    # Step 12: สั่งซื้อสินค้า
+    shopee_product_feature.Buy item now from product page
     shopee_checkout_page.Check checkout page title
     shopee_checkout_feature.Verify order details on checkout page
     ...    product_name=${product_detail['product_name']}
-    ...    product_qty=${product_detail['qty_after_add']}
+    ...    product_qty=${product_detail['product_qty']}
