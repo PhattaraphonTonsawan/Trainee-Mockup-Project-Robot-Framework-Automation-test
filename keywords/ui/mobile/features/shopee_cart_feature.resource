@@ -12,7 +12,7 @@ Check cart details after adding item
 Clear all items in cart if exists
     [Documentation]    เช็คว่าในตะกร้ามีสินค้าไหมหากมีให้ลบสินค้าออกให้หมด
     ${cart_is_empty}=    BuiltIn.Run Keyword And Return Status    shopee_cart_page.Check message when cart is empty
-    IF    !${cart_is_empty}
+    IF     not ${cart_is_empty}
         shopee_cart_page.Tap edit cart button
         shopee_cart_page.Tap select all checkbox
         shopee_cart_page.Tap delete all selectd item in cart
