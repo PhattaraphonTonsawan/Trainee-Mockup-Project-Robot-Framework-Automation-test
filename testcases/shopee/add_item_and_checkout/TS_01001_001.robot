@@ -1,6 +1,6 @@
 *** Settings ***
 Resource    ${CURDIR}/../../../resources/import.resource
-Test Setup    common_feature.Test setup
+#Test Setup    common_feature.Test setup
 Test Teardown    AppiumLibrary.Terminate Application    app_id=${app_capabilities['app_package']}
 
 *** Test Cases ***
