@@ -20,7 +20,7 @@ Tap login button and check login page title
     login_page.Check page title
 
 Select google account for login
-    [Documentation]    เลือกลองชื่อเข้าใช้ด้วยบัญชี google จากนั้นทำการเลื่อนหาและกดเลือกบัญชี Google ที่มีอยู่ในเครื่องเพื่อเข้าสู่ระบบ
+    [Documentation]    เลือกลองชื่อเข้าใช้ด้วยบัญชี google จากนั้นทำการเลื่อนหาและกดเลือกบัญชี google ที่มีอยู่ในเครื่องเพื่อเข้าสู่ระบบ
     login_page.Tap login with google account button
     google_login_page.Swipe to google account
     google_login_page.Select google account
