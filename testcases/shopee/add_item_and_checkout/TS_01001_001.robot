@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ${CURDIR}/../../resources/import.resource
+Resource    ${CURDIR}/../../../resources/import.resource
 Test Teardown    AppiumLibrary.Terminate Application    app_id=${app_capabilities['app_package']}
 
 *** Test Cases ***

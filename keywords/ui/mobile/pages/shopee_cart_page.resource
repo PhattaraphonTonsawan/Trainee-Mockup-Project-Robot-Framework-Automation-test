@@ -22,7 +22,7 @@ Check item name
 Check item quantity
     [Documentation]    ตรวจสอบจำนวนสินค้าที่เพิ่มเข้ามาว่าตรงตามข้อมูลทดสอบหรือไม่
     [Arguments]    ${item_quantity}
-    ${convert_quantity_to_string}=    BuiltIn.Convert To  String    item=${item_quantity}
+    ${convert_quantity_to_string}=    BuiltIn.Convert To String    item=${item_quantity}
     common_mobile.Check element text when visible
     ...    locator=${cart_page_mobile_locator['txt_product_quantity']}
     ...    text=${convert_quantity_to_string}
