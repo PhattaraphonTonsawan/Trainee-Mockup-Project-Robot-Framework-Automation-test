@@ -2,7 +2,7 @@
 Resource    ${CURDIR}/../../../../resources/import.resource
 
 *** Keywords ***
-Tap search and input product name in search box and tap search button
+Tap search bar and input product name in search box and tap search button
     [Documentation]    สัมผัสที่บาร์ค้นหาป้อนชื่อสินค้าที่ต้องการค้นหาในช่องค้นหา และสัมผัสปุ่มค้นหา
     [Arguments]    ${product_name}
     home_page.Check search bar visible
