@@ -9,7 +9,7 @@ Input product name in search box
     ...    locator=${search_page_locator['txt_search']}
     ...    text=${product_name}
 
-Press button done after input product name
+Press done button after input product name
     [Documentation]    กดปุ่มเสร็จสิ้นหลังจากพิมพ์ชื่อสินค้าเพื่อเริ่มค้นหา
     common_mobile.Press keyboard on device    button_keycode=${device_capabilities['btn_enter_key']}
 
@@ -54,7 +54,7 @@ Tap shopee mall button
     ...    locator=${replaced_locator}
 
 Verify search result text
-    [Documentation]    ตรวจสอบข้อความผลการค้นหาว่าตรงกับชื่อสิน
+    [Documentation]    ตรวจสอบข้อความผลการค้นหาว่าตรงกับชื่อสินค้า
     [Arguments]    ${expected_product_name}
     common_mobile.Check element text when visible
     ...    locator=${search_page_locator['txt_search_result']}
