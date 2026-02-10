@@ -21,7 +21,6 @@ Click add one item to cart
     ${replace_locator}=    common_web.Replace locator and wait until element visible
     ...    locator=${product_list_page_locator['btn_add_item']}
     ...    replace_text=${product_name}
-    ...    target_text=***replace***
     common_web.Click element when ready    locator=${replace_locator}
 
 Click cart icon to go to cart page
