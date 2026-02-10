@@ -18,6 +18,5 @@ Test setup
     ...    button_name=${txt_home_page['txt_home_button']}
     home_page.Tap cart button
     shopee_cart_page.Check cart page title
-    Run Keyword And Ignore Error    shopee_cart_page.Check item name    item_name=${product_detail['product_name']}
-    Run Keyword And Ignore Error    shopee_cart_feature.Delete item from cart and verify cart is empty    item_name=${product_detail['product_name']}
+    shopee_cart_feature.Clear all items in cart if exists
     AppiumLibrary.Terminate Application    app_id=${app_capabilities['app_package']}
