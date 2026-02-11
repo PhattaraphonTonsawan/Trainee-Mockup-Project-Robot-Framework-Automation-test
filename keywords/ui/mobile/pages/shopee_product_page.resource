@@ -25,7 +25,7 @@ Tap add item to cart button in modal on product page
     END
 
 Tap buy item now button in modal on product page
-    [Documentation]    สัมผัสปุ่มเพิ่มสินค้าลงรถเข็นในโมเดิ้นที่ปรากฏขึ้นหลังจากการเพิ่มสินค้าลงในรถเข็น
+    [Documentation]    สัมผัสปุ่มซื้อสินค้าในโมเดิ้นที่ปรากฏขึ้นหลังจากการสัมผัสซื้อสินค้าโดยใช้โค้ด
     TRY
         ${btn_buy_now_locator}=    common_mobile.Replace locator and wait until element visible
         ...    locator=${product_mobile_page_locator['btn_in_modal']}
