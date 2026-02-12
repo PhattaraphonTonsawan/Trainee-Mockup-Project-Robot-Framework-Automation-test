@@ -36,19 +36,13 @@ Check message when cart is empty
     common_mobile.Wait until element visible    locator=${cart_page_mobile_locator['lbl_empty_cart_first']}
     common_mobile.Wait until element visible    locator=${cart_page_mobile_locator['lbl_empty_cart_second']}
 
-Replace locator in cart page
-    [Documentation]    แทนที่ข้อความภายใน locator (default=***replace***) ด้วยข้อความใหม่สำหรับตะกร้า
-    [Arguments]    ${locator}    ${replace_text}
-    ${locator_replaced}=    common.Replace locator    ${locator}    ${replace_text}
-    RETURN    ${locator_replaced}
-
 Swipe to find delete item button
     [Documentation]    ปัดสินค้าไปทางซ้ายเพื่อให้ปุ่มลบสินค้าแสดงขี้นมา
     [Arguments]    ${item_name}
-    ${delete_button}=    Replace locator in cart page
+    ${delete_button}=    common.Replace locator
     ...    locator=${cart_page_mobile_locator['btn_direct_delete']}
     ...    replace_text=${item_name}
-    ${product_card}=    Replace locator in cart page
+    ${product_card}=    common.Replace locator
     ...    locator=${cart_page_mobile_locator['ctn_product_card']}
     ...    replace_text=${item_name}
     common_mobile.Swipe container until element visible
