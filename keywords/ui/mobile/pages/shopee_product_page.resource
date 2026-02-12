@@ -21,7 +21,7 @@ Tap add item to cart button in modal on product page
         ...    replace_text=${txt_product_page['txt_add_to_cart']}
         common_mobile.Tap element when ready    locator=${btn_add_to_cart_locator}
     EXCEPT
-        Log    Modal button not found, skipping...    level=DEBUG
+        BuiltIn.Log    Modal button not found, skipping...    level=DEBUG
     END
 
 Tap buy item now button in modal on product page
@@ -32,7 +32,7 @@ Tap buy item now button in modal on product page
         ...    replace_text=${txt_product_page['txt_buy_now']}
         common_mobile.Tap element when ready    locator=${btn_buy_now_locator}
     EXCEPT
-        Log    Modal button not found, skipping...    level=DEBUG
+        BuiltIn.Log    Modal button not found, skipping...    level=DEBUG
     END
 
 Tap buy now button on product page
