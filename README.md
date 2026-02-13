@@ -118,5 +118,5 @@ Make sure your emulator is running or a real device is connected via USB
 - F_0001 - Add product to cart
   - Buy product and checkout
   - Add product to cart then checkout
-- F_0002 - Verify cart empty and Cannot Checkout
+- F_0002 - Verify cart empty and cannot checkout
 - F_0003 - Verify cart state
