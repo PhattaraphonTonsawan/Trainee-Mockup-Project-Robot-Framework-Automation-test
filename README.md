@@ -2,20 +2,22 @@
 
 Automated testing project for **GoDev Trainee** using **Robot Framework**.
 This project covers:
+
 - **Web Automation:** SauceDemo using SeleniumLibrary + Robocop
 - **Mobile Automation:** Shopee mobile application using AppiumLibrary (Android)
 
-### Prerequisites
+## Prerequisites
 
 - Python >= 3.x
 - pip >= 21.x
 
-### For Mobile Testing (Appium)
+## For Mobile Testing (Appium)
+
 - Node.js >= 18.x
 - Java JDK = 17
 - Android Studio & Android SDK
 
-### Installation
+## Installation
 
 1. **Create a virtual environment:**
 
@@ -46,57 +48,85 @@ This project covers:
 4. **Appium Setup (For Mobile Testing):**
 
    **4.1 Install Appium Server:**
+
    ```sh
    npm install appium
    ```
 
    **4.2 Install Android Driver (UiAutomator2):**
+
    ```sh
    appium driver install uiautomator2
    ```
 
    **4.3 Setup Environment Variables:**
    **Windows :**
-   1. Add System Variables 
+
+   1. Add System Variables
       1.1 JAVA_HOME => Path to JDK (e.g., C:\Program Files\Java\jdk-17)
       1.2 ANDROID_HOME => Path to Android SDK (e.g., C:\Users\<User>\AppData\Local\Android\Sdk)
-   2. Update Path variable, append: 1.%JAVA_HOME%\bin 2.%ANDROID_HOME%\platform-tools 3.%ANDROID_HOME%\cmdline-tools\latest\bin
+   2. Update Path variable, append:
+      2.1 Open Environment Variables
+      2.2 Click New System variables
+          1.%JAVA_HOME%\bin
+          2.%ANDROID_HOME%\platform-tools
+          3.%ANDROID_HOME%\cmdline-tools\latest\bin
 
-   **macOS/Linux :**
-   Add these lines to ~/.zshrc or ~/.bash_profile and Run source ~/.zshrc after saving.
+   **4.4 Device Configuration**
+   user must update the configuration file to match user device or emulator settings
+   1. locate the config file:
+   open resources/setting/mobile/config.yaml
+
+   2. Update the following fields:
+
    ```sh
-   export JAVA_HOME=$(/usr/libexec/java_home)
-   export ANDROID_HOME=$HOME/Library/Android/sdk
-   export PATH=$PATH:$ANDROID_HOME/platform-tools
-   export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+   device_capabilities:
+      platform_version: '16.0'        # <--- UPDATE to your Android Version (e.g., '14.0', '13.0')
+      device_name: DEVICE_NAME        # <--- UPDATE to your Device ID
    ```
 
+   3. How to find Device ID (Android)
+   Run the following command in terminal
 
-### Command Run Test
+   ```sh
+   adb devices
+   ```
 
-**Dryrun**
+   4. How to find Platform Version
+   On Mobile: Go to Settings > About phone > Software information > Android version.
+   On Emulator: Check the Android version you selected in AVD Manager.
+
+## Command Run Test
+
+1. **Dryrun**
 
 ```sh
 robot --dryrun -d reports/dryrun .
 ```
 
-**Test**
+2. **Test**
 
 ```sh
 robot -d reports/results -i <tag> .
 ```
 
 **Appium command:**
+
 1. Open a new terminal and run:
+
 ```sh
 appium
 ```
+
 2. Open another terminal (ensure venv is activated) and run:
+
 ```sh
 robot -d reports/results -i <tag> .
 ```
+
 Make sure your emulator is running or a real device is connected via USB
 
+## 
 
 ### SauceDemo Testcase
 
@@ -115,6 +145,7 @@ Make sure your emulator is running or a real device is connected via USB
   - Cancel checkout process
 
 ### Shopee Testcase
+
 - F_0001 - Add product to cart
   - Buy product and checkout
   - Add product to cart then checkout
