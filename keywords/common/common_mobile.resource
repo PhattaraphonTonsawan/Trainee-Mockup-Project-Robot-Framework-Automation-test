@@ -26,7 +26,11 @@ Open android application
     ...    appActivity=${app_capabilities['app_activity']}
     ...    noReset=false
     ...    fullReset=false
-    ...    newCommandTimeout=300
+    ...    newCommandTimeout=600
+    ...    adbExecTimeout=60000
+    ...    uiautomator2ServerInstallTimeout=60000
+    ...    uiautomator2ServerLaunchTimeout=60000
+    ...    uiautomator2ServerReadTimeout=60000
     ...    autoGrantPermissions=true
     ...    disableWindowAnimation=true
 
@@ -83,6 +87,7 @@ Tap element when ready
     [Documentation]    สัมผัส element เมื่อพร้อม
     [Arguments]    ${locator}    ${duration}=${tap_duration}
     Wait until element enable    locator=${locator}
+    Sleep    1000ms
     AppiumLibrary.Tap    ${locator}    duration=${duration}
 
 Wait until element enable
