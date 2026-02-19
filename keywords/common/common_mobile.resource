@@ -6,7 +6,8 @@ Check element text when visible
     [Documentation]    ตรวจสอบว่า element ปรากฏอยู่บนหน้า และตรวจสอบว่าข้อความภายใน element ตรงกับค่าที่กำหนด
     [Arguments]    ${locator}    ${text}
     Wait until element visible    locator=${locator}
-    AppiumLibrary.Element Text Should Be    ${locator}    ${text}
+    BuiltIn.Wait Until Keyword Succeeds    2    1000ms
+    ...    AppiumLibrary.Element Text Should Be    ${locator}    ${text}
 
 Input text when ready
     [Documentation]    รอจนกว่า element จะพร้อมใช้งาน แล้วจึงกรอกข้อความลงใน element ที่กำหนด
@@ -26,7 +27,11 @@ Open android application
     ...    appActivity=${app_capabilities['app_activity']}
     ...    noReset=false
     ...    fullReset=false
-    ...    newCommandTimeout=300
+    ...    newCommandTimeout=3600
+    ...    adbExecTimeout=60000
+    ...    uiautomator2ServerInstallTimeout=60000
+    ...    uiautomator2ServerLaunchTimeout=60000
+    ...    uiautomator2ServerReadTimeout=60000
     ...    autoGrantPermissions=true
     ...    disableWindowAnimation=true
 
@@ -83,12 +88,14 @@ Tap element when ready
     [Documentation]    สัมผัส element เมื่อพร้อม
     [Arguments]    ${locator}    ${duration}=${tap_duration}
     Wait until element enable    locator=${locator}
-    AppiumLibrary.Tap    ${locator}    duration=${duration}
+    BuiltIn.Wait Until Keyword Succeeds    2    1000ms
+    ...    AppiumLibrary.Tap    ${locator}    duration=${duration}
 
 Wait until element enable
     [Documentation]    รอจนกว่า element จะใช้งานได้
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    AppiumLibrary.Expect Element    ${locator}    enabled    ${timeout}
+    BuiltIn.Wait Until Keyword Succeeds    2    1000ms
+    ...    AppiumLibrary.Expect Element    ${locator}    enabled    ${timeout}
 
 Wait until element not visible
     [Documentation]    รอจนกว่า Element จะไม่ปรากฏขึ้นมา
@@ -98,4 +105,5 @@ Wait until element not visible
 Wait until element visible
     [Documentation]    รอจนกว่า Element จะปรากฏขึ้นมา
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    AppiumLibrary.Expect Element    ${locator}    visible    ${timeout}
+    BuiltIn.Wait Until Keyword Succeeds    2    1000ms
+    ...    AppiumLibrary.Expect Element    ${locator}    visible    ${timeout}
