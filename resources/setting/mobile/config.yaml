@@ -12,6 +12,8 @@ swipe_screen:
   persent_start: 0.1
   persent_end: 0.7
 tap_duration: 300ms
+retries: 2
+wait_duration: 1000ms
 substring_config:
   first_string: 0
   last_string: 45

@@ -6,7 +6,7 @@ Check element text when visible
     [Documentation]    ตรวจสอบว่า element ปรากฏอยู่บนหน้า และตรวจสอบว่าข้อความภายใน element ตรงกับค่าที่กำหนด
     [Arguments]    ${locator}    ${text}
     Wait until element visible    locator=${locator}
-    BuiltIn.Wait Until Keyword Succeeds    2    1000ms
+    BuiltIn.Wait Until Keyword Succeeds    ${retries}    ${wait_duration}
     ...    AppiumLibrary.Element Text Should Be    ${locator}    ${text}
 
 Input text when ready
@@ -88,13 +88,13 @@ Tap element when ready
     [Documentation]    สัมผัส element เมื่อพร้อม
     [Arguments]    ${locator}    ${duration}=${tap_duration}
     Wait until element enable    locator=${locator}
-    BuiltIn.Wait Until Keyword Succeeds    2    1000ms
+    BuiltIn.Wait Until Keyword Succeeds    ${retries}    ${wait_duration}
     ...    AppiumLibrary.Tap    ${locator}    duration=${duration}
 
 Wait until element enable
     [Documentation]    รอจนกว่า element จะใช้งานได้
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    BuiltIn.Wait Until Keyword Succeeds    2    1000ms
+    BuiltIn.Wait Until Keyword Succeeds    ${retries}    ${wait_duration}
     ...    AppiumLibrary.Expect Element    ${locator}    enabled    ${timeout}
 
 Wait until element not visible
@@ -105,5 +105,5 @@ Wait until element not visible
 Wait until element visible
     [Documentation]    รอจนกว่า Element จะปรากฏขึ้นมา
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    BuiltIn.Wait Until Keyword Succeeds    2    1000ms
+    BuiltIn.Wait Until Keyword Succeeds    ${retries}    ${wait_duration}
     ...    AppiumLibrary.Expect Element    ${locator}    visible    ${timeout}
