@@ -25,15 +25,15 @@ Open android application
     ...    automationName=${device_capabilities['automation_name']}
     ...    appPackage=${app_capabilities['app_package']}
     ...    appActivity=${app_capabilities['app_activity']}
-    ...    noReset=false
-    ...    fullReset=false
     ...    newCommandTimeout=${app_capabilities['newCommandTimeout']}
     ...    adbExecTimeout=${app_capabilities['adbExecTimeout']}
     ...    uiautomator2ServerInstallTimeout=${app_capabilities['uiautomator2ServerInstallTimeout']}
     ...    uiautomator2ServerLaunchTimeout=${app_capabilities['uiautomator2ServerLaunchTimeout']}
     ...    uiautomator2ServerReadTimeout=${app_capabilities['uiautomator2ServerReadTimeout']}
-    ...    autoGrantPermissions=true
-    ...    disableWindowAnimation=true
+    ...    noReset=${app_capabilities['noReset']}
+    ...    fullReset=${app_capabilities['fullReset']}
+    ...    autoGrantPermissions=${app_capabilities['autoGrantPermissions']}
+    ...    disableWindowAnimation=${app_capabilities['disableWindowAnimation']}
 
 Press keyboard on device
     [Documentation]    กดปุ่มคีย์บอร์ดของเครื่อง
