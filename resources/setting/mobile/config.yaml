@@ -5,6 +5,11 @@ device_capabilities:
   device_name: DEVICE_NAME
   remote_url: http://127.0.0.1:4723
   btn_enter_key: 66
+  newCommandTimeout: 3600
+  adbExecTimeout: 60000
+  uiautomator2ServerInstallTimeout: 60000
+  uiautomator2ServerLaunchTimeout: 60000
+  uiautomator2ServerReadTimeout: 60000
 app_capabilities:
   app_package: "com.shopee.th"
   app_activity: "com.shopee.app.ui.home.HomeActivity_"

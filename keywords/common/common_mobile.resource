@@ -27,11 +27,11 @@ Open android application
     ...    appActivity=${app_capabilities['app_activity']}
     ...    noReset=false
     ...    fullReset=false
-    ...    newCommandTimeout=3600
-    ...    adbExecTimeout=60000
-    ...    uiautomator2ServerInstallTimeout=60000
-    ...    uiautomator2ServerLaunchTimeout=60000
-    ...    uiautomator2ServerReadTimeout=60000
+    ...    newCommandTimeout=${app_capabilities['newCommandTimeout']}
+    ...    adbExecTimeout=${app_capabilities['adbExecTimeout']}
+    ...    uiautomator2ServerInstallTimeout=${app_capabilities['uiautomator2ServerInstallTimeout']}
+    ...    uiautomator2ServerLaunchTimeout=${app_capabilities['uiautomator2ServerLaunchTimeout']}
+    ...    uiautomator2ServerReadTimeout=${app_capabilities['uiautomator2ServerReadTimeout']}
     ...    autoGrantPermissions=true
     ...    disableWindowAnimation=true
 
