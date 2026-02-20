@@ -6,7 +6,8 @@ Check element text when visible
     [Documentation]    ตรวจสอบว่า element ปรากฏอยู่บนหน้า และตรวจสอบว่าข้อความภายใน element ตรงกับค่าที่กำหนด
     [Arguments]    ${locator}    ${text}
     Wait until element visible    locator=${locator}
-    AppiumLibrary.Element Text Should Be    ${locator}    ${text}
+    BuiltIn.Wait Until Keyword Succeeds    ${retries}    ${wait_duration}
+    ...    AppiumLibrary.Element Text Should Be    ${locator}    ${text}
 
 Input text when ready
     [Documentation]    รอจนกว่า element จะพร้อมใช้งาน แล้วจึงกรอกข้อความลงใน element ที่กำหนด
@@ -24,11 +25,15 @@ Open android application
     ...    automationName=${device_capabilities['automation_name']}
     ...    appPackage=${app_capabilities['app_package']}
     ...    appActivity=${app_capabilities['app_activity']}
-    ...    noReset=false
-    ...    fullReset=false
-    ...    newCommandTimeout=300
-    ...    autoGrantPermissions=true
-    ...    disableWindowAnimation=true
+    ...    newCommandTimeout=${app_capabilities['newCommandTimeout']}
+    ...    adbExecTimeout=${app_capabilities['adbExecTimeout']}
+    ...    uiautomator2ServerInstallTimeout=${app_capabilities['uiautomator2ServerInstallTimeout']}
+    ...    uiautomator2ServerLaunchTimeout=${app_capabilities['uiautomator2ServerLaunchTimeout']}
+    ...    uiautomator2ServerReadTimeout=${app_capabilities['uiautomator2ServerReadTimeout']}
+    ...    noReset=${app_capabilities['noReset']}
+    ...    fullReset=${app_capabilities['fullReset']}
+    ...    autoGrantPermissions=${app_capabilities['autoGrantPermissions']}
+    ...    disableWindowAnimation=${app_capabilities['disableWindowAnimation']}
 
 Press keyboard on device
     [Documentation]    กดปุ่มคีย์บอร์ดของเครื่อง
@@ -83,12 +88,14 @@ Tap element when ready
     [Documentation]    สัมผัส element เมื่อพร้อม
     [Arguments]    ${locator}    ${duration}=${tap_duration}
     Wait until element enable    locator=${locator}
-    AppiumLibrary.Tap    ${locator}    duration=${duration}
+    BuiltIn.Wait Until Keyword Succeeds    ${retries}    ${wait_duration}
+    ...    AppiumLibrary.Tap    ${locator}    duration=${duration}
 
 Wait until element enable
     [Documentation]    รอจนกว่า element จะใช้งานได้
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    AppiumLibrary.Expect Element    ${locator}    enabled    ${timeout}
+    BuiltIn.Wait Until Keyword Succeeds    ${retries}    ${wait_duration}
+    ...    AppiumLibrary.Expect Element    ${locator}    enabled    ${timeout}
 
 Wait until element not visible
     [Documentation]    รอจนกว่า Element จะไม่ปรากฏขึ้นมา
@@ -98,4 +105,5 @@ Wait until element not visible
 Wait until element visible
     [Documentation]    รอจนกว่า Element จะปรากฏขึ้นมา
     [Arguments]    ${locator}    ${timeout}=${wait_timeout['normally']['short_timeout']}
-    AppiumLibrary.Expect Element    ${locator}    visible    ${timeout}
+    BuiltIn.Wait Until Keyword Succeeds    ${retries}    ${wait_duration}
+    ...    AppiumLibrary.Expect Element    ${locator}    visible    ${timeout}
